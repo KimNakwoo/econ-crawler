@@ -18,6 +18,8 @@ on:
 jobs:
   crawl:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: 저장소 체크아웃
@@ -40,7 +42,6 @@ jobs:
       - name: 경제지표 크롤링
         run: python run_all.py
 
-      # 변경사항이 있으면 커밋 & 푸시, 없으면 스킵
       - name: 결과 저장
         id: save
         run: |
@@ -56,11 +57,9 @@ jobs:
             echo "CRAWLED=true" >> $GITHUB_ENV
           fi
 
-      # 크롤링 결과가 있을 때만 텔레그램 알림 전송
       - name: 텔레그램 알림
         if: env.CRAWLED == 'true'
         run: |
-          # .last_run.txt에서 실행된 지표 목록 읽기
           if [ -f output/.last_run.txt ]; then
             RUN_TIME=$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')
             INDICATORS=$(grep -v "^TIME=" output/.last_run.txt | sed 's/=/ /' | awk '{print "  • "$1" "$2}' | tr '\n' '\n')
@@ -69,13 +68,11 @@ jobs:
             RUN_TIME=$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')
             MESSAGE="📊 <b>경제지표 크롤링 완료</b>%0A🕐 ${RUN_TIME}"
           fi
-
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
             -d "parse_mode=HTML" \
             -d "text=${MESSAGE}"
 
-      # 크롤링 실패 시 에러 알림
       - name: 텔레그램 에러 알림
         if: failure()
         run: |
