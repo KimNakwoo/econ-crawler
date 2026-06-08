@@ -1,0 +1,86 @@
+name: 경제지표 자동 크롤러
+
+on:
+  schedule:
+    # BLS 지표 (CPI / PPI / NFP)
+    # 발표: 미국 동부 오전 8:30 ET → UTC 14:00 (서머타임) / 13:30 (겨울)
+    # 여유 포함 14:30 UTC 실행 (한국시간 밤 11:30)
+    - cron: '30 14 * * 1-5'
+
+    # FOMC 성명 / 베이지북
+    # 발표: 미국 동부 오후 2:00 ET → UTC 18:00 (서머타임) / 19:00 (겨울)
+    # 여유 포함 20:00 UTC 실행 (한국시간 새벽 5:00)
+    - cron: '0 20 * * 1-5'
+
+  # GitHub Actions 페이지에서 수동 실행 버튼
+  workflow_dispatch:
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 3.11 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 패키지 설치
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium --with-deps
+
+      - name: output 폴더 초기화
+        run: |
+          mkdir -p output/CPI output/PPI output/비농업고용 output/FOMC output/베이지북
+
+      - name: 경제지표 크롤링
+        run: python run_all.py
+
+      # 변경사항이 있으면 커밋 & 푸시, 없으면 스킵
+      - name: 결과 저장
+        id: save
+        run: |
+          git config user.name "econ-crawler[bot]"
+          git config user.email "econ-crawler[bot]@users.noreply.github.com"
+          git add output/
+          if git diff --staged --quiet; then
+            echo "오늘 발표 지표 없음 - 커밋 스킵"
+            echo "CRAWLED=false" >> $GITHUB_ENV
+          else
+            git commit -m "📊 경제지표 업데이트 $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')"
+            git push
+            echo "CRAWLED=true" >> $GITHUB_ENV
+          fi
+
+      # 크롤링 결과가 있을 때만 텔레그램 알림 전송
+      - name: 텔레그램 알림
+        if: env.CRAWLED == 'true'
+        run: |
+          # .last_run.txt에서 실행된 지표 목록 읽기
+          if [ -f output/.last_run.txt ]; then
+            RUN_TIME=$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')
+            INDICATORS=$(grep -v "^TIME=" output/.last_run.txt | sed 's/=/ /' | awk '{print "  • "$1" "$2}' | tr '\n' '\n')
+            MESSAGE="📊 <b>경제지표 크롤링 완료</b>%0A%0A🕐 ${RUN_TIME}%0A%0A${INDICATORS}%0A%0AObsidian을 확인하세요."
+          else
+            RUN_TIME=$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')
+            MESSAGE="📊 <b>경제지표 크롤링 완료</b>%0A🕐 ${RUN_TIME}"
+          fi
+
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d "parse_mode=HTML" \
+            -d "text=${MESSAGE}"
+
+      # 크롤링 실패 시 에러 알림
+      - name: 텔레그램 에러 알림
+        if: failure()
+        run: |
+          RUN_TIME=$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d "parse_mode=HTML" \
+            -d "text=⚠️ <b>크롤링 실패</b>%0A🕐 ${RUN_TIME}%0A%0AGitHub Actions 로그를 확인하세요."
