@@ -2,23 +2,38 @@ name: 경제지표 자동 크롤러
 
 on:
   schedule:
-    # BLS 지표 (CPI / PPI / NFP)
+    # ── 크롤링: BLS 지표 발표 직후 ──────────────────────────
     # 서머타임(EDT): UTC 12:31 = 한국시간 오후 9:31
     - cron: '31 12 * * 1-5'
     # 겨울타임(EST): UTC 13:31 = 한국시간 오후 10:31
     - cron: '31 13 * * 1-5'
 
-    # FOMC 성명 / 베이지북
-    # 발표: 미국 동부 오후 2:00 ET
+    # ── 크롤링: FOMC / 베이지북 발표 직후 ───────────────────
     # 서머타임(EDT): UTC 18:31 = 한국시간 새벽 3:31
     - cron: '31 18 * * 1-5'
     # 겨울타임(EST): UTC 19:31 = 한국시간 새벽 4:31
     - cron: '31 19 * * 1-5'
 
-  # GitHub Actions 페이지에서 수동 실행 버튼
+    # ── 알림: 일요일 오전 9시 (이번 주 일정 예고) ───────────
+    # UTC 00:00 일요일 = 한국시간 오전 9:00 일요일
+    - cron: '0 0 * * 0'
+
+    # ── 알림: 금요일 오후 3:30 (다음 주 일정 예고) ──────────
+    # UTC 06:30 금요일 = 한국시간 오후 3:30 금요일
+    - cron: '30 6 * * 5'
+
+    # ── 알림: 평일 오전 8시 (당일 발표 예정 + 말일 평일이면 다음달 예고) ─
+    # UTC 23:00 (전날) = 한국시간 오전 8:00
+    - cron: '0 23 * * 0-4'
+
+    # ── 알림: 평일 오전 9시 (말일 공휴일이면 다음달 예고) ───
+    # UTC 00:00 평일 = 한국시간 오전 9:00
+    - cron: '0 0 * * 1-5'
+
   workflow_dispatch:
 
 jobs:
+  # ── Job 1: 경제지표 크롤링 ──────────────────────────────────
   crawl:
     runs-on: ubuntu-latest
     env:
@@ -60,12 +75,15 @@ jobs:
             echo "CRAWLED=true" >> $GITHUB_ENV
           fi
 
-      - name: 텔레그램 알림
+      - name: 텔레그램 알림 (크롤링 완료)
         if: env.CRAWLED == 'true'
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           if [ -f output/.last_run.txt ]; then
             RUN_TIME=$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')
-            INDICATORS=$(grep -v "^TIME=" output/.last_run.txt | sed 's/=/ /' | awk '{print "  • "$1" "$2}' | tr '\n' '\n')
+            INDICATORS=$(grep -v "^TIME=" output/.last_run.txt | grep -v "=스킵" | sed 's/=/ /' | awk '{print "  • "$1" "$2}' | tr '\n' '\n')
             MESSAGE="📊 <b>경제지표 크롤링 완료</b>%0A%0A🕐 ${RUN_TIME}%0A%0A${INDICATORS}%0A%0AObsidian을 확인하세요."
           else
             RUN_TIME=$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')
@@ -84,3 +102,35 @@ jobs:
             -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
             -d "parse_mode=HTML" \
             -d "text=⚠️ <b>크롤링 실패</b>%0A🕐 ${RUN_TIME}%0A%0AGitHub Actions 로그를 확인하세요."
+
+  # ── Job 2: 일정 알림 ────────────────────────────────────────
+  notify:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 3.11 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 패키지 설치
+        run: pip install requests beautifulsoup4 lxml holidays
+
+      - name: 주간 예고 알림 (일요일 9시 = 이번 주 / 금요일 3:30 = 다음 주)
+        if: ${{ github.event.schedule == '0 0 * * 0' || github.event.schedule == '30 6 * * 5' }}
+        run: NOTIFY_MODE=weekly python notifier.py
+
+      - name: 평일 당일 알림 (오전 8시, 말일 평일이면 다음달 예고 포함)
+        if: github.event.schedule == '0 23 * * 0-4'
+        run: NOTIFY_MODE=daily python notifier.py
+
+      - name: 평일 9시 알림 (말일 공휴일인 경우에만 다음달 예고 전송)
+        if: github.event.schedule == '0 0 * * 1-5'
+        run: NOTIFY_MODE=daily_late python notifier.py
