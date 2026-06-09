@@ -15,12 +15,20 @@ else:
     # 로컬 PC: Obsidian 경로 직접 지정
     BASE_PATH = r"C:\Users\user\Desktop\ALL\obsidian\경제지표"
 
+_FED = os.path.join(BASE_PATH, "연준")  # 연준 관련 자료 상위 폴더
+
 OUTPUT_FOLDERS = {
-    "cpi":   os.path.join(BASE_PATH, "CPI"),
-    "ppi":   os.path.join(BASE_PATH, "PPI"),
-    "nfp":   os.path.join(BASE_PATH, "비농업고용"),
-    "beige": os.path.join(BASE_PATH, "베이지북"),
-    "fomc":  os.path.join(BASE_PATH, "FOMC"),
+    # ── 경제지표 ─────────────────────────────────────────────
+    "cpi":            os.path.join(BASE_PATH, "CPI"),
+    "ppi":            os.path.join(BASE_PATH, "PPI"),
+    "nfp":            os.path.join(BASE_PATH, "비농업고용"),
+    "beige":          os.path.join(BASE_PATH, "베이지북"),
+    # ── 연준 하위 항목 ────────────────────────────────────────
+    "fomc_statement": os.path.join(_FED, "성명서"),
+    "fomc_presser":   os.path.join(_FED, "기자회견"),
+    "minutes":        os.path.join(_FED, "의사록"),
+    "speech":         os.path.join(_FED, "의장연설"),
+    "feds_notes":     os.path.join(_FED, "FEDS_Notes"),
 }
 
 # ── BLS 공식 URL (고정)
@@ -34,7 +42,16 @@ URLS = {
 FED_URL_PATTERNS = {
     "fomc_statement": "https://www.federalreserve.gov/newsevents/pressreleases/monetary{date}a.htm",
     "fomc_presser":   "https://www.federalreserve.gov/monetarypolicy/fomcpresconf{date}.htm",
+    "fomc_minutes":   "https://www.federalreserve.gov/monetarypolicy/fomcminutes{date}.htm",
     "beige":          "https://www.federalreserve.gov/monetarypolicy/beigebook{yearmonth}.htm",
+}
+
+# ── Fed RSS / 목록 URL
+FED_RSS = {
+    "speeches":   "https://www.federalreserve.gov/feeds/speeches.xml",
+    "feds_notes": "https://www.federalreserve.gov/econres/notes/feds-notes/default.htm",
+    "fomc_cal":   "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "board_bios": "https://www.federalreserve.gov/aboutthefed/bios/board/default.htm",
 }
 
 # ── 번역 설정
