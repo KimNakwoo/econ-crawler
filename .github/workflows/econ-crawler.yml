@@ -55,7 +55,9 @@ jobs:
 
       - name: output 폴더 초기화
         run: |
-          mkdir -p output/CPI output/PPI output/비농업고용 output/FOMC output/베이지북
+          mkdir -p output/CPI output/PPI output/비농업고용 output/베이지북 \
+                   "output/연준/성명서" "output/연준/기자회견" \
+                   "output/연준/의사록" "output/연준/의장연설" "output/연준/FEDS_Notes"
 
       - name: 경제지표 크롤링
         run: python run_all.py
@@ -79,7 +81,7 @@ jobs:
         if: env.CRAWLED == 'true'
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CRAWL_CHAT_ID }}
         run: |
           if [ -f output/.last_run.txt ]; then
             RUN_TIME=$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')
@@ -90,7 +92,7 @@ jobs:
             MESSAGE="📊 <b>경제지표 크롤링 완료</b>%0A🕐 ${RUN_TIME}"
           fi
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
-            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d "chat_id=${{ secrets.TELEGRAM_CRAWL_CHAT_ID }}" \
             -d "parse_mode=HTML" \
             -d "text=${MESSAGE}"
 
@@ -99,7 +101,7 @@ jobs:
         run: |
           RUN_TIME=$(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M KST')
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
-            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d "chat_id=${{ secrets.TELEGRAM_CRAWL_CHAT_ID }}" \
             -d "parse_mode=HTML" \
             -d "text=⚠️ <b>크롤링 실패</b>%0A🕐 ${RUN_TIME}%0A%0AGitHub Actions 로그를 확인하세요."
 
@@ -109,7 +111,7 @@ jobs:
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_SCHEDULE_CHAT_ID }}
 
     steps:
       - name: 저장소 체크아웃
