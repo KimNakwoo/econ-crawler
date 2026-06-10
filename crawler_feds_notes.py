@@ -153,8 +153,11 @@ def fetch_notes_listing() -> list:
 
 # ─── 개별 노트 본문 크롤링 ────────────────────────────────────
 
-def fetch_note_content(url: str) -> str:
-    """노트 HTML 페이지에서 본문 추출"""
+def fetch_note_content(url: str) -> tuple:
+    """
+    노트 HTML 페이지에서 본문 + 이미지 URL 추출
+    반환: (body_text, [image_url, ...])
+    """
     time.sleep(REQUEST_DELAY)
     resp = requests.get(url, headers=get_headers(), timeout=REQUEST_TIMEOUT)
     resp.raise_for_status()
@@ -168,6 +171,27 @@ def fetch_note_content(url: str) -> str:
         or soup.find("main")
     )
 
+    target = content_div or soup
+
+    # 이미지 URL 수집 (아이콘/로고 제외)
+    image_urls = []
+    seen = set()
+    for img in target.find_all("img"):
+        src = img.get("src", "").strip()
+        if not src:
+            continue
+        skip_words = ["icon", "logo", "banner", "button", "arrow", "bullet",
+                      "spacer", "pixel", "bls_emblem", "flag", "dot-gov"]
+        if any(w in src.lower() for w in skip_words):
+            continue
+        if src.startswith("//"):
+            src = "https:" + src
+        elif not src.startswith("http"):
+            src = FED_BASE + src
+        if src not in seen:
+            seen.add(src)
+            image_urls.append(src)
+
     if content_div:
         paragraphs = content_div.find_all("p")
     else:
@@ -180,7 +204,7 @@ def fetch_note_content(url: str) -> str:
         if text and len(text) > 40:
             lines.append(text)
 
-    return "\n\n".join(lines)
+    return "\n\n".join(lines), image_urls
 
 
 # ─── 처리 완료 URL 관리 ──────────────────────────────────────
@@ -228,7 +252,7 @@ def run_feds_notes():
         print(f"[FEDS Notes] 새 노트 ({topic}): {note['title'][:60]}")
 
         try:
-            body_en = fetch_note_content(note["url"])
+            body_en, image_urls = fetch_note_content(note["url"])
 
             if not body_en:
                 print("[FEDS Notes] 본문 없음 - 스킵")
@@ -236,27 +260,43 @@ def run_feds_notes():
                 continue
 
             print(f"[FEDS Notes] 본문 {len(body_en)}자 → 번역 시작")
+
+            # 제목 번역 (한국어 / English 병기)
+            title_ko = translate_paragraph_by_paragraph(note["title"])
+            title_en = note["title"]
+
+            # 초록 번역
+            abstract_ko = translate_paragraph_by_paragraph(note["abstract"]) if note["abstract"] else ""
+
+            # 본문 번역
             body_ko = translate_paragraph_by_paragraph(body_en)
 
             date_str = note["date"] or datetime.now().strftime("%Y-%m-%d")
 
             # 마크다운 구성
-            md = md_header(f"FEDS Notes - {note['title']}", 1)
+            md = md_header(f"FEDS Notes - {title_ko} / {title_en}", 1)
             md += f"\n> 날짜: {date_str}\n"
             if note["authors"]:
                 md += f"> 저자: {note['authors']}\n"
             md += f"> 주제: {topic.replace('_', '/')}\n"
             md += f"> 출처: {note['url']}\n\n"
 
-            if note["abstract"]:
-                md += md_header("📌 초록 (원문)", 2)
-                md += note["abstract"] + "\n\n"
+            # 초록 (번역본)
+            if abstract_ko:
+                md += md_header("📌 초록", 2)
+                md += abstract_ko + "\n\n"
 
+            # 본문 번역
             md += md_header("📋 한국어 번역", 2)
             md += body_ko + "\n\n"
 
-            md += md_header("📄 영문 원본", 2)
-            md += body_en + "\n\n"
+            # 이미지 (figures/charts)
+            if image_urls:
+                md += md_header("🖼️ 그림 및 차트", 2)
+                for i, img_url in enumerate(image_urls, 1):
+                    md += f"**Figure {i}**\n\n"
+                    md += f"![Figure {i}]({img_url})\n\n"
+                    md += f"> [원본 링크]({img_url})\n\n"
 
             md += md_meta(note["url"], "FEDS_Notes")
 
