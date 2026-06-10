@@ -57,6 +57,7 @@ FED_RSS = {
 # ── 번역 설정
 TRANSLATE_ENGINE = "google"   # 무료, API 키 불필요
 DEEPL_API_KEY    = ""
+TARGET_LANGUAGE  = "ko"       # 번역 대상 언어 (한국어)
 
 # ── 요청 설정
 REQUEST_DELAY   = 2
