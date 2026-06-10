@@ -9,11 +9,10 @@
 #                             + 말일이고 공휴일 아니면 다음 달 일정도 전송
 #   NOTIFY_MODE=daily_late  → 평일 오전 9시: 말일 + 공휴일인 경우에만 다음 달 예고
 # ============================================================
-
 import os
 import re
 import requests
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta, date, timezone
 import calendar
 
 # ── 텔레그램 설정
@@ -38,11 +37,16 @@ MONTH_KO = {
     7:"7월", 8:"8월", 9:"9월", 10:"10월", 11:"11월", 12:"12월"
 }
 
+# ── KST 기준 오늘 날짜 (GitHub Actions는 UTC 기준이므로 반드시 KST로 변환)
+KST = timezone(timedelta(hours=9))
+
+def today_kst() -> date:
+    """KST(한국시간) 기준 오늘 날짜 반환"""
+    return datetime.now(KST).date()
+
 
 # ─── 공휴일 판별 ──────────────────────────────────────────────
-
 def is_korean_holiday(d: date) -> bool:
-    """한국 공휴일 여부 (holidays 패키지 사용)"""
     try:
         import holidays as holidays_pkg
         kr = holidays_pkg.country_holidays("KR", years=d.year)
@@ -53,12 +57,7 @@ def is_korean_holiday(d: date) -> bool:
 
 
 # ─── BLS 발표 일정 크롤링 ─────────────────────────────────────
-
 def fetch_bls_schedule(year: int) -> list:
-    """
-    BLS 연간 발표 일정 페이지에서 CPI / PPI / NFP 날짜 수집
-    반환: [{"indicator": "cpi", "date": date(2026,6,11), "time": "오후 9:30"}, ...]
-    """
     url = "https://www.bls.gov/schedule/news_release/current_year.asp"
     try:
         resp = requests.get(url, timeout=15,
@@ -70,8 +69,8 @@ def fetch_bls_schedule(year: int) -> list:
 
     from bs4 import BeautifulSoup
     soup = BeautifulSoup(resp.text, "lxml")
-    results = []
 
+    results = []
     keyword_map = {
         "Consumer Price Index": "cpi",
         "Producer Price Index": "ppi",
@@ -82,9 +81,9 @@ def fetch_bls_schedule(year: int) -> list:
         cells = row.find_all("td")
         if len(cells) < 3:
             continue
-        # BLS 테이블 컬럼 순서: 날짜 | 시간 | 지표명
+
         date_text  = cells[0].get_text(strip=True)
-        time_text  = cells[1].get_text(strip=True)  # "08:30 AM" (Eastern)
+        time_text  = cells[1].get_text(strip=True)
         title      = cells[2].get_text(strip=True)
 
         indicator = None
@@ -95,7 +94,6 @@ def fetch_bls_schedule(year: int) -> list:
         if not indicator:
             continue
 
-        # 날짜 파싱 (예: "Wednesday, June 10, 2026")
         try:
             dt = datetime.strptime(
                 re.sub(r"^\w+,\s*", "", date_text.strip()), "%B %d, %Y"
@@ -103,15 +101,9 @@ def fetch_bls_schedule(year: int) -> list:
         except Exception:
             continue
 
-        # 발표 시간 → 한국시간 변환 (서머타임 자동 처리)
-        # 3월 둘째 일요일 ~ 11월 첫째 일요일: EDT(UTC-4) → KST(UTC+9) = +13h
-        # 그 외: EST(UTC-5) → KST(UTC+9) = +14h
-        import calendar as _cal
         def _is_edt(d):
-            # 서머타임 시작: 3월 둘째 일요일
             mar = d.replace(month=3, day=1)
             second_sun_mar = mar + timedelta(days=(6 - mar.weekday()) % 7 + 7)
-            # 서머타임 종료: 11월 첫째 일요일
             nov = d.replace(month=11, day=1)
             first_sun_nov = nov + timedelta(days=(6 - nov.weekday()) % 7)
             return second_sun_mar <= d < first_sun_nov
@@ -121,24 +113,18 @@ def fetch_bls_schedule(year: int) -> list:
         elif "10:00" in time_text:
             kst_time = "오후 11:00" if _is_edt(dt) else "자정 12:00"
         else:
-            kst_time = "오후 9:30"  # 기본값
+            kst_time = "오후 9:30"
 
-        results.append({
-            "indicator": indicator,
-            "date": dt,
-            "time": kst_time,
-        })
+        results.append({"indicator": indicator, "date": dt, "time": kst_time})
 
     return results
 
 
 def fetch_fed_schedule() -> list:
-    """Fed 사이트에서 FOMC 일정 수집"""
     results = []
     try:
         url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
-        resp = requests.get(url, timeout=15,
-                            headers={"User-Agent": "Mozilla/5.0"})
+        resp = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
         from bs4 import BeautifulSoup
         soup = BeautifulSoup(resp.text, "lxml")
 
@@ -150,37 +136,26 @@ def fetch_fed_schedule() -> list:
                     raw = m.group(0)
                     raw_clean = re.sub(r"\d+-(\d+)", r"\1", raw)
                     dt = datetime.strptime(raw_clean.strip(), "%B %d, %Y").date()
-                    if dt >= date.today():
-                        results.append({
-                            "indicator": "fomc",
-                            "date": dt,
-                            "time": "새벽 3:00",
-                        })
+                    if dt >= today_kst():
+                        results.append({"indicator": "fomc", "date": dt, "time": "새벽 3:00"})
                 except Exception:
                     pass
     except Exception as e:
         print(f"[Fed FOMC 일정] 수집 실패: {e}")
-
     return results
 
 
 def get_all_schedule() -> list:
-    """BLS + Fed 전체 일정 병합"""
-    year = datetime.now().year
+    year = today_kst().year
     schedule = fetch_bls_schedule(year) + fetch_fed_schedule()
     schedule.sort(key=lambda x: x["date"])
     return schedule
 
 
 # ─── 필터 함수 ───────────────────────────────────────────────
-
 def this_week_schedule(schedule: list) -> list:
-    """
-    이번 주 월~금 일정.
-    일요일에 호출하면 내일(월요일)부터 시작하는 주를 기준으로 함.
-    """
-    today = date.today()
-    if today.weekday() == 6:  # 일요일
+    today = today_kst()
+    if today.weekday() == 6:
         monday = today + timedelta(days=1)
     else:
         monday = today - timedelta(days=today.weekday())
@@ -189,8 +164,7 @@ def this_week_schedule(schedule: list) -> list:
 
 
 def next_week_schedule(schedule: list) -> list:
-    """다음 주 월~금 일정 (금요일 오후 알림용)"""
-    today = date.today()
+    today = today_kst()
     days_until_monday = (7 - today.weekday()) % 7
     if days_until_monday == 0:
         days_until_monday = 7
@@ -200,14 +174,12 @@ def next_week_schedule(schedule: list) -> list:
 
 
 def today_schedule(schedule: list) -> list:
-    """오늘 발표 일정"""
-    today = date.today()
+    today = today_kst()
     return [s for s in schedule if s["date"] == today]
 
 
 def next_month_schedule(schedule: list) -> list:
-    """다음 달 일정"""
-    today = date.today()
+    today = today_kst()
     if today.month == 12:
         nm_year, nm_month = today.year + 1, 1
     else:
@@ -217,31 +189,27 @@ def next_month_schedule(schedule: list) -> list:
 
 
 def is_last_day_of_month() -> bool:
-    today = date.today()
+    today = today_kst()
     last_day = calendar.monthrange(today.year, today.month)[1]
     return today.day == last_day
 
 
 # ─── 메시지 포맷 ─────────────────────────────────────────────
-
 def fmt_date(d: date) -> str:
     return f"{d.month:02d}/{d.day:02d}({DAY_KO[d.weekday()]})"
 
 
 def fmt_weekly(schedule: list, label: str = "이번 주", monday: date = None) -> str:
-    """주간 일정 메시지 포맷"""
     if monday is None:
-        today = date.today()
+        today = today_kst()
         if today.weekday() == 6:
             monday = today + timedelta(days=1)
         else:
             monday = today - timedelta(days=today.weekday())
-
     if not schedule:
         return f"📅 <b>{label} 발표 예정 지표</b>\n\n{label} 발표 없음"
-
     lines = [f"📅 <b>{label} 발표 예정 지표</b>\n"]
-    for i in range(5):  # 월~금
+    for i in range(5):
         day = monday + timedelta(days=i)
         day_events = [s for s in schedule if s["date"] == day]
         label_day = fmt_date(day)
@@ -250,13 +218,11 @@ def fmt_weekly(schedule: list, label: str = "이번 주", monday: date = None) -
                 lines.append(f"  {label_day}  📊 {INDICATOR_LABELS.get(e['indicator'], e['indicator'])}  {e['time']}")
         else:
             lines.append(f"  {label_day}  -")
-
     return "\n".join(lines)
 
 
 def fmt_daily(schedule: list) -> str:
-    """오늘 발표 일정 메시지 (발표 없는 날도 항상 전송)"""
-    today = date.today()
+    today = today_kst()
     date_str = f"{today.year}-{today.month:02d}-{today.day:02d}({DAY_KO[today.weekday()]})"
     lines = [f"⏰ {date_str}"]
     if not schedule:
@@ -270,21 +236,17 @@ def fmt_daily(schedule: list) -> str:
 def fmt_next_month(schedule: list) -> str:
     if not schedule:
         return ""
-    today = date.today()
+    today = today_kst()
     if today.month == 12:
         nm_year, nm_month = today.year + 1, 1
     else:
         nm_year, nm_month = today.year, today.month + 1
-
-    # 주차별 그룹핑 (1일~7일=1주차, 8일~14일=2주차, ...)
     last_day = calendar.monthrange(nm_year, nm_month)[1]
     max_week = (last_day - 1) // 7 + 1
-
     weeks: dict = {}
     for e in schedule:
         w = (e["date"].day - 1) // 7 + 1
         weeks.setdefault(w, []).append(e)
-
     lines = [f"📆 <b>{MONTH_KO[nm_month]} 발표 일정 예고</b>"]
     for w in range(1, max_week + 1):
         lines.append(f"\n{w}주차")
@@ -293,12 +255,10 @@ def fmt_next_month(schedule: list) -> str:
                 lines.append(f"  {fmt_date(e['date'])}  📊 {INDICATOR_LABELS.get(e['indicator'], e['indicator'])}  {e['time']}")
         else:
             lines.append("없음")
-
     return "\n".join(lines)
 
 
 # ─── 텔레그램 전송 ────────────────────────────────────────────
-
 def send_telegram(message: str):
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
         print("[텔레그램] 토큰/채팅ID 미설정 - 콘솔 출력만 함")
@@ -317,7 +277,6 @@ def send_telegram(message: str):
 
 
 # ─── 메인 ────────────────────────────────────────────────────
-
 def main():
     mode = os.environ.get("NOTIFY_MODE", "daily")
     print(f"[알림] 모드: {mode}")
@@ -325,30 +284,25 @@ def main():
     schedule = get_all_schedule()
     print(f"[알림] 수집된 일정: {len(schedule)}건")
 
-    today = date.today()
+    today = today_kst()
+    print(f"[알림] KST 오늘 날짜: {today}")
 
     if mode == "weekly":
-        # 금요일 오후 3:30 → 다음 주 예고
-        # 일요일 오전 9시  → 이번 주 예고
         if today.weekday() == 4:  # 금요일
-            days_until_monday = 3  # 금→월 = 3일
-            next_monday = today + timedelta(days=days_until_monday)
+            next_monday = today + timedelta(days=3)
             week = next_week_schedule(schedule)
             msg = fmt_weekly(week, label="다음 주", monday=next_monday)
         else:  # 일요일
             next_monday = today + timedelta(days=1)
             week = this_week_schedule(schedule)
-            msg = fmt_weekly(week, label="다음 주", monday=next_monday)
+            msg = fmt_weekly(week, label="이번 주", monday=next_monday)
         send_telegram(msg)
 
     elif mode == "daily":
-        # 매일 오전 8시: 항상 오늘 발표 일정 전송
         today_events = today_schedule(schedule)
         msg = fmt_daily(today_events)
         send_telegram(msg)
 
-        # 말일이면 다음 달 예고 전송
-        # 단, 오늘이 공휴일이면 9시(daily_late)에 전송하므로 여기서는 스킵
         if is_last_day_of_month():
             if is_korean_holiday(today):
                 print("[알림] 말일이지만 공휴일 - 다음 달 예고는 오전 9시(daily_late)에 전송")
@@ -361,7 +315,6 @@ def main():
                     print("[알림] 다음 달 일정 없음")
 
     elif mode == "daily_late":
-        # 매일 오전 9시: 말일 + 공휴일인 경우에만 다음 달 예고 전송
         if is_last_day_of_month() and is_korean_holiday(today):
             nm = next_month_schedule(schedule)
             if nm:
