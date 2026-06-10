@@ -224,4 +224,4 @@ Disclaimer:  FEDS Notes are articles in which Board staff offer their own views 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/is-the-inflation-process-in-advanced-economies-different-after-the-pandemic-20260330.html | 수집: 2026-06-10 01:28 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/is-the-inflation-process-in-advanced-economies-different-after-the-pandemic-20260330.html | 수집: 2026-06-10 08:05 | 지표: FEDS_NOTES*

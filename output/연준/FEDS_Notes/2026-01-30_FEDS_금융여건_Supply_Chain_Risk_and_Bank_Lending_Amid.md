@@ -160,4 +160,4 @@ Disclaimer:  FEDS Notes are articles in which Board staff offer their own views 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/supply-chain-risk-and-bank-lending-amid-trade-policy-uncertainty-20260130.html | 수집: 2026-06-10 01:40 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/supply-chain-risk-and-bank-lending-amid-trade-policy-uncertainty-20260130.html | 수집: 2026-06-10 08:09 | 지표: FEDS_NOTES*

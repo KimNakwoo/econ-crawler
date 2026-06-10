@@ -274,4 +274,4 @@ Disclaimer:  FEDS Notes are articles in which Board staff offer their own views 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html | 수집: 2026-06-10 01:04 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html | 수집: 2026-06-10 07:58 | 지표: FEDS_NOTES*

@@ -232,4 +232,4 @@ Disclaimer:  FEDS Notes are articles in which Board staff offer their own views 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/a-brief-illustrated-history-of-the-federal-reserves-balance-sheet-20260213.html | 수집: 2026-06-10 01:35 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/a-brief-illustrated-history-of-the-federal-reserves-balance-sheet-20260213.html | 수집: 2026-06-10 08:07 | 지표: FEDS_NOTES*

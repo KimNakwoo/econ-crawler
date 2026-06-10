@@ -142,4 +142,4 @@ Disclaimer:  FEDS Notes are articles in which Board staff offer their own views 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/stablecoins-in-2025-developments-and-financial-stability-implications-20260408.html | 수집: 2026-06-10 01:25 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/stablecoins-in-2025-developments-and-financial-stability-implications-20260408.html | 수집: 2026-06-10 08:04 | 지표: FEDS_NOTES*

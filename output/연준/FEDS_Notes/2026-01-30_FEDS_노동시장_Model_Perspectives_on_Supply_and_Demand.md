@@ -80,4 +80,4 @@ Disclaimer:  FEDS Notes are articles in which Board staff offer their own views 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/model-perspectives-on-supply-and-demand-factors-behind-a-soft-labor-market-20260130.html | 수집: 2026-06-10 01:40 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/model-perspectives-on-supply-and-demand-factors-behind-a-soft-labor-market-20260130.html | 수집: 2026-06-10 08:09 | 지표: FEDS_NOTES*
