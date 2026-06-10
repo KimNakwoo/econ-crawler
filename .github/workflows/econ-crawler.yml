@@ -129,8 +129,8 @@ jobs:
         if: ${{ github.event.schedule == '0 0 * * 0' || github.event.schedule == '30 6 * * 5' }}
         run: NOTIFY_MODE=weekly python notifier.py
 
-      - name: 평일 당일 알림 (오전 8시, 말일 평일이면 다음달 예고 포함)
-        if: github.event.schedule == '0 23 * * 0-4'
+      - name: 평일 당일 알림 (오전 8시, 말일 평일이면 다음달 예고 포함 / 수동 실행 포함)
+        if: ${{ github.event.schedule == '0 23 * * 0-4' || github.event_name == 'workflow_dispatch' }}
         run: NOTIFY_MODE=daily python notifier.py
 
       - name: 평일 9시 알림 (말일 공휴일인 경우에만 다음달 예고 전송)
