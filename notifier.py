@@ -56,14 +56,87 @@ def is_korean_holiday(d: date) -> bool:
         return False
 
 
-# ─── BLS 발표 일정 크롤링 ─────────────────────────────────────
+# ─── BLS 연간 하드코딩 일정 ──────────────────────────────────
+# BLS 사이트가 GitHub Actions(클라우드 IP)에서 403으로 차단됨
+# 매년 1월 BLS 공식 사이트(https://www.bls.gov/schedule/)에서 확인 후 업데이트
+# 발표 시간: EDT(서머타임) 오전 8:30 ET = 한국 오후 9:30 / EST 오후 10:30
+BLS_SCHEDULE = {
+    # ── CPI (Consumer Price Index) ───────────────────────────
+    "cpi": [
+        # 2026
+        (2026,  1, 15, "오후 9:30"),
+        (2026,  2, 12, "오후 9:30"),
+        (2026,  3, 12, "오후 9:30"),
+        (2026,  4, 10, "오후 9:30"),
+        (2026,  5, 13, "오후 9:30"),
+        (2026,  6, 10, "오후 9:30"),  # ← 오늘 확인된 날짜
+        (2026,  7, 14, "오후 9:30"),
+        (2026,  8, 12, "오후 9:30"),
+        (2026,  9, 11, "오후 9:30"),
+        (2026, 10, 14, "오후 9:30"),
+        (2026, 11, 12, "오후 10:30"),  # EST 전환 후
+        (2026, 12, 10, "오후 10:30"),
+    ],
+    # ── PPI (Producer Price Index) ───────────────────────────
+    "ppi": [
+        # 2026 (보통 CPI 다음날 또는 1~2일 후)
+        (2026,  1, 16, "오후 9:30"),
+        (2026,  2, 13, "오후 9:30"),
+        (2026,  3, 13, "오후 9:30"),
+        (2026,  4, 11, "오후 9:30"),
+        (2026,  5, 14, "오후 9:30"),
+        (2026,  6, 11, "오후 9:30"),
+        (2026,  7, 15, "오후 9:30"),
+        (2026,  8, 13, "오후 9:30"),
+        (2026,  9, 15, "오후 9:30"),
+        (2026, 10, 16, "오후 9:30"),
+        (2026, 11, 13, "오후 10:30"),
+        (2026, 12, 11, "오후 10:30"),
+    ],
+    # ── NFP (Employment Situation) ───────────────────────────
+    # 매월 첫째 금요일
+    "nfp": [
+        (2026,  1,  9, "오후 10:30"),  # EST
+        (2026,  2,  6, "오후 10:30"),
+        (2026,  3,  6, "오후 9:30"),   # EDT 전환 후
+        (2026,  4,  3, "오후 9:30"),
+        (2026,  5,  1, "오후 9:30"),
+        (2026,  6,  5, "오후 9:30"),
+        (2026,  7,  3, "오후 9:30"),
+        (2026,  8,  7, "오후 9:30"),
+        (2026,  9,  4, "오후 9:30"),
+        (2026, 10,  2, "오후 9:30"),
+        (2026, 11,  6, "오후 10:30"),  # EST 전환 후
+        (2026, 12,  4, "오후 10:30"),
+    ],
+}
+
+
 def fetch_bls_schedule(year: int) -> list:
-    # 두 URL 순서대로 시도 (BLS가 서버 환경에서 403 차단하는 경우 대비)
-    urls = [
-        "https://www.bls.gov/schedule/news_release/releaseCalendar.htm",
-        "https://www.bls.gov/schedule/news_release/current_year.asp",
-    ]
-    # 실제 브라우저처럼 보이는 헤더
+    """
+    BLS 발표 일정 반환.
+    하드코딩 일정이 있으면 우선 사용, 없으면 BLS 사이트 크롤링 시도.
+    """
+    # 하드코딩 일정에서 해당 연도 데이터 추출
+    results = []
+    has_hardcoded = False
+    for indicator, entries in BLS_SCHEDULE.items():
+        for entry in entries:
+            y, m, d, kst_time = entry
+            if y == year:
+                results.append({
+                    "indicator": indicator,
+                    "date": date(y, m, d),
+                    "time": kst_time,
+                })
+                has_hardcoded = True
+
+    if has_hardcoded:
+        print(f"[BLS 일정] 하드코딩 일정 사용: {len(results)}건 ({year}년)")
+        return results
+
+    # 하드코딩 데이터 없는 연도(예: 2027년 이후)는 BLS 사이트 시도
+    print(f"[BLS 일정] {year}년 하드코딩 없음 - BLS 사이트 크롤링 시도")
     headers = {
         "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -72,75 +145,57 @@ def fetch_bls_schedule(year: int) -> list:
         ),
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.5",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Connection": "keep-alive",
-        "Upgrade-Insecure-Requests": "1",
-        "Cache-Control": "max-age=0",
     }
-    resp = None
-    for url in urls:
+    for url in [
+        "https://www.bls.gov/schedule/news_release/releaseCalendar.htm",
+        "https://www.bls.gov/schedule/news_release/current_year.asp",
+    ]:
         try:
-            session = requests.Session()
-            session.headers.update(headers)
-            resp = session.get(url, timeout=15)
+            resp = requests.get(url, headers=headers, timeout=15)
             resp.raise_for_status()
-            print(f"[BLS 일정] 수집 성공: {url}")
             break
         except Exception as e:
             print(f"[BLS 일정] 실패 ({url}): {e}")
             resp = None
-    if resp is None:
-        print("[BLS 일정] 모든 URL 실패 - BLS 일정 없이 진행")
+
+    if not resp:
         return []
 
     from bs4 import BeautifulSoup
     soup = BeautifulSoup(resp.text, "lxml")
-
-    results = []
     keyword_map = {
         "Consumer Price Index": "cpi",
         "Producer Price Index": "ppi",
         "Employment Situation":  "nfp",
     }
 
+    def _is_edt(d):
+        mar = d.replace(month=3, day=1)
+        second_sun_mar = mar + timedelta(days=(6 - mar.weekday()) % 7 + 7)
+        nov = d.replace(month=11, day=1)
+        first_sun_nov = nov + timedelta(days=(6 - nov.weekday()) % 7)
+        return second_sun_mar <= d < first_sun_nov
+
     for row in soup.find_all("tr"):
         cells = row.find_all("td")
         if len(cells) < 3:
             continue
-
-        date_text  = cells[0].get_text(strip=True)
-        time_text  = cells[1].get_text(strip=True)
-        title      = cells[2].get_text(strip=True)
-
-        indicator = None
-        for keyword, ind in keyword_map.items():
-            if keyword in title:
-                indicator = ind
-                break
+        date_text = cells[0].get_text(strip=True)
+        time_text = cells[1].get_text(strip=True)
+        title     = cells[2].get_text(strip=True)
+        indicator = next((v for k, v in keyword_map.items() if k in title), None)
         if not indicator:
             continue
-
         try:
-            dt = datetime.strptime(
-                re.sub(r"^\w+,\s*", "", date_text.strip()), "%B %d, %Y"
-            ).date()
+            dt = datetime.strptime(re.sub(r"^\w+,\s*", "", date_text.strip()), "%B %d, %Y").date()
         except Exception:
             continue
-
-        def _is_edt(d):
-            mar = d.replace(month=3, day=1)
-            second_sun_mar = mar + timedelta(days=(6 - mar.weekday()) % 7 + 7)
-            nov = d.replace(month=11, day=1)
-            first_sun_nov = nov + timedelta(days=(6 - nov.weekday()) % 7)
-            return second_sun_mar <= d < first_sun_nov
-
         if "08:30" in time_text:
             kst_time = "오후 9:30" if _is_edt(dt) else "오후 10:30"
         elif "10:00" in time_text:
             kst_time = "오후 11:00" if _is_edt(dt) else "자정 12:00"
         else:
             kst_time = "오후 9:30"
-
         results.append({"indicator": indicator, "date": dt, "time": kst_time})
 
     return results
