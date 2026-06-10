@@ -80,10 +80,12 @@ def fetch_bls_schedule(year: int) -> list:
 
     for row in soup.find_all("tr"):
         cells = row.find_all("td")
-        if len(cells) < 2:
+        if len(cells) < 3:
             continue
-        title = cells[0].get_text(strip=True)
-        date_text = cells[1].get_text(strip=True) if len(cells) > 1 else ""
+        # BLS 테이블 컬럼 순서: 날짜 | 시간 | 지표명
+        date_text  = cells[0].get_text(strip=True)
+        time_text  = cells[1].get_text(strip=True)  # "08:30 AM" (Eastern)
+        title      = cells[2].get_text(strip=True)
 
         indicator = None
         for keyword, ind in keyword_map.items():
@@ -93,18 +95,39 @@ def fetch_bls_schedule(year: int) -> list:
         if not indicator:
             continue
 
-        # 날짜 파싱 (예: "Wednesday, June 11, 2026")
+        # 날짜 파싱 (예: "Wednesday, June 10, 2026")
         try:
             dt = datetime.strptime(
                 re.sub(r"^\w+,\s*", "", date_text.strip()), "%B %d, %Y"
             ).date()
-            results.append({
-                "indicator": indicator,
-                "date": dt,
-                "time": "오후 9:30",
-            })
         except Exception:
             continue
+
+        # 발표 시간 → 한국시간 변환 (서머타임 자동 처리)
+        # 3월 둘째 일요일 ~ 11월 첫째 일요일: EDT(UTC-4) → KST(UTC+9) = +13h
+        # 그 외: EST(UTC-5) → KST(UTC+9) = +14h
+        import calendar as _cal
+        def _is_edt(d):
+            # 서머타임 시작: 3월 둘째 일요일
+            mar = d.replace(month=3, day=1)
+            second_sun_mar = mar + timedelta(days=(6 - mar.weekday()) % 7 + 7)
+            # 서머타임 종료: 11월 첫째 일요일
+            nov = d.replace(month=11, day=1)
+            first_sun_nov = nov + timedelta(days=(6 - nov.weekday()) % 7)
+            return second_sun_mar <= d < first_sun_nov
+
+        if "08:30" in time_text:
+            kst_time = "오후 9:30" if _is_edt(dt) else "오후 10:30"
+        elif "10:00" in time_text:
+            kst_time = "오후 11:00" if _is_edt(dt) else "자정 12:00"
+        else:
+            kst_time = "오후 9:30"  # 기본값
+
+        results.append({
+            "indicator": indicator,
+            "date": dt,
+            "time": kst_time,
+        })
 
     return results
 
