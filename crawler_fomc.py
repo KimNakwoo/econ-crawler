@@ -30,14 +30,36 @@ def fetch_page(url: str) -> BeautifulSoup:
     return BeautifulSoup(resp.text, "lxml")
 
 
-def extract_fed_article(soup: BeautifulSoup) -> str:
-    """Federal Reserve 페이지에서 본문 텍스트 추출"""
+def extract_fed_article(soup: BeautifulSoup) -> tuple:
+    """
+    Federal Reserve 페이지에서 본문 텍스트 + 이미지 URL 추출
+    반환: (body_text, image_urls)
+    """
     content_div = (
         soup.find("div", id="content")
         or soup.find("div", class_="col-xs-12")
         or soup.find("article")
         or soup.find("main")
     )
+
+    target = content_div or soup
+
+    # 이미지 수집
+    image_urls = []
+    seen = set()
+    skip_words = ["icon", "logo", "banner", "button", "arrow", "bullet",
+                  "spacer", "pixel", "flag", "dot-gov"]
+    for img in target.find_all("img"):
+        src = img.get("src", "").strip()
+        if not src or any(w in src.lower() for w in skip_words):
+            continue
+        if src.startswith("//"):
+            src = "https:" + src
+        elif not src.startswith("http"):
+            src = "https://www.federalreserve.gov" + src
+        if src not in seen:
+            seen.add(src)
+            image_urls.append(src)
 
     paragraphs = content_div.find_all("p") if content_div else soup.find_all("p")
 
@@ -47,7 +69,7 @@ def extract_fed_article(soup: BeautifulSoup) -> str:
         if text and len(text) > 20:
             lines.append(text)
 
-    return "\n\n".join(lines)
+    return "\n\n".join(lines), image_urls
 
 
 def extract_presser(soup: BeautifulSoup) -> list:
@@ -158,21 +180,26 @@ def run_fomc_statement():
 
     try:
         soup = fetch_page(url)
-        body_en = extract_fed_article(soup)
+        body_en, image_urls = extract_fed_article(soup)
 
         if not body_en:
             print("  [FOMC 성명서] 본문을 가져오지 못했습니다.")
             return
 
         print(f"  [FOMC 성명서] 본문 {len(body_en)}자 → 번역 시작")
+        title_ko = "FOMC 성명서"
+        title_en = "FOMC Statement"
         body_ko = translate_paragraph_by_paragraph(body_en)
 
-        md = md_header(f"FOMC 성명서 - {display_date}", 1)
+        md = md_header(f"{title_ko} / {title_en} - {display_date}", 1)
         md += f"\n> 출처: {url}\n\n"
         md += md_header("📋 한국어 번역", 2)
         md += body_ko + "\n\n"
-        md += md_header("📄 영문 원본", 2)
-        md += body_en + "\n\n"
+        if image_urls:
+            md += md_header("🖼️ 그림 및 차트", 2)
+            for i, img_url in enumerate(image_urls, 1):
+                md += f"![Figure {i}]({img_url})\n\n"
+                md += f"> [원본 링크]({img_url})\n\n"
         md += md_meta(url, "FOMC")
 
         save_markdown("fomc_statement", "FOMC_성명서", md, display_date)
@@ -198,17 +225,19 @@ def run_fomc_presser():
         exchanges = extract_presser(soup)
 
         if not exchanges:
-            body_en = extract_fed_article(soup)
+            body_en, image_urls = extract_fed_article(soup)
             if not body_en:
                 print("  [FOMC 기자회견] 본문을 가져오지 못했습니다.")
                 return
             exchanges = [{"speaker": "전체", "text": body_en}]
+        else:
+            _, image_urls = extract_fed_article(soup)
 
         print(f"  [FOMC 기자회견] {len(exchanges)}개 발언 블록 → 번역 시작")
 
-        md = md_header(f"FOMC 기자회견 전문 - {display_date}", 1)
-        md += f"\n> 출처: {url}\n\n"
-        md += "> **구성**: 발언자별 한국어 번역 + 영문 원본\n\n"
+        md = md_header("FOMC 기자회견 전문 / FOMC Press Conference", 1)
+        md += f"\n> 날짜: {display_date}\n"
+        md += f"> 출처: {url}\n\n"
 
         for i, exchange in enumerate(exchanges, 1):
             speaker = exchange["speaker"]
@@ -218,8 +247,13 @@ def run_fomc_presser():
 
             md += "---\n\n"
             md += md_header(f"🎙️ {speaker}", 3)
-            md += f"**[번역]**\n\n{text_ko}\n\n"
-            md += f"**[원문]**\n\n{text_en}\n\n"
+            md += f"{text_ko}\n\n"
+
+        if image_urls:
+            md += md_header("🖼️ 그림 및 차트", 2)
+            for i, img_url in enumerate(image_urls, 1):
+                md += f"![Figure {i}]({img_url})\n\n"
+                md += f"> [원본 링크]({img_url})\n\n"
 
         md += md_meta(url, "FOMC")
 
@@ -255,7 +289,7 @@ def run_minutes():
 
     try:
         soup = fetch_page(url)
-        body_en = extract_fed_article(soup)
+        body_en, image_urls = extract_fed_article(soup)
 
         if not body_en or len(body_en) < 500:
             print("[FOMC 의사록] 본문이 너무 짧거나 없음 (아직 미공개일 수 있음)")
@@ -277,20 +311,22 @@ def run_minutes():
         sections = _split_minutes_sections(body_en, section_patterns)
         print(f"[FOMC 의사록] {len(sections)}개 섹션 분할 완료")
 
-        md = md_header(f"FOMC 의사록 - {date_str}", 1)
+        md = md_header(f"FOMC 의사록 / FOMC Minutes - {date_str}", 1)
         md += f"\n> 회의일: {date_str}\n"
         md += f"> 출처: {url}\n\n"
-        md += "> **핵심 섹션만 번역합니다** (전체 번역은 분량 관계로 섹션 요약)\n\n"
 
         for sec_title, sec_body in sections:
             print(f"[FOMC 의사록] 번역 중: {sec_title[:50]}")
             sec_ko = translate_paragraph_by_paragraph(sec_body)
 
             md += md_header(f"📌 {sec_title}", 2)
-            md += md_header("한국어 번역", 3)
             md += sec_ko + "\n\n"
-            md += md_header("영문 원본", 3)
-            md += sec_body + "\n\n"
+
+        if image_urls:
+            md += md_header("🖼️ 그림 및 차트", 2)
+            for i, img_url in enumerate(image_urls, 1):
+                md += f"![Figure {i}]({img_url})\n\n"
+                md += f"> [원본 링크]({img_url})\n\n"
 
         md += md_meta(url, "FOMC의사록")
 
