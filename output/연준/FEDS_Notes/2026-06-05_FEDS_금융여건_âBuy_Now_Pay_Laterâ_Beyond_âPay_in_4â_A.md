@@ -155,4 +155,4 @@ Acree, Nina R., Kayleigh Barnes, Alexander Bruce, Simona M. Hannon(2026). ""4단
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html | 수집: 2026-06-10 16:48 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/buy-now-pay-later-beyond-pay-in-4-a-comprehensive-product-overview-20260605.html | 수집: 2026-06-10 21:10 | 지표: FEDS_NOTES*

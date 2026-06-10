@@ -64,4 +64,4 @@ Cascaldi-Garcia(2022), "Pandemic Priors", 국제 금융 토론 문서 1352(워�
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/model-perspectives-on-supply-and-demand-factors-behind-a-soft-labor-market-20260130.html | 수집: 2026-06-10 17:00 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/model-perspectives-on-supply-and-demand-factors-behind-a-soft-labor-market-20260130.html | 수집: 2026-06-10 21:23 | 지표: FEDS_NOTES*

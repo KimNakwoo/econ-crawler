@@ -216,4 +216,4 @@ Achugamonu, Faith, Tim Schmidt-Eisenlohr 및 Matthew P. Seay(2026). "자금 충�
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/assessing-bank-resilience-to-a-funding-shock-20260217.html | 수집: 2026-06-10 16:58 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/assessing-bank-resilience-to-a-funding-shock-20260217.html | 수집: 2026-06-10 21:20 | 지표: FEDS_NOTES*

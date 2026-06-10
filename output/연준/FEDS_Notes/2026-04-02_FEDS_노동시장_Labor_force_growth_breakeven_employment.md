@@ -166,4 +166,4 @@ $$$$\Delta \text{잠재적 LF}_t = \Delta \text{인구}_t ~ * ~ \text{잠재적 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/labor-force-growth-breakeven-employment-and-potential-gdp-growth-20260402.html | 수집: 2026-06-10 16:55 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/labor-force-growth-breakeven-employment-and-potential-gdp-growth-20260402.html | 수집: 2026-06-10 21:18 | 지표: FEDS_NOTES*

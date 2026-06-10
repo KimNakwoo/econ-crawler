@@ -287,4 +287,4 @@ Minton 및 Somale(2025) 방법론을 사용한 산점도
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/detecting-tariff-effects-on-consumer-prices-in-real-time-part-II-20260408.html | 수집: 2026-06-10 16:54 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/detecting-tariff-effects-on-consumer-prices-in-real-time-part-II-20260408.html | 수집: 2026-06-10 21:16 | 지표: FEDS_NOTES*

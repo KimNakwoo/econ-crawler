@@ -104,4 +104,4 @@ Chyruk, Olena, David Cox, Lily Liu, James Wang 및 Stephen Zoulalian(2026). "서
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/subprime-auto-lending-trends-in-buy-here-pay-here-auto-lending-20260508.html | 수집: 2026-06-10 16:52 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/subprime-auto-lending-trends-in-buy-here-pay-here-auto-lending-20260508.html | 수집: 2026-06-10 21:14 | 지표: FEDS_NOTES*

@@ -184,4 +184,4 @@ de Soyres, François, Avani Pradhan, Zina Saijid(2026). "팬데믹 이후 선진
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/is-the-inflation-process-in-advanced-economies-different-after-the-pandemic-20260330.html | 수집: 2026-06-10 16:56 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/is-the-inflation-process-in-advanced-economies-different-after-the-pandemic-20260330.html | 수집: 2026-06-10 21:18 | 지표: FEDS_NOTES*

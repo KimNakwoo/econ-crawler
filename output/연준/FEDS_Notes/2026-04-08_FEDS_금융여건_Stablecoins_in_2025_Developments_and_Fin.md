@@ -101,4 +101,4 @@ Stablecoins는 전통적인 금융 인프라와의 통합을 확대하여 금융
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/stablecoins-in-2025-developments-and-financial-stability-implications-20260408.html | 수집: 2026-06-10 16:55 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/stablecoins-in-2025-developments-and-financial-stability-implications-20260408.html | 수집: 2026-06-10 21:17 | 지표: FEDS_NOTES*

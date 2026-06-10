@@ -168,4 +168,4 @@ Sinem Hacıoğlu-Hoke, Sarojini Malladi 및 Leo Feler(2026). "느린 상승: 관
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/the-slow-climb-how-tariffs-gradually-raised-retail-prices-in-2025-20260305.html | 수집: 2026-06-10 16:57 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/the-slow-climb-how-tariffs-gradually-raised-retail-prices-in-2025-20260305.html | 수집: 2026-06-10 21:19 | 지표: FEDS_NOTES*

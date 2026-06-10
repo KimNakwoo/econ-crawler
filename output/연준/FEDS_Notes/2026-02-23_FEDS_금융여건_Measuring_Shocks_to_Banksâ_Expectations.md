@@ -144,4 +144,4 @@ Ma, Yueran, Teodora Paligorova, Jose-Luis Peydro(2021). " 기대와 은행 대�
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/measuring-shocks-to-banks-expectations-for-lending-standards-using-the-senior-loan-officer-opinion-survey-20260223.html | 수집: 2026-06-10 16:57 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/measuring-shocks-to-banks-expectations-for-lending-standards-using-the-senior-loan-officer-opinion-survey-20260223.html | 수집: 2026-06-10 21:19 | 지표: FEDS_NOTES*
