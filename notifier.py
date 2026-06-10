@@ -58,13 +58,39 @@ def is_korean_holiday(d: date) -> bool:
 
 # ─── BLS 발표 일정 크롤링 ─────────────────────────────────────
 def fetch_bls_schedule(year: int) -> list:
-    url = "https://www.bls.gov/schedule/news_release/current_year.asp"
-    try:
-        resp = requests.get(url, timeout=15,
-                            headers={"User-Agent": "Mozilla/5.0"})
-        resp.raise_for_status()
-    except Exception as e:
-        print(f"[BLS 일정] 수집 실패: {e}")
+    # 두 URL 순서대로 시도 (BLS가 서버 환경에서 403 차단하는 경우 대비)
+    urls = [
+        "https://www.bls.gov/schedule/news_release/releaseCalendar.htm",
+        "https://www.bls.gov/schedule/news_release/current_year.asp",
+    ]
+    # 실제 브라우저처럼 보이는 헤더
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/125.0.0.0 Safari/537.36"
+        ),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+        "Cache-Control": "max-age=0",
+    }
+    resp = None
+    for url in urls:
+        try:
+            session = requests.Session()
+            session.headers.update(headers)
+            resp = session.get(url, timeout=15)
+            resp.raise_for_status()
+            print(f"[BLS 일정] 수집 성공: {url}")
+            break
+        except Exception as e:
+            print(f"[BLS 일정] 실패 ({url}): {e}")
+            resp = None
+    if resp is None:
+        print("[BLS 일정] 모든 URL 실패 - BLS 일정 없이 진행")
         return []
 
     from bs4 import BeautifulSoup
