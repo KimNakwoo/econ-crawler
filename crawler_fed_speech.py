@@ -118,8 +118,8 @@ def fetch_speech_rss() -> list:
 
 def fetch_speech_content(url: str) -> tuple:
     """
-    연설 HTML 페이지에서 제목, 화자 정보, 본문 추출
-    반환: (speaker_info, body_text)
+    연설 HTML 페이지에서 화자 정보, 본문, 이미지 추출
+    반환: (speaker_info, body_text, image_urls)
     """
     time.sleep(REQUEST_DELAY)
     resp = requests.get(url, headers=get_headers(), timeout=REQUEST_TIMEOUT)
@@ -143,6 +143,25 @@ def fetch_speech_content(url: str) -> tuple:
         or soup.find("main")
     )
 
+    target = content_div or soup
+
+    # 이미지 URL 수집
+    image_urls = []
+    seen = set()
+    skip_words = ["icon", "logo", "banner", "button", "arrow", "bullet",
+                  "spacer", "pixel", "bls_emblem", "flag", "dot-gov"]
+    for img in target.find_all("img"):
+        src = img.get("src", "").strip()
+        if not src or any(w in src.lower() for w in skip_words):
+            continue
+        if src.startswith("//"):
+            src = "https:" + src
+        elif not src.startswith("http"):
+            src = FED_BASE + src
+        if src not in seen:
+            seen.add(src)
+            image_urls.append(src)
+
     if content_div:
         paragraphs = content_div.find_all("p")
     else:
@@ -155,7 +174,7 @@ def fetch_speech_content(url: str) -> tuple:
             lines.append(text)
 
     body = "\n\n".join(lines)
-    return speaker_info, body
+    return speaker_info, body, image_urls
 
 
 # ─── 처리 완료 URL 관리 ──────────────────────────────────────
@@ -208,7 +227,7 @@ def run_speech():
         print(f"[연설] 새 연설 처리: {speech['title'][:60]}")
 
         try:
-            speaker_info, body_en = fetch_speech_content(speech["url"])
+            speaker_info, body_en, image_urls = fetch_speech_content(speech["url"])
 
             if not body_en:
                 print(f"[연설] 본문 없음 - 스킵")
@@ -216,15 +235,17 @@ def run_speech():
                 continue
 
             print(f"[연설] 본문 {len(body_en)}자 → 번역 시작")
-            body_ko = translate_paragraph_by_paragraph(body_en)
 
             # 제목 (성씨 제거 → 연설 제목만)
-            speech_title = speech["title"].split(",", 1)[-1].strip() if "," in speech["title"] else speech["title"]
+            speech_title_en = speech["title"].split(",", 1)[-1].strip() if "," in speech["title"] else speech["title"]
+            speech_title_ko = translate_paragraph_by_paragraph(speech_title_en)
             date_str = speech["date"] or datetime.now().strftime("%Y-%m-%d")
 
+            body_ko = translate_paragraph_by_paragraph(body_en)
+
             # 마크다운 구성
-            md = md_header(f"연준 의장 연설 - {date_str}", 1)
-            md += f"\n> 제목: {speech_title}\n"
+            md = md_header(f"연준 의장 연설 - {speech_title_ko} / {speech_title_en}", 1)
+            md += f"\n> 날짜: {date_str}\n"
             if speaker_info:
                 md += f"> 화자: {speaker_info}\n"
             md += f"> 출처: {speech['url']}\n\n"
@@ -232,8 +253,13 @@ def run_speech():
             md += md_header("📋 한국어 번역", 2)
             md += body_ko + "\n\n"
 
-            md += md_header("📄 영문 원본", 2)
-            md += body_en + "\n\n"
+            # 이미지
+            if image_urls:
+                md += md_header("🖼️ 그림 및 차트", 2)
+                for i, img_url in enumerate(image_urls, 1):
+                    md += f"**Figure {i}**\n\n"
+                    md += f"![Figure {i}]({img_url})\n\n"
+                    md += f"> [원본 링크]({img_url})\n\n"
 
             md += md_meta(speech["url"], "연준의장연설")
 
