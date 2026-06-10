@@ -1,0 +1,163 @@
+# FEDS Notes - Supply Chain Risk and Bank Lending Amid Trade Policy Uncertainty
+
+> 날짜: 2026-01-30
+> 저자: Luke Morgan,Carlos A. RamÃ­rez,Andre F. Silva, andAndrei Zlate
+> 주제: 금융여건
+> 출처: https://www.federalreserve.gov/econres/notes/feds-notes/supply-chain-risk-and-bank-lending-amid-trade-policy-uncertainty-20260130.html
+
+## 📌 초록 (원문)
+During times of increased trade policy uncertainty and geopolitical tensions, supply chain disruptions can be an important source of instability. Due to the interconnected nature of modern economies, problems in one market can often ripple across others, triggering logistical bottlenecks and longer delivery times.
+
+## 📋 한국어 번역
+루크 모건, 카를로스 A. 라미레스, 안드레 F. 실바, 안드레이 즐레이트 1
+
+무역 정책의 불확실성과 지정학적 긴장이 증가하는 시기에 공급망 중단은 불안정의 중요한 원인이 될 수 있습니다. 현대 경제의 상호 연결된 특성으로 인해 한 시장의 문제가 다른 시장으로 파급되어 물류 병목 현상이 발생하고 배송 시간이 길어질 수 있습니다. 이러한 문제는 결과적으로 기업의 생산 비용 증가와 수익 손실로 이어질 수 있으며, 다양한 채널을 통한 신용 공급과 수요에 영향을 미칠 수 있습니다. 더 큰 불확실성이나 부도 위험 증가에 직면한 은행은 신용 공급을 축소할 수 있습니다(Correa et al., 2024; Wu and Suardi, 2021; Alessandri and Bottero, 2020). 동시에 기업은 불확실성에 대응하여 투자를 연기하면서 대출 수요를 줄이거나 대신 투자 자금 조달, 재고 축적 또는 공급망 중단 관리를 위해 차입을 늘리려고 할 수 있습니다(Alfaro et al., 2025; Caldara et al., 2020).
+
+이 노트에서는 무역 정책 불확실성이 높아지는 가운데 은행이 공급망 중단에 노출되어 2025년 상반기에 대출 결정이 어떻게 형성되었는지 살펴봅니다. 이를 위해 우리는 주식 시장 및 공급망 데이터를 은행 대출 노출에 대한 상세한 감독 데이터와 통합하여 공급망 중단이 은행 부문에 어떻게 전달되는지를 포착할 수 있는 공급망 위험에 대한 은행 노출에 대한 새로운 시장 기반 측정값을 구축합니다.
+
+우리는 상세한 분기별 대출 수준 데이터와 주간 은행 수준 데이터를 사용하여 은행 장부의 상업 및 산업(C&I) 대출 증가를 조사합니다. 우리는 공급망 중단에 대한 우려가 기업의 투자 및 재고 축적 결정에 영향을 미칠 수 있으며, 이는 결국 은행 대출 수요와 은행의 신용 공급 의지에 영향을 미칠 수 있다는 직관을 바탕으로 합니다.
+
+우리는 2024년 11월 대통령 선거 이후 2025년 1분기 동안 C&I 대출 증가율이 약했다는 것을 보여줍니다. 은행은 덜 노출된 상대에 비해 공급망 위험이 높은 차용자에게 더 많이 노출되었습니다. 그 후, 4월 관세가 발표될 무렵인 2025년 2분기에는 노출도가 더 높은 은행에서 대출 활용도와 대출 스프레드가 더 크게 상승했는데, 이는 관세 시행에 앞서 재고 및 수입 장비에 자금을 조달하기 위한 차용자의 대출 수요 증가를 반영한 ​​것으로 보입니다.
+
+다음 섹션에서는 방법론과 데이터를 간략하게 설명하고 주요 결과와 결론에 대해 논의합니다.
+
+우리는 Y-14Q 데이터에서 얻은 은행 대출 포트폴리오에 대한 세부 정보와 기업 수준의 재고 수익률 및 공급망 데이터를 결합하여 공급망 위험에 대한 은행의 노출 정도를 측정합니다. 우리는 3단계 프로세스를 따릅니다.
+
+처음 두 단계는 이 방법론이 공급망 중단에 대한 기업의 노출을 포착하는 데 도움이 된다는 것을 보여주는 Ramírez(2024)를 따릅니다. 우리의 접근 방식은 Hassan et al.에서 사용된 방법론과 다소 유사합니다. (2019) 및 Correa et al. (2024)에서는 정책 불확실성을 거래하기보다는 공급망 위험에 대한 노출에 대한 기업 수준의 측정을 사용한다는 점에서 다릅니다. 그런 다음 이를 Correa et al.에서와 같이 은행 대출 포트폴리오의 부문별 지분을 사용하여 은행 수준에서 집계합니다. (2023). 3
+
+공급망 위험에 대한 은행 수준 측정을 사용하여 우리는 은행을 2024년 12월 점수를 기준으로 두 그룹으로 분류합니다. 중앙값 이하인 그룹은 낮은 SC 노출로 표시되고, 중앙값보다 높은 그룹은 높은 SC 노출로 표시됩니다. 4 그런 다음 이 순위를 사용하여 Y-14Q 일정 H.1 및 FR 2644 양식의 정보를 사용하여 다양한 은행 유형에 걸친 대출 및 대출 가격을 탐색합니다. FR Y-14Q 데이터 세트는 약정 및 활용 금액, 대출 조건 및 차용자 특성에 대한 자세한 정보와 함께 신용 한도 및 기간 대출을 포함하여 미결제 C&I 대출에 대한 분기별 대출 수준 데이터를 수집합니다. 또한 FR 2644 데이터 세트는 은행 장부에 대한 C&I 대출을 포함하여 은행 대차대조표 항목에 대한 주간 은행 수준 데이터를 수집합니다. Y-14Q와 FR 2644 데이터 세트 간의 정보를 일치시킨 후 분석은 23개 은행 그룹(12개 낮은 SC 노출 은행과 11개 높은 SC 노출 은행)에 초점을 맞췄습니다. 이는 미국 은행의 미결제 C&I 대출 금액의 약 18%와 37%를 차지합니다. 5
+
+그림 1은 무역 정책 불확실성이 높아짐에 따라 노출이 많은 은행의 C&I 대출 약정이 2024년 3분기부터 2025년 1분기(빨간색) 사이에 감소한 반면 노출이 적은 은행(파란색)의 C&I 대출 약정은 비교적 안정적으로 유지되었음을 보여줍니다. 이 패턴은 Correa et al.의 연구 결과와 일치합니다. (2023)은 은행이 무역 불확실성이 높아지는 부문, 특히 자본 완충력이 낮은 은행에 더 많이 노출되어 2018~2019년 동안 대출 증가율이 감소했음을 보여줍니다. 그 후, 4월 관세 발표 이후 2025년 2분기에 모든 은행에서 C&I 대출 약정이 확정되었습니다. 우리는 이 노트의 나머지 부분에서 이 픽업의 드라이버를 조사합니다.
+
+출처: 연방준비제도이사회(Federal Reserve Board), 양식 FR Y-14Q(C&I 대출에 대한 일정 H.1); 저자의 계산.
+
+2025년 2분기 동안 은행 유형 전반에 걸쳐 대출 성장을 촉진하는 데 있어 은행 신용 공급과 차용자 대출 수요의 상대적인 역할을 분리하기 위해 다음으로 차용자가 사용 가능한 신용 한도를 어느 정도 활용했는지 살펴봅니다. 그림 2에서 볼 수 있듯이 C&I 대출 활용률은 4월 관세 발표 이후 2025년 1분기부터 2분기까지 노출이 적은 은행(파란색)보다 노출이 많은 은행(빨간색)에서 더 가파르게 증가했습니다. 마찬가지로, 그림 3에서 인출 신용 비율(또는 활용률)은 작년 말 은행 유형 전체에서 비슷한 속도로 증가했습니다. 그러나 2025년 4월 관세 발표 이후 노출이 많은 은행(빨간색)의 활용률은 2025년 1분기부터 2분기까지 눈에 띄게 상승했는데, 이는 관세 시행에 앞서 재고 축적 및 장비 투자를 조달하기 위한 차입자 대출 수요가 늘어난 것을 반영한 것으로 보입니다. 반면, 노출이 적은 은행(파란색)의 가동률은 같은 기간 하락했습니다.
+
+출처: 연방준비제도이사회(Federal Reserve Board), 양식 FR Y-14Q(C&I 대출에 대한 일정 H.1); 저자의 계산.
+
+출처: 연방준비제도이사회(Federal Reserve Board), 양식 FR Y-14Q(C&I 대출에 대한 일정 H.1); 저자의 계산.
+
+공급망 위험에 대한 노출도 대출 가격에 의미 있는 영향을 미쳤습니다. 그림 4에서 볼 수 있듯이 노출이 많은 은행의 평균 대출 스프레드는 2025년 1분기부터 2분기까지 증가한 반면 노출이 적은 은행의 스프레드는 감소했습니다. 종합적으로 볼 때, 이러한 패턴(즉, 높은 활용률과 높은 스프레드)은 2025년 2분기에 노출도가 더 높은 은행의 대출 급증이 은행 신용 공급 확대보다는 주로 차입자 수요 강화에 의해 주도되었음을 시사합니다.
+
+출처: 연방준비제도이사회(Federal Reserve Board), 양식 FR Y-14Q(C&I 대출에 대한 일정 H.1); 저자의 계산.
+
+그림 5는 FR 2644의 주간 은행 대차대조표 데이터를 기반으로 은행 장부에 대한 대출의 유사한 패턴을 보여줍니다. 이는 그림 2에 표시된 Y-14Q 데이터의 C&I 대출 활용 금액과 대략 일치합니다. 2024년 11월 선거 및 관련 무역 정책 개발 이후 공급망 위험에 대한 노출도가 높은 은행의 C&I 대출 증가율은 처음에는 약화되었습니다(빨간색). 이후 4월 초 관세 발표 무렵에 대출 증가율이 회복되었습니다. 이러한 발전은 2025년 2분기 동안 노출이 더 많은 은행에서 대출 수요가 증가하는 것과 일치합니다.
+
+참고: 세로선은 각각 선거일: 2024년 11월 5일, 글로벌 철강 및 알루미늄 관세: 2025년 3월 12일, 예표된 4월 2일 관세 규모: 2025년 3월 21일, 4월 2일 상호 관세 발표: 2025년 4월 2일을 나타냅니다.
+
+출처: 연방준비제도이사회(Federal Reserve Board), 양식 FR 2644; 저자의 계산.
+
+이러한 결론은 2025년 10월 SLOOS의 특별 질문에 대한 은행의 답변을 통해 확증됩니다. 설문 조사에서 연초부터 C&I 대출에 대한 수요가 증가했다고 보고한 일부 은행은 특히 무역 발전에 대응하여 재고를 구축하고 무역 관련 상품 가용성 또는 가격 변화에 적응하기 위한 고객 투자 요구 증가를 주요 원인으로 꼽았습니다(그림 6). 질문된 다른 거의 모든 이유는 신용 수요 강화의 중요한 동인으로 언급되지 않았습니다.
+
+출처: 2025년 10월 은행 대출 관행에 관한 고위 대출 담당자 의견 설문조사(SLOOS).
+
+우리의 연구 결과는 2024년 말 무역 정책 불확실성이 처음 급증한 이후 공급망 위험에 더 많이 노출된 은행에서 대출 증가가 더디게 증가했다는 견해와 일치합니다. 그 후, 2025년 4월 관세 발표 전후 신용 활용도와 대출 스프레드의 증가는 차용자가 발표된 정책 시행에 앞서 재고 및 장비 투자를 선점할 가능성이 높기 때문에 더 노출된 은행의 신용 수요 증가와 일치합니다.
+
+Alfaro, L., Mariya Brussevich, Camelia Minoiu 및 Andrea Presbitero(2025). “글로벌 공급망의 은행 파이낸싱.” NBER 작업 문서 33754.
+
+알레산드리, 피에르조르지오, 마르게리타 보테로(2020). "불확실한 시대의 은행 대출."  유럽 ​​경제 리뷰(European Economic Review), 128권, 2020년, 103503, ISSN 0014-2921, https://doi.org/10.1016/j.euroecorev.2020.103503.
+
+칼다라, D., Matteo Iacoviello, Patrick Molligo, Andrea Prestipino, Andrea Raffo(2020). “무역 정책 불확실성의 경제적 효과.”  통화경제학 저널, 109권, 2020년, 페이지 38-59, ISSN 0304-3932, https://doi.org/10.1016/j.jmoneco.2019.11.002.
+
+Correa, R., Di Giovanni, J., Goldberg, L. S., & Minoiu, C. (2024). “무역 불확실성과 미국 은행 대출.” NBER 작업 문서 31860.
+
+하산, T. A., 홀랜더, S., 반 렌트, L., & 타훈, A. (2019). “기업 수준의 정치적 위험: 측정 및 효과.”  계간경제학논문, 134(4), 2135-2202.
+
+2025년 10월 연방준비제도이사회(Federal Reserve Board) 고위 대출 담당자 의견 설문조사.  https://www.federalreserve.gov/data/sloos/sloos-202510.htm
+
+Ramírez, Carlos A. (2024), "확실한 네트워크 및 자산 수익률," 금융 연구 검토, vol. 37(10월), pp. 3050–91, https://doi.org/10.1093/rfs/hhae032
+
+우, 웨이샤오, 샌디 수아르디(2021). “경제 불확실성과 은행 대출.”  화폐, 신용 및 은행 저널, 53(8), 2037-2069.
+
+1. 유용한 의견과 통찰력 있는 토론을 해주신 Celso Brunetti, Felicia Ionescu, Elizabeth Klee, Virginia Lewis, Camelia Minoiu, Borghan Narajabad, Friederike Niepmann 및 Min Wei에게 감사드립니다. 이 문서에 표현된 견해는 전적으로 저자의 견해이며 연방준비제도이사회나 다른 직원의 견해를 반드시 반영하는 것은 아닙니다.  텍스트로 돌아가기
+
+2. 기업 수준 노출을 추정하기 위해 $$r_{i,t}-\ r_{f,t}=\alpha_i+\ \beta_iX_t+\ \varphi_i{SCI}_t$$ 형식의 시계열 회귀를 실행합니다. 여기서 $$r_{i,t}$$는 기업 "$$i$$"의 수익을 나타내고, $$r_{f,t}$$는 무위험 이자율입니다. $$X_t$$는 Fama-French 5요인 모델의 반환 요소로 구성된 벡터입니다. 변수 $${SCI}_t$$는 롱숏 포트폴리오의 수익을 포착합니다. 모든 변수는 "$$t$$" 월에 측정됩니다. 우리는 36개월의 롤링 기간을 사용하여 매개변수를 추정합니다. 이를 통해 회사 수준 노출은 시간에 따라 달라질 수 있습니다. 우리의 은행 수준 측정은 2022년 1월부터 2024년 12월까지의 기간에 걸쳐 추정된 2024년 12월 기준 기업 수준 익스포저 $$\varphi_i$$를 사용합니다.
+
+3. 하산 외. (2019)는 수익 예측에 대한 텍스트 분석에서 파생된 공급망 중단 위험보다는 2016~2017년 동안 기업 수준의 무역 불확실성에 대한 척도를 구축합니다. 우리와 마찬가지로 Correa et al. (2023)은 이를 부문 수준에서 집계하고 대출 노출을 통해 은행에 매핑합니다.  텍스트로 돌아가기
+
+4. 공급망 리스크에 대한 은행 차원의 측정에는 상당한 차이가 있습니다. 표본에 포함된 23개 은행의 지수는 평균 0.283, 표준편차 0.386, 범위는 최소 -1.250에서 최대 0.911입니다.  텍스트로 돌아가기
+
+5. 그림 1~4에 사용된 Y-14Q 데이터에서 금융회사(비은행 포함)에 대한 대출을 제외했습니다. 그러나 우리는 Y-14Q 결과가 일부 C&I 대출을 NDFI 대출로 재분류하는 것과 관련된 문제를 피하기 위해 C&I 대출과 NDFI 대출의 합계를 취하는 FR 2644 데이터의 결과와 일치한다는 것을 아래에 보여줍니다.  텍스트로 돌아가기
+
+모건, 루크, 카를로스 A. 라미레스, 안드레 F. 실바, 안드레이 즐레이트(2026). "무역 정책 불확실성 속에서 공급망 위험 및 은행 대출", FEDS 노트. 워싱턴: 연방준비제도 이사회, 2026년 1월 30일, https://doi.org/10.17016/2380-7172.3996.
+
+면책 조항: FEDS Notes는 이사회 직원이 자신의 견해를 제공하고 경제 및 금융 분야의 다양한 주제에 대한 분석을 제공하는 기사입니다. 이 기사는 FEDS 작업 보고서 및 IFDP 보고서보다 짧고 기술 지향적이지 않습니다.
+
+## 📄 영문 원본
+Luke Morgan,  Carlos A. Ramírez ,  Andre F. Silva , and  Andrei Zlate 1
+
+During times of increased trade policy uncertainty and geopolitical tensions, supply chain disruptions can be an important source of instability. Due to the interconnected nature of modern economies, problems in one market can often ripple across others, triggering logistical bottlenecks and longer delivery times. These issues, in turn, can lead to higher costs of production and lost revenue for firms, affecting the supply and demand for credit through various channels. Banks facing greater uncertainty or rising default risks may tighten credit supply (Correa et al., 2024; Wu and Suardi, 2021; Alessandri and Bottero, 2020). At the same time, firms may either reduce their loan demand as they postpone investments in response to uncertainty, or instead seek to increase borrowing to finance investments, accumulate inventory, or manage disruptions in their supply chains (Alfaro et al., 2025; Caldara et al., 2020).
+
+In this note, we examine how banks' exposures to supply chain disruptions shaped their lending decisions during the first half of 2025, amid heightened trade policy uncertainty. To do so, we construct a novel market-based measure of banks' exposures to supply chain risk that integrates stock market and supply chain data with detailed supervisory data on bank lending exposures, allowing us to capture how disruptions to supply chains transmit to the banking sector.
+
+We use detailed quarterly loan-level data and weekly bank-level data to examine the growth of commercial and industrial (C&I) loans on banks' books. We build on the intuition that concerns about supply chain disruptions may impact firms' investment and inventory accumulation decisions, which, in turn, may affect their demand for bank loans as well as banks' willingness to supply credit.
+
+We show that following the November 2024 presidential election, C&I loan growth was weaker during 2025:Q1 at banks more exposed to borrowers with high supply chain risk compared to their less-exposed counterparts. Subsequently, during 2025:Q2—around the time of the April tariff announcements—loan utilization and loan spreads rose to a greater extent at more-exposed banks, likely reflecting their borrowers' increased loan demand to finance inventories and imported equipment ahead of the implementation of tariffs.
+
+The next sections outline our methodology and data, followed by a discussion of our main findings and conclusions.
+
+We construct our measure of banks' exposures to supply chain risks by combining firm-level stock return and supply chain data with detailed information on banks' loan portfolios from Y-14Q data. We follow a three-step process:
+
+The first two steps follow Ramírez (2024), who shows that this methodology helps capture firms' exposures to supply chain disruptions. While our approach somewhat resembles the methodology used in Hassan et al. (2019) and Correa et al. (2024), we differ in that we use a firm-level measure of exposure to supply chain risk rather than to trade policy uncertainty, which we then aggregate at the bank level using sectors' shares in banks' loan portfolios like in Correa et al. (2023). 3
+
+Using this bank-level measure of supply chain risk, we classify banks into two groups based on their December 2024 scores: those at or below the median are labeled  Low SC Exposure , while those above the median are labeled  High SC Exposure. 4   We then use these rankings to explore lending and loan pricing across different bank types using information from forms Y-14Q schedule H.1 and FR 2644. The FR Y-14Q dataset collects quarterly loan-level data for C&I loans outstanding, including both credit lines and term loans, with detailed information on committed and utilized amounts, loan terms, and borrower characteristics. In addition, the FR 2644 dataset collects weekly bank-level data on bank balance sheet items, including C&I loans on banks' books. After matching information between the Y-14Q and FR 2644 datasets, our analysis focuses on a group of 23 banks: 12 low SC exposure banks and 11 high SC exposure banks, covering roughly 18% and 37% of the outstanding C&I loan amounts at U.S. banks. 5
+
+Figure 1 shows that C&I loan commitments at more-exposed banks declined between 2024:Q3 and 2025:Q1 (in red), amid heightened trade policy uncertainty, while C&I loan commitments at less-exposed banks (in blue) held relatively steady. This pattern is consistent with the findings in Correa et al. (2023), who show that banks more exposed to sectors experiencing heightened trade uncertainty, and especially banks with lower capital buffers, reduced loan growth during the 2018-2019 episode. Subsequently, C&I loan commitments picked up at all banks in 2025:Q2, following the tariff announcements in April. We examine the drivers of this pickup in the remainder of this note.
+
+Source: Federal Reserve Board, Form FR Y-14Q (Schedule H.1 for C&I loans); authors' calculations.
+
+To disentangle the relative roles of bank credit supply and borrower loan demand in the pickup of loan growth across bank types during 2025:Q2, we next look at the extent to which borrowers drew on their available credit lines. As shown in Figure 2, C&I loan utilization increased more steeply at more-exposed banks (in red) than at less-exposed banks (in blue) from 2025:Q1 to Q2, following the tariff announcements in April. Similarly, in Figure 3, the share of drawn credit (or utilization rate) increased at a similar pace across bank types late last year. However, following the April 2025 tariff announcements, the utilization rate at more-exposed banks (in red) rose markedly from 2025:Q1 to Q2, likely reflecting greater borrower loan demand to finance inventory accumulation and equipment investment ahead of the implementation of tariffs. In contrast, utilization rates at less-exposed banks (in blue) declined during the same period.
+
+Source: Federal Reserve Board, Form FR Y-14Q (Schedule H.1 for C&I loans); authors' calculations.
+
+Source: Federal Reserve Board, Form FR Y-14Q (Schedule H.1 for C&I loans); authors' calculations.
+
+Exposure to supply chain risks also had a meaningful impact on loan pricing. As shown in Figure 4, average loan spreads at more-exposed banks increased from 2025:Q1 to Q2, while spreads at less-exposed banks decreased. Taken together, these patterns—i.e., higher utilization and higher spreads—suggest that the surge in lending at the more-exposed banks in 2025:Q2 was driven primarily by stronger borrower demand rather than an expansion in bank credit supply.
+
+Source: Federal Reserve Board, Form FR Y-14Q (Schedule H.1 for C&I loans); authors' calculations.
+
+Figure 5 reveals similar patterns in loans on banks' books, based on the weekly bank balance sheet data in FR 2644, which roughly corresponds to the C&I loan utilized amounts in the Y-14Q data shown in Figure 2. Following the November 2024 election and related trade policy developments, the growth of C&I loans at banks with high exposures to supply chain risks initially weakened (in red); subsequently, their loan growth recovered around the time of the tariff announcements in early April. These developments are consistent with a pickup in loan demand at more-exposed banks during 2025:Q2.
+
+Note: The vertical lines indicate dates for Election Day: 11/05/2024, Global Steel and Aluminum Tariffs: 03/12/2025, Scale of April 2 Tariffs Foreshadowed: 03/21/2025, and April 2 Reciprocal Tariffs Announced: 04/02/2025, respectively.
+
+Source: Federal Reserve Board, Form FR 2644; authors' calculations.
+
+These conclusions are corroborated by banks' responses to the special questions in the October 2025 SLOOS. In the survey, the subset of banks that reported strengthened demand for C&I loans since the beginning of the year cited increased customer investment needs—particularly to build inventories in response to trade developments and to adjust to trade-related shifts in product availability or pricing—as main reasons (Figure 6). Nearly all other queried reasons were not cited, on net, as having been important drivers of stronger credit demand.
+
+Source: October 2025 Senior Loan Officer Opinion Survey on Bank Lending Practices (SLOOS).
+
+Our findings are consistent with the view that, following the initial surge in trade policy uncertainty in late-2024, lending grew more slowly at banks more exposed to supply chain risks. Subsequently, the rise in both credit utilization and loan spreads around the April 2025 tariff announcements are consistent with stronger demand for credit at more exposed banks, as their borrowers likely front-loaded inventories and equipment investment ahead of the implementation of announced policies.
+
+Alfaro, L., Mariya Brussevich, Camelia Minoiu, and Andrea Presbitero (2025). "Bank Financing of Global Supply Chains." NBER Working Paper 33754.
+
+Alessandri, Piergiorgio, and Margherita Bottero (2020). "Bank Lending in Uncertain Times."  European Economic Review , Volume 128, 2020, 103503, ISSN 0014-2921, https://doi.org/10.1016/j.euroecorev.2020.103503.
+
+Caldara, D., Matteo Iacoviello, Patrick Molligo, Andrea Prestipino, Andrea Raffo (2020). "The Economic Effects of Trade Policy Uncertainty."  Journal of Monetary Economics , Volume 109, 2020, Pages 38-59, ISSN 0304-3932, https://doi.org/10.1016/j.jmoneco.2019.11.002.
+
+Correa, R., Di Giovanni, J., Goldberg, L. S., & Minoiu, C. (2024). "Trade Uncertainty and U.S. Bank Lending." NBER Working Paper 31860.
+
+Hassan, T. A., Hollander, S., Van Lent, L., & Tahoun, A. (2019). "Firm-Level Political Risk: Measurement and Effects."  The Quarterly Journal of Economics , 134(4), 2135-2202.
+
+October 2025 Senior Loan Officer Opinion Survey, Federal Reserve Board.  https://www.federalreserve.gov/data/sloos/sloos-202510.htm
+
+Ramírez, Carlos A. (2024), "Firm Networks and Asset Returns,"  Review of Financial Studies , vol. 37 (October), pp. 3050–91, https://doi.org/10.1093/rfs/hhae032
+
+Wu, Wei-Shao and Sandy Suardi (2021). "Economic Uncertainty and Bank Lending."  Journal of Money, Credit and Banking , 53(8), 2037-2069.
+
+1. We would like to thank Celso Brunetti, Felicia Ionescu, Elizabeth Klee, Virginia Lewis, Camelia Minoiu, Borghan Narajabad, Friederike Niepmann, and Min Wei for useful comments and insightful discussions. The views expressed in this note are solely those of the authors and do not necessarily reflect the views of the Board of Governors of the Federal Reserve System or other members of its staff.  Return to text
+
+2. To estimate firm-level exposures, we run time-series regressions of the form: $$r_{i,t}-\ r_{f,t}=\alpha_i+\ \beta_iX_t+\ \varphi_i{SCI}_t$$, where $$r_{i,t}$$ denotes the return of firm "$$i$$", $$r_{f,t}$$ is the risk-free rate, and $$X_t$$ is a vector of return factors from the Fama-French five-factor model. Variable $${SCI}_t$$ captures the return of the long-short portfolio. All variables are measured at month "$$t$$." We estimate parameters using rolling windows with 36 months, which allow firm-level exposures to vary over time. Our bank- level measure uses firm-level exposures, $$\varphi_i$$, as of December 2024, which are estimated over the interval from January 2022 to December 2024.  Return to text
+
+3. Hassan et al. (2019) construct a measure of firm-level trade uncertainty during 2016-2017, rather than supply chain disruption risk, derived from textual analysis of earnings calls. Like us, Correa et al. (2023) aggregate it at the sector level and map to banks via loan exposures.  Return to text
+
+4. There is considerable variation in the bank-level measure of supply chain risk. The index across 23 banks in our sample has an average of 0.283, standard deviation of 0.386, ranging from a minimum of -1.250 to a maximum of 0.911.  Return to text
+
+5. We exclude loans to financial firms (including nonbanks) from the Y-14Q data used in figures 1–4. However, we show below that the Y-14Q results are consistent with those from the FR 2644 data, in which we take the sum of C&I loans and loans to NDFIs to avoid issues related to the ongoing reclassification of some C&I loans as loans to NDFIs.  Return to text
+
+Morgan, Luke, Carlos A. Ramírez, Andre F. Silva, and Andrei Zlate (2026). "Supply Chain Risk and Bank Lending Amid Trade Policy Uncertainty," FEDS Notes. Washington: Board of Governors of the Federal Reserve System, January 30, 2026, https://doi.org/10.17016/2380-7172.3996.
+
+Disclaimer:  FEDS Notes are articles in which Board staff offer their own views and present analysis on a range of topics in economics and finance. These articles are shorter and less technically oriented than FEDS Working Papers and IFDP papers.
+
+
+---
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/supply-chain-risk-and-bank-lending-amid-trade-policy-uncertainty-20260130.html | 수집: 2026-06-10 01:40 | 지표: FEDS_NOTES*

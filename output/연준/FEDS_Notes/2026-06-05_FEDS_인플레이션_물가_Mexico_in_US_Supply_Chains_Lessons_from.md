@@ -1,0 +1,291 @@
+# FEDS Notes - Mexico in U.S. Supply Chains: Lessons from 2018-19 Tariffs
+
+> 날짜: 2026-06-05
+> 저자: Maria Aristizabal-Ramirez, Chris A. Avalos, Emma Rosenbaum, andEva Van Leemput
+> 주제: 인플레이션/물가
+> 출처: https://www.federalreserve.gov/econres/notes/feds-notes/mexico-in-u-s-supply-chains-lessons-from-2018-19-tariffs-20260605.html
+
+## 📌 초록 (원문)
+In the wake of the 2018â19 U.S.-China tariff hikes, there has been a significant shift in U.S. supply chains, with Mexico emerging as the largest supplier of U.S. imports, surpassing China. This shift has been attributed in part to Mexico gaining a cost advantage over China following the U.S tariffs on China.
+
+## 📋 한국어 번역
+Maria Aristizabal-Ramirez, Chris A. Avalos, Emma Rosenbaum 및 Eva Van Leemput 1
+
+2018~2019년 미국-중국 관세 인상으로 인해 미국 공급망에 상당한 변화가 일어났으며, 멕시코는 중국을 제치고 미국산 수입품의 최대 공급국으로 부상했습니다. 이러한 변화는 부분적으로 미국이 중국에 관세를 부과한 이후 멕시코가 중국보다 비용 우위를 확보한 데 기인합니다. 그러나 멕시코의 대미 수출 증가가 멕시코 기업의 진정한 경쟁력 향상을 반영하는 정도와 중국이 생산을 그곳으로 이전하거나 관세를 회피하기 위해 상품을 환적함으로써 멕시코를 "백도어"로 이용하고 있다는 대체 설명에 대한 논쟁이 계속되고 있습니다.
+
+이러한 다양한 형태의 무역전환을 구별하는 것이 중요합니다. 멕시코로의 전환이 중국 생산 이전을 반영한다면, 국가 안보, 공급망 탄력성 및 기타 이유로 중국과 분리하려는 미국의 노력이 약화될 수 있습니다. 더욱이 많은 상품이 환적되면 미국은 상당한 관세 수입을 잃을 수 있습니다.
+
+우리의 주요 기여는 성장 추세, 중국과 무관한 무역 전환, 중국의 백도어 전략(생산에서 환적을 분리) 및 기타 요인 등 다양한 소스에 걸쳐 멕시코 수출 이익의 상대적 크기를 정량화하는 통합 분해 프레임워크를 개발하는 것입니다. 비판적으로, 우리는 무역 전환의 다른 원천과 관련하여 중국의 전체 역할(환적 및 생산 이전 모두)을 체계적으로 정량화한 최초의 기업으로, 디커플링 정책 효과를 평가하는 데 필수적인 한계를 제공합니다. 우리는 무역 정책에 따른 공급망 구조 조정에 관한 문헌에 기고하고 있으며, 특히 2018~19년 무역 전쟁 이후 미국, 멕시코, 중국 간 무역 관계 재구성을 조사하고 있습니다(Alfaro and Chor, 2025; Arizala et al., 2025; Bonadio et al., 2025; Chen et al., 2025; Freund, 2025; Utar et al. al., 2025; Grossman et al., 2024; Dang et al., 2023;
+
+우리는 미국 시장에서 멕시코의 이익 중 상당 부분(약 53%)이 중국에 대한 미국의 관세에 의해 주도된 것으로 추정하며, 이는 무역 흐름의 방향을 바꾸는 데 있어 관세 정책의 중요한 역할을 강조합니다. 이러한 증가 중 약 1/4(14% 포인트)은 중국의 "백도어" 전략을 반영한 것으로 보이며, 이는 멕시코의 대미 수출 증가 중 상당 부분(대부분은 아님)이 중국 생산과 관련이 있을 수 있음을 시사합니다.
+
+전반적으로, 이러한 결과는 미국의 관세 인상이 무역 전환을 유도할 뿐만 아니라 기업이 관세가 낮은 국가로 생산을 이전하도록 장려한다는 것을 나타냅니다. 2025년부터 미국 관세가 확대되면서 진정한 공급망 재편성과 백도어 활동이 모두 강화될 가능성이 높습니다.
+
+2018~19년 미국-중국 관세 인상의 여파로 멕시코는 중국을 제치고 미국산 수입품의 최대 공급국으로 부상했으며 현재 전체 수입량의 16%를 차지하고 있습니다(그림 1a). 이러한 변화는 부분적으로 미국이 중국에 관세를 부과한 이후 멕시코가 중국보다 비용 우위를 확보한 데 기인합니다. 2 그림 1b는 2018~19년 미국이 중국에 관세를 부과한 멕시코 상품 수출의 변화를 보여주며, 관세가 부과되지 않은 상품은 검은 점선으로 표시되어 있습니다. 멕시코의 관세에 노출된 수출이 더 나은 성과를 보였으며 이는 상당한 규모의 무역이 멕시코로 전환되었음을 시사합니다.
+
+왼쪽 그림: 1.A. 국가별 미국 상품 수입 
+참고: 데이터는 2025년 1분기까지 확장됩니다. 
+출처: Haver Analytics; FRB 직원 계산.
+
+오른쪽 그림: 1.B. 멕시코의 미국 수출 
+참고: 관세가 부과되는 상품은 2018-19년 미국의 중국 관세가 적용되는 상품입니다. 데이터는 2024년 4분기까지 연장됩니다. 
+출처: 유엔 동지; FRB 직원 계산.
+
+그러나 멕시코의 대미 수출이 급증하는 동시에 중국과 멕시코의 관계도 더욱 강화되었습니다. 그림 2a는 멕시코에 대한 중국의 신규 외국인 직접 투자(FDI)가 여러 제조 부문에서 급증했음을 보여주며, 그림 2b는 동일한 부문에서 중국으로부터의 멕시코 수입도 동시에 급증했음을 보여줍니다. 이러한 패턴은 중국 기업이 환적이나 전면적인 생산 이전을 통해 미국 시장에 접근하기 위한 플랫폼으로 멕시코를 활용할 수 있음을 시사합니다. 3
+
+왼쪽 그림: 2.A. 중국의 멕시코에 대한 누적 FDI 
+참고: FDI는 그린필드 외국인 직접 투자입니다. 키는 위에서 아래로 순서대로 식별됩니다. 
+출처: Financial Times - fDi 시장; FRB 직원 계산.
+
+오른쪽 그림: 2.B. 중국에서 실제 멕시코 수입품 
+참고: 기타에는 농업, 광업 및 기타 부문이 포함됩니다. 데이터는 2024년 4분기까지 연장됩니다. 키는 위에서 아래로 순서대로 식별됩니다. 
+출처: 유엔 동지; FRB 직원 계산.
+
+2.1 멕시코의 대미 수출 증가는 무역 전환을 얼마나 반영했는가? 
+우리의 분석은 먼저 무역 전환으로 인한 미국-중국 관세 인상 이후 멕시코의 대미 수출 증가 비율을 분리합니다. 이를 위해 우리는 미국이 중국에 관세를 부과한 멕시코의 상품 수출 변동을 활용하고 이러한 효과를 기본 추세 및 기타 요인과 구별합니다. 우리는 두 단계로 진행합니다.
+
+먼저 관세 적용 전 기간(2014~2017년)과 관세 적용 후 기간(2021~24년) 사이의 각 상품에 대한 멕시코 수출의 총 변화를 계산합니다. 그런 다음 HP 필터를 사용하여 관세 전 추세를 예측하여 관세 충격이 없었을 수출품을 추정합니다. 4 추세 구성요소는 정책 이전 패턴의 지속만을 기반으로 멕시코 수출의 예상 성장을 포착합니다.
+
+관세로 인한 무역 전환을 확인하기 위해 우리는 미국이 중국에 관세를 부과한 상품의 멕시코 수출이 비관세 상품과 비교하여 어떻게 발전했는지 비교합니다. 5 중요한 통찰은 중국이 미국 시장에서 초기에 더 큰 영향력을 행사했던 제품이 관세로 인해 더 큰 타격을 받아 멕시코로의 무역 전환에 대한 더 강력한 인센티브를 창출했다는 것입니다. 기존 수요나 생산성 변화로부터 정책 효과를 분리하기 위해 제품별 관세 전 성장 추세를 통제합니다.
+
+그림 3은 분해를 보여줍니다. 우리는 이 기간 동안 멕시코의 대미 수출 증가 중 무역 전환이 53%를 차지하고 추세 성장이 35%를 차지하며 자동차에 대한 팬데믹 이후 수요와 같은 기타 요인이 나머지 12%를 차지하는 것으로 나타났습니다. 따라서 우리의 결과는 멕시코의 대미 수출 증가가 특히 중국에 대한 미국의 관세 인상에 의해 주도되었음을 보여줍니다.
+
+참고: Bar는 2014~2017년부터 2021~24년까지 미국에 대한 멕시코 수출의 연간 증가를 (1) 2018~19년 중국에 대한 미국 관세에 대응한 무역 전환, (2) 성장 추세, (3) 기타 요인으로 분해하여 비교합니다.
+
+출처: 유엔 동지; FRB 직원 계산.
+
+다음으로, 우리는 중국이 멕시코를 백도어로 활용함으로써 발생한 무역전환 부분을 포착합니다.
+
+우리는 유사한 회귀 프레임워크를 사용하여 이제 미국 관세가 부과된 상품과 비관세 상품을 중국에서 수입하는 멕시코 수입품에 초점을 맞췄습니다. 관세가 부과되는 상품의 경우, 우리는 중국으로부터 멕시코 수입이 증가하는 것을 환적이나 생산 이전을 통해 미국 시장에 접근하려는 노력을 반영하는 것으로 해석합니다. 이러한 해석은 이러한 증가가 중국이 미국 시장에 접근할 수 없게 된 제품에 집중되어 있다는 사실에 의해 뒷받침됩니다. 이는 해당 제품이 멕시코 내수 소비보다는 주로 미국 수요에 부응한다는 것을 의미합니다.
+
+4단계: 환적과 생산 재배치 구별
+
+중국의 백도어 사용으로 확인된 상품 중 환적된 상품은 중국에서 수입한 후 미국으로 재수출되는 관세 상품으로 분류됩니다. 6 이 정의에 해당되지 않는 상품은 멕시코에서 의미 있는 생산과 관련된 상품으로 분류됩니다.
+
+그림 4는 무역전환에 대한 우리의 초기 추정치를 더욱 분해한 것입니다. 중국으로부터의 직접 환적은 1% 미만으로 미미한 것으로 나타났습니다. 따라서 중국이 단순히 멕시코를 통해 상품을 환적한다는 우려와는 달리 무역 데이터는 대규모 환적을 뒷받침하지 않는 것으로 보입니다. 7 우리는 멕시코의 대미 수출에 대한 추가 투입-산출 데이터를 사용하여 이 결과를 더욱 확증합니다. 그림 5는 멕시코의 대미 수출 부가가치 증가율이 이 기간 동안 중국 투입 증가율을 초과했음을 보여줍니다. 이는 멕시코 수출이 중국 투입물과 함께 상당한 국내 콘텐츠를 통합했음을 나타냅니다. 멕시코가 단지 최소한의 가공으로 중국 상품을 환적한다면 이러한 패턴은 나타나지 않을 것입니다. 종합해보면, 증거는 대규모 환적을 뒷받침하지 않습니다.
+
+참고: Bar는 2014~2017년부터 2021~24년까지 미국에 대한 멕시코 수출의 연간 증가를 (1) 2018~19년 중국에 대한 미국 관세에 대응한 무역 전환, (2) 성장 추세, (3) 기타 요인으로 분해하여 비교합니다. 무역 전환은 (1) 중국 환적, (2) 멕시코 내 중국 생산, (3) 기타 무역 전환의 세 부분으로 분해됩니다.
+
+출처: 유엔 동지; FRB 직원 계산.
+
+참고: 막대는 지난 2년간의 성장을 나타냅니다. 키는 위에서 아래로 순서대로 식별됩니다. 
+출처: OECD 국가간 투입-산출표; FRB 직원 계산.
+
+대신, 무역 데이터는 멕시코의 미국에 대한 총 수출 이익의 14%를 차지하는 멕시코 내 중국의 생산 또는 가공 형태와 더 일치합니다. 이는 상당한 제조 운영부터 보다 제한적인 가공 활동에 이르기까지 다양할 수 있지만 두 경우 모두 순수 환적을 넘어서는 명확한 중국 발자국을 반영합니다. 나머지 38%는 멕시코 기업뿐만 아니라 멕시코 내 미국 및 기타 외국 다국적 기업의 확장을 포함하여 중국 이외의 소스로부터의 전환을 반영합니다. 이는 Utar et al.에 문서화된 패턴과 일치합니다. (2025, 2026).
+
+우리는 기업 소유권에 대한 더 직접적인 정보에 접근할 수 없기 때문에 국제 무역 데이터를 통해 중국이 멕시코를 "백도어"로 이용하는 것을 식별합니다. 결과적으로, 우리의 추정치는 중요한 경고 사항을 따르며 정확한 측정값보다는 정보 제공 범위로 해석되어야 합니다.
+
+중국 이외의 기업이 미국 시장에 서비스를 제공하기 위해 중국 투입물에 대한 의존도를 높인 경우 또는 중국의 멕시코 수입품 중 일부가 재수출이 아닌 국내 소비를 목적으로 하는 경우(보충 증거에 따르면 중국의 FDI가 멕시코의 대미 수출과 양의 상관관계가 있음을 보여주지만) 우리 프레임워크는 중국의 백도어 역할을 과장할 수 있습니다. 반대로, 우리는 관세가 부과된 상품에만 초점을 맞춤으로써 중국의 역할을 과소평가할 수 있습니다. 만약 중국 기업이 멕시코 생산에서 비관세 투입물에 의존한다면 이러한 활동은 포착되지 않을 것입니다.
+
+2018~19년 에피소드는 현재 환경을 이해하는 데 유용한 벤치마크를 제공합니다. 현재 새로운 관세 물결이 진행 중이고 USMCA 검토가 2026년 7월에 다가오고 있는 가운데, 핵심 질문은 이러한 패턴이 반복될 것인지 아니면 강화될 것인지입니다.
+
+앞으로 두 가지 주요 차이점은 무역 전환이 2018-19년 수준을 초과할 수 있음을 시사합니다. 첫째, 멕시코에 대한 관세는 상대적으로 낮은 반면 이번에는 관세가 훨씬 높아져 이전에 멕시코로의 무역 전환을 이끈 비용 우위가 증폭되었습니다. 둘째, 관세가 더 넓어져 더 많은 국가와 제품에 적용됩니다. 이는 중국뿐만 아니라 여러 국가의 기업이 멕시코를 백도어로 사용하려는 인센티브를 증가시킵니다. 더욱이, 기업이 이제 관세를 보다 영구적인 것으로 간주한다면 공급망 조정이 더 빠르게 이루어질 수도 있고 이미 예상대로 이루어졌을 수도 있습니다.
+
+이러한 역학관계는 전자 부문에서 이미 명백히 나타나고 있습니다. 최근 몇 년간 중국을 제외한 아시아 국가의 FDI가 급증한 반면, 대만의 Foxconn과 같은 기존 계약 제조업체는 멕시코 사업을 확장했습니다(그림 6.A). 이는 미국 AI 붐으로 인해 멕시코가 놀라울 정도로 빠른 성장을 이룬 것을 설명하는 데 도움이 됩니다. 멕시코는 미국 시장에 AI 관련 제품을 공급하는 최고의 공급업체로 부상했습니다(그림 6.B).
+
+왼쪽 그림: 6.A. 전자 분야의 멕시코에 대한 FDI 성장 
+참고: FDI는 그린필드 외국인 직접 투자입니다. 성장은 2014-17년부터 2021-24년까지입니다. 
+출처: Financial Times - fDi 시장; FRB 직원 계산.
+
+오른쪽 그림: 6.B. 실제 미국 AI 관련 수입품 
+참고: 데이터는 2025년 3분기까지 연장됩니다. 상품은 자동자료처리기계의 장치, 부품, 부속품을 말합니다. 
+출처: 유엔 동지; FRB 직원 계산.
+
+다가오는 USMCA 검토는 정책이 더 깊은 통합을 강조하는지 아니면 북미 이외의 콘텐츠에 대한 더 엄격한 제한을 강조하는지를 결정하게 될 것입니다. 상당한 무역 전환과 고도로 통합된 공급망(멕시코는 미국 수입의 16%를 차지함)을 고려할 때 이러한 정책 방향은 중요한 의미를 갖습니다. 원산지 규정이 엄격해지면 환적과 실제 재배치를 구별하지 못할 경우 공급망이 중단될 수 있으며, 현재 규정을 유지하면 백도어 전략이 확대될 수 있습니다.
+
+2018~19년 미중 관세는 중국뿐만 아니라 제3국(특히 상당한 무역 전환의 혜택을 받은 멕시코)과의 미국 무역을 재편했습니다. 동시에, 중국에 대한 미국의 관세는 중국 기업들이 멕시코로 생산을 이전하도록 동기를 부여했습니다. 우리는 이 채널이 경제적으로 의미가 있다고 추정하며 멕시코의 미국에 대한 총 수출 이익의 약 14%를 차지합니다. 그러나 나머지 무역 전환의 대부분은 멕시코 기업은 물론 멕시코에서 활동하는 미국 및 기타 외국 다국적 기업을 포함하여 중국 이외의 소스에 의한 확장을 나타냅니다(Utar et al. 2025, 2026)
+
+이러한 연구 결과는 현대 공급망과 기업 이전 결정의 복잡성을 강조하고 생산이 제3국을 통해 간접적으로 이전될 때 중국에 대한 미국의 의존도 감소가 과장될 수 있음을 시사합니다. 이제 관세가 더욱 높고 광범위해짐에 따라 이러한 인센티브가 강화되어 잠재적으로 여러 국가의 기업이 유사한 전략을 채택하게 될 수 있습니다. 이러한 배경에서 다가오는 USMCA 검토는 멕시코와 멕시코의 광범위한 글로벌 무역 파트너에 대한 미국 무역 정책의 방향을 결정하는 데 중요할 것입니다.
+
+알파로, 로라, 다빈 코르(2025). "미국 공급망 무역의 대규모 재분배에 대한 분석", NBER 연구 보고서 34490.
+
+아리잘라, 프란시스코, 미네야마 토모히데, 휴고 투에스타(2025). "글로벌 가치 사슬의 재배치: 멕시코의 역할," IMF 조사 보고서 WP/25/180.
+
+Bonadio, Barthélémy, Zhen Huo, Elliot Kang, Andrei A. Levchenko, Nitya Pandalai-Nayar, Hiroshi Toma 및 Petia Topalova(2025). "블록 활용: 디커플링 수량화", Journal of International Economics, https://doi.org/10.1016/j.jinteco.2025.104204.
+
+Bonadio, Barthélémy, Andrei A. Levchenko 및 Nitya Pandalai-Nayar(2026). "떨어지는 도미노? 미국의 자유 무역 탈퇴가 무역 협력의 지속 가능성에 미치는 영향", NBER 장.
+
+Chen, Natalie, Dennis Novy, Diego Solórzano(2025). "무역 전환 및 노동 시장 결과", CESifo 연구 보고서.
+
+Dang, Alicia H., Kala Krishna, Yingyan Zhao(2023). "미-중 무역 전쟁의 승자와 패자", NBER Working Paper 31922.
+
+프로인드, 캐롤라인(2025). "차이나 워시: 환적을 통한 관세 회피를 식별하기 위한 제품 추적", UC 샌디에고 글로벌 정책 및 전략 학교 21세기 중국 센터 및 상업 외교 센터.
+
+프로인드, 캐롤라인, Aaditya Mattoo, Alen Mulabdic, Michele Ruta(2024). "미국의 무역정책이 글로벌 공급망을 재편하고 있는가?", Journal of International Economics, https://doi.org/10.1016/j.jinteco.2024.104011
+
+Garred, Jason, Song Yuan(2025). "중국으로부터의 이주(중국적 특성을 가짐)", 『개발경제학』, https://doi.org/10.1016/j.jdeveco.2025.103510
+
+Grossman, Gene M., Elhanan Helpman 및 Stephen J. Redding(2024). "관세가 글로벌 공급망을 혼란에 빠뜨릴 때", American Economic Review, https://doi.org/10.1257/aer.20211519
+
+호앙, 뜨랑, 카터 믹스(2026). "무역 전쟁과 무역 전쟁 소문: 미중 관세 인상의 역동적인 효과," Journal of International Economics, https://doi.org/10.1016/j.jinteco.2026.104229
+
+우타르, 할레(2026). "북미의 다른 곳: 중국에 대한 미국의 관세가 멕시코의 제조업 고용과 생산을 촉진한 방법", CESifo 연구 보고서 12425.
+
+Utar, Hâle, Alfonso Cebreros Zurita 및 Luis Torres(2025). "미-중 무역 전쟁과 글로벌 가치 사슬의 멕시코로의 이전", 경제 및 통계 리뷰, https://doi.org/10.1162/REST.a.1682
+
+A.1 데이터 
+우리의 주요 데이터 소스는 UN Comtrade(2014-2024)이며, 미국, 중국, 멕시코 간의 HS 6자리 수준(rev4)으로 월별 양자 무역 흐름을 제공합니다. 이 데이터를 통해 우리는 무역 전환 규모를 정량화할 수 있습니다. 우리는 그린필드 투자를 포착하고 멕시코 내 중국 및 기타 외국인의 존재를 측정하는 fDi Markets와 멕시코의 미국 수출에 추가되는 국내 및 중국의 가치를 측정할 수 있는 OECD 입출력 표(2014-2022, ISIC-2 rev4)의 원산지 국가별(2014-2024) 멕시코에 대한 부문별 FDI 흐름을 사용하여 결과를 보완합니다. 우리는 분석을 위해 제품을 광범위한 부문으로 조화시킵니다.
+
+A.2 정의 
+우리는 무역 전환을 중국이 더 높은 관세에 직면하여 멕시코가 더 비용 경쟁력을 가지게 되면서 발생한 미국산 멕시코 수입의 증가로 정의합니다. 이러한 전환은 두 가지 형태를 취할 수 있습니다. (1) 멕시코로의 대체: 멕시코 기업이나 멕시코에 있는 기존의 중국계 기업이 아닌 사업장은 중국에 비해 더 경쟁력이 있습니다. (2) 중국의 백도어 전략: 중국은 (a) 중국산 상품을 최소한의 가공으로 멕시코를 통해 운송하는 환적 또는 (b) 중국 소유 기업이 멕시코에서 생산하거나 상당한 중국 투입물을 사용하여 상품을 멕시코를 통해 라우팅함으로써 관세를 회피합니다. 이러한 채널을 구별하는 것은 정책에 매우 중요합니다. 무역 전환이 주로 이전된 중국 생산품이나 환적을 반영한다면 미국의 디커플링 노력이 약화되고 관세 수입이 감소할 수 있습니다.
+
+1. Maria Aristizabal-Ramirez(이메일: [email protected] ), Chris A. Avalos, Emma Rosenbaum, Eva Van Leemput는 연방준비제도(Federal Reserve System) 이사회 소속입니다. 이 문서에 표현된 견해는 우리 자신의 견해이며, 연방준비은행 이사회나 연방준비제도와 관련된 다른 사람의 견해를 대표하지 않습니다.  텍스트로 돌아가기
+
+2. 2018~2019년 동안 미국은 중국 수입품의 약 3분의 2에 대한 관세를 인상하여 평균 관세를 12%포인트 인상했습니다. 이로 인해 멕시코와 상당한 관세 차이가 발생했는데, 멕시코의 관세율은 거의 0에 가까웠고 USMCA가 비준된 후에도 그 수준을 유지했습니다.  텍스트로 돌아가기
+
+3. 중국의 멕시코 FDI 급증은 Arizala et al.이 기록한 패턴과 일치합니다. (2025) 이는 중국으로부터 미국 시장 점유율을 획득한 국가들이 동시에 중국으로부터의 수입을 늘리는 보다 광범위한 글로벌 현상을 반영합니다(Freund et al., 2024).  텍스트로 돌아가기
+
+4. HP(Hodrick-Prescott) 필터는 시계열을 추세 및 순환 구성 요소로 분리하고 단기 변동을 필터링하여 기본 성장 경로를 식별하는 평활화 기술입니다.  텍스트로 돌아가기
+
+5. 공식적으로 우리는 관세 지표, 초기 미중 무역량(치료 강도 파악), 상호 작용 및 관세 전 성장 추세를 기준으로 멕시코 수출의 변화를 회귀 분석합니다. 상호작용 항은 관세 노출 상품에 대한 차별적 성장, 관세 노출 상품에 대한 차별적 성장을 포착합니다.  텍스트로 돌아가기
+
+6. 분석에서는 세 가지 기준을 충족하는 경우에만 제품을 환적 제품으로 분류합니다. 첫째, 경로 변경에 대한 증거가 필요합니다. 중국으로부터의 미국 수입은 감소한 반면 멕시코의 중국 수입과 멕시코의 대미 수출은 모두 증가했습니다. 둘째, 중국의 전반적인 수출 확대를 배제하려면 멕시코에 대한 중국의 수출이 전 세계로의 중국 수출보다 더 빠르게 성장해야 합니다. 셋째, 멕시코 내수 증가를 배제하기 위해 멕시코의 대미 수출 증가율은 멕시코의 중국 수입 증가율을 크게 초과할 수 없습니다(최소 부가가치를 나타냄). 우리의 접근 방식은 환적을 식별하기 위해 양자 무역 패턴을 사용하는 Freund(2025)와 유사하지만 기준은 약간 더 보수적입니다.  텍스트로 돌아가기
+
+7. 우리의 추정치는 멕시코의 Freund(2025) 1~1.5% 범위의 하한선과 일치합니다. 미국-중국 무역의 절대적인 감소와 멕시코의 수출 증가율이 중국의 수입 증가율을 초과하지 않아야 한다는 보다 엄격한 기준에 따라 우리의 추정치는 하한선에 설정됩니다. 그러나 환적 비율이 1%가 아니라 1.7%라고 해도 중국의 백도어 전략이 순수한 환적보다는 주로 생산과 관련되어 있다는 우리의 핵심 발견은 바뀌지 않을 것입니다.  텍스트로 돌아가기
+
+아리스티자발-라미레즈, 마리아, 크리스 A. 아발로스, 엠마 로젠바움, 에바 반 림푸트(2026). "미국 공급망의 멕시코: 2018~2019년 관세에서 얻은 교훈", FEDS 노트. 워싱턴: 연방준비제도 이사회, 2026년 6월 5일, https://doi.org/10.17016/2380-7172.4073.
+
+면책 조항: FEDS Notes는 이사회 직원이 자신의 견해를 제공하고 경제 및 금융 분야의 다양한 주제에 대한 분석을 제공하는 기사입니다. 이 기사는 FEDS 작업 보고서 및 IFDP 보고서보다 짧고 기술 지향적이지 않습니다.
+
+## 📄 영문 원본
+Maria Aristizabal-Ramirez , Chris A. Avalos, Emma Rosenbaum, and  Eva Van Leemput 1
+
+In the wake of the 2018–19 U.S.-China tariff hikes, there has been a significant shift in U.S. supply chains, with Mexico emerging as the largest supplier of U.S. imports, surpassing China. This shift has been attributed in part to Mexico gaining a cost advantage over China following the U.S tariffs on China. However, there is ongoing debate about the extent to which Mexico's rising exports to the U.S. reflects genuine gains in competitiveness by Mexican firms versus an alternative explanation: that China is using Mexico as a "backdoor" by relocating production there or transshipping goods to circumvent tariffs.
+
+Distinguishing between these different forms of trade diversion is important. If a large share of diversion to Mexico reflects the relocation of Chinese production, U.S. efforts to decouple from China—for national security, supply chain resilience, and other reasons—may be undermined. Moreover, if many goods are transshipped, the U.S. could lose significant tariff revenue.
+
+Our key contribution is developing a unified decomposition framework that quantifies the relative magnitudes of Mexico's export gains across different sources: trend growth, trade diversion unrelated to China, China's backdoor strategies (separating transshipment from production), and other factors. Critically, we are the first to systematically quantify China's total role—both transshipment and production relocation—relative to other sources of trade diversion, providing bounds essential for evaluating decoupling policy effectiveness. We contribute to the literature on supply chain restructuring in response to trade policy, specifically examining the reconfiguration of trade relationships among the U.S., Mexico, and China following the 2018-19 Trade War (Alfaro and Chor, 2025; Arizala et al., 2025; Bonadio et al., 2025; Chen et al., 2025; Freund, 2025; Utar et al.,2025; Grossman et al., 2024; Dang et al., 2023; Freund et al., 2024).
+
+We estimate that a substantial share of Mexico's gains in the U.S. market—approximately 53%—was driven by U.S. tariffs on China, highlighting the important role of tariff policy in redirecting trade flows. Of this increase, about one-quarter (14 percentage points) appears to reflect Chinese "backdoor" strategies, suggesting that a notable portion, but not most, of Mexico's export growth to the U.S. may be linked to Chinese production.
+
+Overall, these findings indicate that higher U.S. tariffs not only induce trade diversion but also encourage firms to relocate production to lower-tariff countries. With broader U.S. tariffs in place since 2025, both genuine supply chain realignment and backdoor activity are likely to intensify.
+
+In the aftermath of the 2018-19 U.S.-China tariff hikes, Mexico has emerged as the largest supplier of U.S. imports, surpassing China and now accounting for 16% of total imports (Figure 1a). This shift has been attributed in part to Mexico gaining a cost advantage over China following the U.S tariffs on China. 2  Figure 1b presents the evolution of Mexican exports of goods for which U.S. imposed tariffs on China in 2018-19, labelled "China tariffed," with those that were not tariffed, the dashed black line. Mexican tariff-exposed exports outperformed, suggesting sizable trade diversion to Mexico.
+
+Left Figure: 1.A. U.S. Goods Imports by Country 
+Note: Data extend through 2025:Q1. 
+Source: Haver Analytics; FRB staff calculations.
+
+Right Figure: 1.B. Mexican Exports to U.S. 
+Note: Tariffed goods are those subject to the 2018-19 U.S. tariffs on China. Data extend through 2024:Q4. 
+Source: UN Comtrade; FRB staff calculations.
+
+However, concurrent with Mexico's export surge to the U.S., Chinese engagement with Mexico intensified. Figure 2a shows that Chinese greenfield foreign direct investment (FDI) into Mexico surged across many manufacturing sectors, while Figure 2b shows a parallel surge in Mexican imports from China in these same sectors. These patterns suggest Chinese firms may be using Mexico as a platform to access U.S. markets—either through transshipment or outright production relocation. 3
+
+Left Figure: 2.A. Cumulative Chinese FDI to Mexico 
+Note: FDI is greenfield foreign direct investment. Key identifies in order from top to bottom. 
+Source: Financial Times - fDi Markets; FRB staff calculations.
+
+Right Figure: 2.B. Real Mexican Imports from China 
+Note: Other includes agriculture, mining, and other sectors. Data extend through 2024:Q4. Key identifies in order from top to bottom. 
+Source: UN Comtrade; FRB staff calculations.
+
+2.1 How Much Did Mexico's Export Gains to the U.S. Reflect Trade Diversion? 
+Our analysis first isolates the share of Mexico's export growth to the U.S. following the U.S.–China tariff hikes that is attributable to trade diversion. To do so, we use variation in Mexico's exports of goods for which U.S. imposed tariffs on China and distinguish these effects from underlying trends and other factors. We proceed in two steps.
+
+We first compute the total change in Mexican exports for each good between the pre-tariff period (2014-17) and the post-tariff period (2021-24). We then estimate what exports would have been absent the tariff shock by projecting pre-tariff trends forward using an HP filter. 4  The trend component captures the expected growth in Mexican exports based solely on the continuation of pre-policy patterns.
+
+To identify tariff-driven trade diversion, we compare how Mexican exports of goods for which the U.S. imposed tariffs on China evolved relative to non-tariffed goods. 5  The key insight is that products where China had a larger initial presence in the U.S. market were hit harder by tariffs, creating stronger incentives for trade diversion to Mexico. We control for product-specific pre-tariff growth trends to isolate the policy effect from pre-existing demand or productivity changes
+
+Figure 3 presents the decomposition. We find that trade diversion accounts for 53% of Mexico's export gains to the U.S. during this period, while trend growth accounts for 35%, and other factors, such as the post-pandemic demand for autos, account for the remaining 12%. Hence, our results show that Mexico's export gains to the U.S. were notably driven by higher U.S. tariffs on China.
+
+Note: Bar compares the annualized increase in Mexican exports to the U.S. from 2014-17 to 2021-24, decomposed into: (1) trade diversion in response to 2018-19 U.S. tariffs on China, (2) trend growth, and (3) other factors.
+
+Source: UN Comtrade; FRB staff calculations.
+
+Next, we capture the portion of trade diversion that is attributable to China's use of Mexico as a backdoor.
+
+We use a similar regression framework, now focusing on Mexican imports from China of U.S. tariffed versus non-tariffed goods. For tariffed goods, we interpret increases in Mexican imports from China as reflecting efforts to access the U.S. market—either through transshipment or production relocation. This interpretation is supported by the fact that the increases are concentrated in products where China lost U.S. market access, suggesting they primarily serve U.S. demand rather than Mexican domestic consumption.
+
+Step 4: Distinguishing Transshipment from Production Relocation
+
+Among goods identified as part of China's backdoor usage, we classify transshipped products as those tariffed goods imported from China and then re-exported to the U.S. 6  Products that do not fall under this definition are classified as involving meaningful production in Mexico.
+
+Figure 4 further decomposes our earlier estimate of trade diversion. We find that direct transshipment from China is negligible, accounting for less than 1 percentage point. Hence, contrary to concerns about China simply transshipping goods through Mexico, the trade data do not appear to support large-scale transshipment. 7  We further corroborate this result using additional input-output data for Mexican exports to the U.S. Figure 5 shows that Mexican value-added growth in exports to the U.S. exceeded Chinese input growth during this period, indicating that Mexican exports incorporated substantial domestic content alongside Chinese inputs. This pattern would not emerge if Mexico were merely transshipping Chinese goods with minimal processing. All told, the evidence does not support large-scale transshipment.
+
+Note: Bar compares the annualized increase in Mexican exports to the U.S. from 2014-17 to 2021-24, decomposed into: (1) trade diversion in response to 2018-19 U.S. tariffs on China, (2) trend growth, and (3) other factors. Trade diversion is decomposed into three parts: (1) Chinese transshipment, (2) Chinese production in Mexico, and (3) other trade diversion.
+
+Source: UN Comtrade; FRB staff calculations.
+
+Note: Bars represent growth from the previous two years. Key identifies in order from top to bottom. 
+Source: OECD Inter-Country Input-Output tables; FRB staff calculations.
+
+Instead, the trade data are more consistent with some form of Chinese production or processing in Mexico, accounting for 14 percent of Mexico's total export gains to the U.S. This could range from substantial manufacturing operations to more limited processing activities, but in either case reflects a clear Chinese footprint beyond pure transshipment. The remaining 38 percent reflects diversion from sources other than China, including Mexican firms as well as expansion of U.S. and other foreign multinationals in Mexico, consistent with patterns documented in Utar et al. (2025, 2026).
+
+Note that we identify China's use of Mexico as a "backdoor" through international trade data, as we do not have access to more direct information on firm ownership. As a result, our estimates are subject to important caveats and should be interpreted as informative bounds rather than precise measures.
+
+Our framework may overstate China's backdoor role if non-Chinese firms increased their reliance on Chinese inputs to serve the U.S. market, or if some Chinese imports to Mexico are destined for domestic consumption rather than re-export (though supplementary evidence shows Chinese FDI is positively correlated with Mexican exports to the U.S.). Conversely, we may understate China's role by focusing only on tariffed goods—if Chinese firms rely on non-tariffed inputs in Mexican production, this activity would not be captured.
+
+The 2018-19 episode provides a useful benchmark for understanding the current environment. With a new wave of tariffs now underway and the USMCA review approaching in July 2026, a key question is whether these patterns will repeat or intensify.
+
+Looking forward, two key differences suggest trade diversion could exceed 2018-19 levels. First, tariffs are even higher this time while remaining relatively low on Mexico, amplifying the cost advantage that drove trade diversion to Mexico previously. Second, tariffs are now broader, covering more countries and products. This increases incentives not only for China but for firms from multiple countries to use Mexico as a backdoor. Moreover, if firms now view tariffs as more permanent, supply chain adjustments may occur faster or may have already taken place in anticipation.
+
+These dynamics are already evident in the electronics sector. FDI from Asian countries excluding China has surged in recent years, while existing contract manufacturers like Taiwan's Foxconn have expanded their Mexican operations (Figure 6.A). This helps explain Mexico's surprisingly rapid gains from the U.S. AI boom—Mexico has emerged as a top supplier of AI-related goods to the U.S. market (Figure 6.B).
+
+Left Figure: 6.A. FDI Growth to Mexico in Electronics 
+Note: FDI is greenfield foreign direct investment. Growth is from 2014-17 to 2021-24. 
+Source: Financial Times - fDi Markets; FRB staff calculations.
+
+Right Figure: 6.B. Real U.S. AI-related Imports 
+Note: Data extend through 2025:Q3. Goods are units, parts, and accessories of automatic data processing machines. 
+Source: UN Comtrade; FRB staff calculations.
+
+The upcoming USMCA review will shape whether policy emphasizes deeper integration or tighter restrictions on non-North American content. Given substantial trade diversion and highly integrated supply chains—Mexico accounts for 16% of U.S. imports—this policy direction carries important implications. Stricter rules of origin could disrupt supply chains if they fail to distinguish transshipment from genuine relocation, while maintaining current rules may allow backdoor strategies to expand.
+
+The 2018–19 U.S.-China tariffs reshaped U.S. trade not only with China but also with third countries—most notably Mexico, which benefited from substantial trade diversion. At the same time, U.S. tariff on China incentivized Chinese firms to relocate production to Mexico. We estimate this channel is economically meaningful, accounting for about 14 percent of Mexico's total export gains to the U.S. The majority of the remaining trade diversion, however, represents expansion by sources other than China, including Mexican firms as well as U.S. and other foreign multinationals operating in Mexico (Utar et al. 2025, 2026)
+
+These findings highlight the complexity of modern supply chains and firms' relocation decisions and suggest that reductions in U.S. reliance on China may be overstated when production shifts indirectly through third countries. With tariffs now even higher and broader, these incentives may strengthen, potentially prompting firms from multiple countries to adopt similar strategies. Against this backdrop, the upcoming USMCA review will be important in shaping the direction of U.S. trade policy toward Mexico and its broader global trading partners.
+
+Alfaro, Laura, and Davin Chor (2025). "An Anatomy of the Great Reallocation in US Supply Chain Trade,"  NBER Working Paper 34490.
+
+Arizala, Francisco, Tomohide Mineyama, and Hugo Tuesta (2025). " Relocation of Global Value Chains: The Role of Mexico,"  IMF Working Paper WP/25/180.
+
+Bonadio, Barthélémy, Zhen Huo, Elliot Kang, Andrei A. Levchenko, Nitya Pandalai-Nayar, Hiroshi Toma, and Petia Topalova (2025). "Playing with blocs: Quantifying decoupling,"  Journal of International Economics , https://doi.org/10.1016/j.jinteco.2025.104204.
+
+Bonadio, Barthélémy, Andrei A. Levchenko, and Nitya Pandalai-Nayar (2026). "Falling Dominoes? The Impact of the US Exit from Free Trade on the Sustainability of Trade Cooperation,"  NBER Chapters .
+
+Chen, Natalie, Dennis Novy, and Diego Solórzano (2025). "Trade Diversion and Labor Market Outcomes,"  CESifo Working Paper.
+
+Dang, Alicia H., Kala Krishna, and Yingyan Zhao (2023). "Winners and losers from the US-China trade war,"  NBER Working Paper 31922 .
+
+Freund, Caroline (2025). "The China wash: Tracking products to identify tariff evasion through transshipment,"  UC San Diego School of Global Policy and Strategy 21st Century China Center and Center for Commerce and Diplomacy .
+
+Freund, Caroline, Aaditya Mattoo, Alen Mulabdic, and Michele Ruta (2024). "Is US trade policy reshaping global supply chains?,"  Journal of International Economics , https://doi.org/10.1016/j.jinteco.2024.104011
+
+Garred, Jason, and Song Yuan (2025). "Relocation from China (with Chinese characteristics),"  Journal of Development Economics,  https://doi.org/10.1016/j.jdeveco.2025.103510
+
+Grossman, Gene M., Elhanan Helpman, and Stephen J. Redding (2024). " When tariffs disrupt global supply chains,"  American Economic Review,  https://doi.org/10.1257/aer.20211519
+
+Hoang, Trang, and Carter Mix (2026). "Trade wars and rumors of trade wars: The dynamic effects of the US–China tariff hikes,"  Journal of International Economics , https://doi.org/10.1016/j.jinteco.2026.104229
+
+Utar, Hâle (2026). "Elsewhere in North America: How U.S. Tariffs on China Boosted Mexico's Manufacturing Employment and Output,"  CESifo Working Paper 12425.
+
+Utar, Hâle, Alfonso Cebreros Zurita, and Luis Torres (2025). "The US-China trade war and the relocation of global value chains to Mexico,"  Review of Economics and Statistics , https://doi.org/10.1162/REST.a.1682
+
+A.1 Data 
+Our main data source is UN Comtrade (2014-2024), which provides monthly bilateral trade flows at the HS 6-digit level (rev4) between the U.S., China, and Mexico. This data allows us to quantify the size of trade diversion. We complement our results using sectoral FDI flows to Mexico by country of origin (2014-2024) from fDi Markets, which capture greenfield investment and measure Chinese and other foreign presence in Mexico, and OECD Input-Output Tables (2014-2022, ISIC-2 rev4), which allow us to measure domestic and Chinese value added in Mexican exports to the U.S. We harmonize products into broad sectors for analysis.
+
+A.2 Definitions 
+We define trade diversion as the increase in U.S. imports from Mexico that occurred because China faced higher tariffs, making Mexico more cost competitive. This diversion can take two forms: (1) Substitution toward Mexico: Mexican firms or existing non-Chinese operations in Mexico become more competitive relative to China. (2) China's backdoor strategy: China circumvents tariffs by routing goods through Mexico, either through (a) transshipment—shipping Chinese-produced goods via Mexico with minimal processing—or (b) production in Mexico by Chinese-owned firms or using substantial Chinese inputs. Distinguishing between these channels is critical for policy. If trade diversion largely reflects relocated Chinese production or transshipment, U.S. decoupling efforts may be weakened and tariff revenue reduced.
+
+1. Maria Aristizabal-Ramirez (email:  [email protected] ), Chris A. Avalos, Emma Rosenbaum, and Eva Van Leemput are with the Board of Governors of the Federal Reserve System. The views expressed in this note are our own, and do not represent the views of the Board of Governors of the Federal Reserve, nor any other person associated with the Federal Reserve System.  Return to text
+
+2. Over the course of 2018-19, the U.S. raised tariffs on roughly two-thirds of Chinese imports increasing the average tariff by 12 percentage points. This created a significant tariff differential with Mexico, where tariff rates were near zero and remained at that level after USMCA was ratified.  Return to text
+
+3. The surge in Chinese FDI to Mexico is consistent with patterns documented by Arizala et al. (2025) and mirrors a broader global phenomenon in which countries gaining U.S. market share from China simultaneously increase their imports from China (Freund et al., 2024).  Return to text
+
+4. The Hodrick-Prescott (HP) filter is a smoothing technique that separates a time series into trend and cyclical components, filtering out short-term fluctuations to identify the underlying growth path.  Return to text
+
+5. Formally, we regress the change in Mexican exports on a tariff indicator, initial U.S.-China trade volume (capturing treatment intensity), their interaction, and pre-tariff growth trends. The interaction term captures differential growth for tariff-exposed goods.differential growth for tariff-exposed goods.  Return to text
+
+6. In our analysis, we classify a product as transshipped only if it meets three criteria. First, we require evidence of re-routing: U.S. imports from China declined while Mexican imports from China and Mexican exports to the U.S. both increased. Second, to rule out general Chinese export expansion, Chinese exports to Mexico must have grown faster than Chinese exports to the rest of the world. Third, to rule out increased Mexican domestic demand, Mexican export growth to the U.S. cannot significantly exceed Mexican import growth from China (indicating minimal value added). Our approach is similar to Freund (2025), who also uses bilateral trade patterns to identify transshipment, though our criteria are slightly more conservative.  Return to text
+
+7. Our estimate aligns with the lower end of Freund's (2025) 1-1.5 percent range for Mexico. Our more stringent criteria—requiring absolute declines in U.S.-China trade and that Mexican export growth not exceed import growth from China—place our estimate at the lower bound. However, even if transshipment were 1.7 percent instead of 1 percent, this would not change our core finding that China's backdoor strategies primarily involve production rather than pure transshipment.  Return to text
+
+Aristizabal-Ramirez, Maria, Chris A. Avalos, Emma Rosenbaum, and Eva Van Leemput (2026). "Mexico in U.S. Supply Chains: Lessons from 2018-19 Tariffs," FEDS Notes. Washington: Board of Governors of the Federal Reserve System, June 05, 2026, https://doi.org/10.17016/2380-7172.4073.
+
+Disclaimer:  FEDS Notes are articles in which Board staff offer their own views and present analysis on a range of topics in economics and finance. These articles are shorter and less technically oriented than FEDS Working Papers and IFDP papers.
+
+
+---
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/mexico-in-u-s-supply-chains-lessons-from-2018-19-tariffs-20260605.html | 수집: 2026-06-10 01:06 | 지표: FEDS_NOTES*

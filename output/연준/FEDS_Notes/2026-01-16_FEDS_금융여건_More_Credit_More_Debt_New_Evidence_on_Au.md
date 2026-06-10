@@ -1,0 +1,107 @@
+# FEDS Notes - More Credit, More Debt: New Evidence on Automated Credit Decisions
+
+> 날짜: 2026-01-16
+> 저자: Vitaly M. Bord, Agnes Kovacs, andPatrick Moran
+> 주제: 금융여건
+> 출처: https://www.federalreserve.gov/econres/notes/feds-notes/more-credit-more-debt-new-evidence-on-automated-credit-decisions-20260116.html
+
+## 📌 초록 (원문)
+Behind the scenes of every credit card lies an increasingly complex algorithmic infrastructure that determines who receives more credit and when, largely outside the inspection or knowledge of credit card users. Credit card issuers deploy sophisticated algorithms that continuously analyze consumer spending and borrowing behaviors, often increasing credit limits without consumers requesting such changes.
+
+## 📋 한국어 번역
+비탈리 M. 보드, 아그네스 코박스, 패트릭 모란
+
+모든 신용 카드의 이면에는 누가 더 많은 신용을 받을지, 언제 신용 카드 사용자의 검사나 지식을 벗어나는지 결정하는 점점 더 복잡해지는 알고리즘 인프라가 있습니다. 신용 카드 발급사는 소비자 지출 및 대출 행동을 지속적으로 분석하는 정교한 알고리즘을 배포하여 소비자가 그러한 변경을 요청하지 않고도 신용 한도를 늘리는 경우가 많습니다. 미국의 규정은 대출 기관이 신용 한도를 거의 자유롭게 늘릴 수 있도록 허용하는 반면, 캐나다 및 영국과 같은 다른 국가에서는 은행이 주도하는 신용 ​​한도 인상에 제한을 가하기 시작했습니다. 이러한 발전은 두 가지 핵심 질문을 제기합니다. 대출 기관은 한도 증가의 대상이 누구이며 한도 증가를 제한하는 규정은 어떤 조건에서 소비자에게 유익합니까?
+
+이 노트와 함께 제공되는 논문인 Bord, Kovacs 및 Moran(출간 예정)에서 우리는 규제 데이터를 사용하여 이러한 질문에 답합니다. 첫째, 우리는 한도 증가가 널리 퍼져 있으며 미국에서 대부분의 증가가 은행에서 시작된다는 것을 보여줍니다. 다음으로, 우리는 이러한 알고리즘 기반 신용 결정 이면의 타겟팅 패턴을 조사하고 은행이 매월 잔액을 보유하는 회전 대출자에게 더 많은 인상을 주는 것으로 보인다는 사실을 발견했습니다. 마지막으로, 우리는 이러한 관행과 일부 국가에서 시행하기 시작한 한도 증가 제한이 소비자 복지에 미치는 영향을 탐구합니다.
+
+미국 신용카드 시장의 70% 이상을 포괄하는 연준 Y-14M 규제 데이터를 분석한 결과, 미국에서 한도 증가가 만연한 것으로 나타났습니다. 신용카드 중 약 12%가 매년 한도 증가를 받으며, 총계는 매년 약 1,600억 달러에 달하는 새로운 신용을 제공합니다. 이러한 한도 증가는 새 계정 생성에 비해 사용 가능한 추가 크레딧의 약 절반을 차지합니다. 중요한 점은 인상액의 압도적 다수(약 80%)가 소비자가 요청한 것이 아니라 은행이 주도했다는 것입니다.
+
+미국에서 한도 인상이 널리 퍼져 있는 것은 대출 기관이 "낮은 성장" 대출 전략을 구현하는 것과 일치합니다. 즉, 신용 점수가 낮은 차용자에게 낮은 초기 한도가 있는 신용 카드를 발급한 다음 차용인의 행동에 따라 한도를 늘리는 것입니다. 그림 1에서 볼 수 있듯이, 신용 점수가 600점 미만인 서브프라임 대출자의 계좌에 대한 최초 신용 카드 한도는 평균 700달러에 불과합니다. 그러나 서브프라임 대출자의 계좌는 개설 후 5년이 지나면 평균 285% 증가한 2,700달러로 한도가 설정됩니다. 이와 대조적으로, 신용 점수가 760점 이상인 슈퍼 프라임 대출자의 계좌는 평균적으로 개설 시 훨씬 더 높은 한도 $12,000로 시작하고 5년 후에는 약 $15,000까지 25% 증가합니다.
+
+은행이 주도하는 한도 인상과 저성장 전략이 만연할 가능성이 높은 이유는 은행이 신용카드를 발급하기 전에 신규 대출자에 대한 정보가 제한되어 있기 때문입니다. 신규 고객이 신용 카드를 신청하면 대출 기관은 고객의 신용 점수, 신용 보고서 및 자가 신고 소득에 대한 정보를 갖게 됩니다. 그러나 대출 기관이 카드를 승인하고 차용인이 카드를 사용하기 시작하면 대출 기관은 신용 카드 사용, 지출 및 지불의 모든 측면에 대한 광범위한 정보를 얻게 되며 이를 사용하여 한도를 조정할 수 있습니다. 우리는 대출 기관이 한도 증가를 승인하기 위해 사용하는 알고리즘을 관찰하지 않지만, 우리의 데이터를 통해 한도 증가와 관련된 차용인 및 계정 특성을 관찰할 수 있습니다.
+
+우리는 신용 카드 사용의 중요한 측면 중 하나가 회전 행동, 즉 차용인이 매달 잔액을 보유하고 이자를 지불하는지 여부를 확인했습니다. 기존 문헌에 따르면 리볼버가 신용카드 수익성의 대부분을 차지하는 것으로 나타났습니다(Adams et al, 2022). 이는 리볼버가 가장 수익성이 높은 고객이기 때문에 대출 기관이 리볼버에 한도를 늘릴 가능성이 더 높다는 것을 의미합니다.
+
+그림 2, 패널 A는 리볼버가 거래자, 즉 항상 신용카드를 지불하는 신용카드 고객보다 실제로 은행이 제안한 한도 증가를 받을 가능성이 훨씬 더 높다는 것을 보여줍니다. 매 분기마다 은행에서 인상된 금액을 받는 거래자는 2%에 불과한 반면, 리볼버의 경우 거의 4%입니다. 대조적으로, 패널 B는 차용인에 의한 한도 증가를 요청하고 받는 신용 카드 사용자의 비율이 리볼버와 거래자에 대해 동일하다는 것을 보여줍니다. 이는 대출 기관이 리볼버에게 증가를 목표로 하는 반면 리볼버는 더 높은 비율로 한도 증가를 요청하거나 받지 않는다는 것을 의미합니다.
+
+Bord, Kovacs 및 Moran(출시 예정)에서는 모든 리볼버가 동일한 방식으로 은행에서 시작하는 한도 증가의 대상이 되는 것은 아니라는 사실을 발견했습니다. 우리의 분석에 따르면 회전차입 정도가 한도 인상 가능성에 영향을 미치는 것으로 나타났습니다. 특히, 신용 한도의 30~70% 사이를 회전하는 차용인은 한도 증가를 받을 가능성이 가장 높으며 다른 모든 조건은 동일합니다. 반면 회전 이용률이 매우 높거나 매우 낮은 차용인은 증가를 받을 가능성이 적습니다. 또한 신용 점수, 소득, 기타 차용인 및 신용 카드 특성을 포함하여 한도 증가를 받을 확률에 중요한 다른 요소도 조사합니다. 특히, 신용 한도의 30~70% 회전 시 한도 증가를 받을 확률의 증가는 신용 점수가 60점 증가할 때 발생하는 확률의 증가와 거의 동일하다는 것을 발견했습니다.
+
+이전 연구와 일관되게, 우리는 소비자가 신용 한도 증가를 받은 후 이전 한도에 가깝지 않더라도 대출을 늘리는 경향이 있음을 발견했습니다(Gross and Souleles, 2002; Aydin 2022). 그림 3은 한도 인상 전후 몇 개월 동안 은행이 신용 한도를 인상한 계좌와 그렇지 않은 계좌의 회전 활용률을 보여줍니다. 시간 t=1은 증가 후 첫 번째 달입니다. 그림을 보면 회전 가동률은 한도 증가 이후 처음에는 감소하다가 약 6개월 내에 이전 수준으로 회복되는 것을 알 수 있습니다. 이제 한도가 높아졌으므로 동일한 회전 이용률은 신용 카드 사용자가 신용 한도 증가에 따라 부채가 증가했음을 의미하며 회전 잔액의 증가는 신용 한도 증가의 약 30%를 차지합니다. 기존 문헌과 일관되게, 우리는 한도 증가 이전에 활용률이 낮은 제약 없는 계정에서도 이 효과가 지속된다는 것을 발견했습니다(Gross and Souleles, 2002).
+
+신용한도를 높이면 대출이 늘어나는 이유는 무엇입니까? 대규모 문헌에서는 신용카드 구매 및 결제 행동에서 자제력 문제의 중요성을 지적했습니다(Meier and Sprenger, 2010; Gathergood, 2012; Kuchler and Pagel, 2021). 우리의 연구 결과는 이 연구와 일치하며 일부 소비자가 자기 통제에 어려움을 겪는 경우 알고리즘 한도 증가가 추가 대출을 장려하여 은행에 이익이 될 수 있지만 그렇지 않은 경우 선택했을 것보다 더 많은 빚을지게 되는 취약한 소비자에게는 잠재적으로 해로울 수 있음을 시사합니다.
+
+일부 국가의 정책 입안자들은 이러한 우려에 대응하기 시작했습니다. 영국은 이제 영구 회전 부채에 대한 차용인의 한도 증가를 금지하는 반면, 캐나다는 모든 한도 증가에 대해 명시적인 소비자 동의를 요구합니다. EU는 2026년에 회원국 전반에 걸쳐 유사한 소비자 동의 요구 사항을 시행할 예정입니다.
+
+이러한 정책은 알고리즘 신용 결정의 장점과 단점 사이의 긴장을 인식합니다. 한편, 알고리즘에 의한 신용 한도 인상은 신용에 대한 더 큰 접근을 허용할 수 있으며, 어려운 시기에 신용 한도를 사용하여 대출을 받을 수 있기 때문에 차용인이 재정적 충격을 더 잘 견딜 수 있도록 도울 수 있습니다. 반면, 그림 3에서 알 수 있듯이 한도 증가는 과도한 부채로 이어질 수도 있습니다. 특히 대출 기관이 이미 잔액을 회전시킨 신용 카드 사용자의 계정을 대상으로 하는 경우 더욱 그렇습니다.
+
+Bord, Kovacs 및 Moran(곧 출시 예정)에서는 특정 조건에서 은행이 주도하는 신용 ​​한도 증가를 제한하는 정책이 신용 카드 사용자에게 균형적으로 유리할 수 있음을 보여줍니다. 그림 4는 최근 영국에서 시행된 규제와 유사하게 12개월 이상 지속적인 회전채무를 유지하고 있는 소비자에 대해 신용 한도 증가를 금지하는 정책 시행의 복지 효과를 보여줍니다. 이 수치는 정책의 전반적인 효과가 긍정적임을 보여줍니다. 제한이 자제력 문제로 어려움을 겪고 한도 증가가 허용되면 훨씬 더 많은 부채를 떠맡게 되는 "유혹된" 소비자에게 큰 긍정적인 영향을 미치기 때문입니다(맨 오른쪽 막대). 이러한 긍정적인 효과는 신용에 대한 더 큰 혜택을 받지 못하는 자제력 문제가 없는 "표준" 소비자(중간 막대)에 대한 약간의 부정적인 효과보다 더 큽니다. 균형적으로 볼 때, 정책의 결과는 Bord, Kovacs 및 Moran(곧 출간 예정)에서 논의된 모델의 가정 하에서 긍정적입니다. 논문에서 우리는 모든 한도 증가가 소비자 허가를 받아야 한다고 규정하는 캐나다 유형 정책의 효과가 유사하다는 것을 보여줍니다.
+
+Adams, Robert, Vitaly M. Bord 및 Bradley Katcher, "신용카드 수익성", 2022년. Feds Notes.
+
+Aydin, Deniz, "신용 확장에 대한 소비 반응: 45,307 신용 한도의 실험 할당에서 얻은 증거", American Economic Review, 2022년 1월, 112(1), 1–40.
+
+Bord, Vitaly, M., Agnes Kovacs 및 Patrick Moran. 출현. " 자동 신용 한도 증가와 소비자 복지 . 통화 경제학 저널.
+
+Gathergood, John, "자기 통제, 금융 지식 및 소비자의 과도한 부채, Journal of Economic Psychology, 2012, 33 (3), 590–602.
+
+Gross, David B. 및 Nicholas S. Souleles, "유동성 제약 및 이자율이 소비자 행동에 영향을 미칩니까? 신용 카드 데이터의 증거 *," The Quarterly Journal of Economics, 2002년 2월, 117(1), 149–185.
+
+Kuchler, Theresa 및 Michaela Pagel, "계획 준수: 신용카드 상환에 대한 현재 편향의 역할", Journal of Financial Economics, 2021, 139 (2), 359–388.
+
+Meier, Stephan 및 Charles Sprenger, "현재 편향된 선호도 및 신용 카드 대출", American Economic Journal: Applied Economics, 2010, 2 (1), 193–210.
+
+Bord, Vitaly M., Agnes Kovacs 및 Patrick Moran(2025). "더 많은 신용, 더 많은 부채: 자동화된 신용 결정에 대한 새로운 증거", FEDS 노트. 워싱턴: 연방준비제도 이사회, 2026년 1월 16일, https://doi.org/10.17016/2380-7172.3964.
+
+면책 조항: FEDS Notes는 이사회 직원이 자신의 견해를 제공하고 경제 및 금융 분야의 다양한 주제에 대한 분석을 제공하는 기사입니다. 이 기사는 FEDS 작업 보고서 및 IFDP 보고서보다 짧고 기술 지향적이지 않습니다.
+
+## 📄 영문 원본
+Vitaly M. Bord , Agnes Kovacs, and  Patrick Moran
+
+Behind the scenes of every credit card lies an increasingly complex algorithmic infrastructure that determines who receives more credit and when, largely outside the inspection or knowledge of credit card users. Credit card issuers deploy sophisticated algorithms that continuously analyze consumer spending and borrowing behaviors, often increasing credit limits without consumers requesting such changes. While regulations in the United States allow lenders nearly unfettered ability to raise credit limits, other countries such as Canada and the UK have begun to place restrictions on bank-initiated credit limit increases. These developments raise two central questions: who do lenders target with limit increases and under what conditions are regulations restricting limit increases beneficial for consumers?
+
+In this note and the accompanying paper, Bord, Kovacs, and Moran (forthcoming), we use regulatory data to answer these questions. First, we show that limit increases are prevalent, and that the majority of increases in the U.S. are bank-initiated. Next, we examine the targeting patterns behind these algorithmic credit decisions and find that banks appear to give more increases to revolving borrowers who carry balances month-to-month. Finally, we explore the implications for consumer welfare of these practices and of restrictions on limit increases that some countries have begun to implement.
+
+Our analysis of Federal Reserve Y-14M regulatory data, which covers more than 70 percent of the U.S. credit card market, reveals that limit increases are prevalent in the U.S. About 12 percent of credit cards receive limit increases annually, totaling, in aggregate, about $160 billion dollars of new available credit each year. These limit increases account for approximately half as much additional available credit as new account originations. Importantly, the overwhelming majority—approximately 80 percent—of increases initiated by banks rather than requested by consumers.
+
+The prevalence of limit increases in the U.S. is consistent with lenders implementing "low-and-grow" lending strategies, where they issue credit cards with low initial limits to lower credit-score borrowers and then increasing the limits based on borrower behavior. As shown in Figure 1, credit card limits at origination for accounts of subprime borrowers with credit scores below 600 are only $700, on average. However, by five years after origination, accounts of subprime borrowers have a limit of $2700, on average, a 285 percent increase. By contrast, accounts of superprime borrowers with credit scores above 760 start off with a much higher limit of $12,000 at origination, on average, and grow 25 percent to about $15,000 by five years later.
+
+Bank-initiated limit increases and low-and-grow strategies are prevalent likely because the bank has limited information about a new borrower prior to issuing a credit card. When a new customer applies for a credit card, the lender has information on their credit score, their credit report, and self-reported income. However, if the lender approves the card and the borrower begins using it, the lender obtains extensive information about all aspects of credit card usage, spending, and payments, which the lender can then use to adjust the limit. While we do not observe the algorithms used by lenders to grant limit increases, our data allow us to observe the borrower and account characteristics that are associated with limit increases.
+
+We find that one important aspect of credit card usage is revolving behavior—that is, whether the borrower carries balances month-to-month and pays interest. Existing literature has shown that revolvers account for the majority of the profitability of credit cards (Adams et al, 2022). This suggests that lenders may be more likely to give limit increases to revolvers since they are the most profitable customers.
+
+Figure 2, Panel A, shows that revolvers are indeed much more likely to receive a bank-initiated limit increase than transactors, i.e. credit card customers who always pay off their credit card. While only 2 percent of transactors receive a bank-initiated increase each quarter, almost 4 percent of revolvers do. By contrast, Panel B shows that the share of credit card users who ask and receive a borrower-initiated limit increase is the same for revolvers and transactors. This suggests that while lenders target revolvers for increases, revolvers do not ask or receive limit increases at a higher rate.
+
+In Bord, Kovacs, and Moran (forthcoming), we find that not all revolvers are targeted for bank-initiated limit increases in the same way. Our analysis shows that the extent of revolving borrowing matters for the probability of receiving a limit increase. In particular, borrowers who revolve between 30 and 70 percent of their credit limit have the highest probability of receiving a limit increase, all else equal, while those with very high or very low revolving utilization are less likely to receive an increase. We also examine other factors that matter for the probability of receiving a limit increase including credit score, income, and other borrower and credit card characteristics. Notably, we find that the increase in the probability of receiving a limit increase from revolving 30-70 percent of the credit limit is approximately equivalent to the increase in the probability associated with a 60-point increase in credit score.
+
+Consistent with previous studies, we find that consumers tend to increase their borrowing after receiving a credit limit increase, even when they are not near their previous limit (Gross and Souleles, 2002; Aydin 2022). Figure 3 shows revolving utilization for accounts that receive a bank-initiated credit limit increase, relative to accounts that do not, during the months before and after the limit increase. Time t=1 is the first month after the increase. The figure shows that revolving utilization initially declines following a limit increase but then recovers to its previous level within about 6 months. Since the limit is now higher, the same rate of revolving utilization means that the credit card user has increased their debt following the increase in their credit limit, with the increase in revolving balances comprising about 30 percent of the credit limit increase. Consistent with existing literature, we find that this effect persists even among unconstrained accounts with low utilization rates prior to the limit increase (Gross and Souleles, 2002).
+
+Why do credit limit increases lead to more borrowing? A large literature has pointed to the importance of self-control issues in credit card purchase and payment behavior (Meier and Sprenger, 2010; Gathergood, 2012; Kuchler and Pagel, 2021). Our findings align with this research and suggest that if some consumers struggle with self-control, algorithmic limit increases may encourage additional borrowing and thus be profitable for banks but potentially harmful to vulnerable consumers who end up with more debt than they would have chosen otherwise.
+
+Policy-makers in some countries have begun to respond to these concerns. The UK now prohibits limit increases for borrowers in persistent revolving debt, while Canada requires explicit consumer consent for all limit increases. The EU will implement similar consumer consent requirements across member states in 2026.
+
+These policies recognize the tension between the benefits and drawbacks of algorithmic credit decisions. On the one hand, algorithmic credit limit increases may allow for greater access to credit and may help borrowers to better withstand financial shocks, as they can use their credit limits to borrow during hard times. On the other hand, as Figure 3 suggests, limit increases may also lead to excessive debt, especially if lenders target accounts of credit card users who already revolve balances.
+
+In Bord, Kovacs, and Moran (forthcoming), we show that under certain conditions, policies that restrict bank-initiated credit limit increases may be beneficial for credit card users, on balance. Figure 4 illustrates the welfare effects of implementing a policy that prohibits credit limit increases for consumers who have been in persistent revolving debt for more than 12 months, similar to recent regulation implemented in the UK. The figure shows that the overall effect of the policy is positive, as the restriction has large positive effects on "tempted" consumers who struggle with self-control issues and who take on much more debt when granted a limit increase (far right bar). This positive effect outweighs the slight negative effect for "standard" consumers without self-control issues (middle bar) who do not receive the benefits of greater access to credit. On balance, the policy's consequences are positive under the assumptions of the model discussed in Bord, Kovacs, and Moran (forthcoming). In the paper, we show that the effects are similar for a Canada-type policy that stipulates that all limit increases need to receive consumer permission.
+
+Adams, Robert, Vitaly M. Bord, and Bradley Katcher, "Credit Card Profitability," 2022. Feds Notes.
+
+Aydin, Deniz, "Consumption Response to Credit Expansions: Evidence from Experimental Assignment of 45,307 Credit Lines,"  American Economic Review , January 2022, 112 (1), 1–40.
+
+Bord, Vitaly, M., Agnes Kovacs, and Patrick Moran. Forthcoming. " Automated Credit Limit Increases and Consumer Welfare .   Journal of Monetary Economics.
+
+Gathergood, John, "Self-control, financial literacy and consumer over-indebtedness,  Journal of Economic Psychology , 2012, 33 (3), 590–602.
+
+Gross, David B. and Nicholas S. Souleles, "Do Liquidity Constraints and Interest Rates Matter for Consumer Behavior? Evidence from Credit Card Data *, "  The Quarterly Journal of Economics,  02 2002, 117 (1), 149–185.
+
+Kuchler, Theresa and Michaela Pagel, "Sticking to your plan: The role of present bias for credit card paydown,"  Journal of Financial Economics , 2021, 139 (2), 359–388.
+
+Meier, Stephan and Charles Sprenger, "Present-biased preferences and credit card borrowing,"  American Economic Journal: Applied Economics,  2010, 2 (1), 193–210.
+
+Bord, Vitaly M., Agnes Kovacs, and Patrick Moran (2025). "More Credit, More Debt: New Evidence on Automated Credit Decisions," FEDS Notes. Washington: Board of Governors of the Federal Reserve System, January16, 2026, https://doi.org/10.17016/2380-7172.3964.
+
+Disclaimer:  FEDS Notes are articles in which Board staff offer their own views and present analysis on a range of topics in economics and finance. These articles are shorter and less technically oriented than FEDS Working Papers and IFDP papers.
+
+
+---
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/more-credit-more-debt-new-evidence-on-automated-credit-decisions-20260116.html | 수집: 2026-06-10 01:41 | 지표: FEDS_NOTES*

@@ -1,0 +1,259 @@
+# FEDS Notes - Mind the Gap: Announced versus Implied Tariff Rates in Recent Trade Policy Episodes
+
+> 날짜: 2026-04-08
+> 저자: Sydney Eck,Trang Hoang,Carter Mix, and Madeleine Ray
+> 주제: 인플레이션/물가
+> 출처: https://www.federalreserve.gov/econres/notes/feds-notes/mind-the-gap-announced-versus-implied-tariff-rates-in-recent-trade-policy-episodes-20260408.html
+
+## 📌 초록 (원문)
+In the past year, the U.S. has raised its tariffs on trading partners to a historic level. The tariff rate implied by actual tariff payments owed by importers, however, falls short of the tariff rate implied by announced policies (Gopinath and Neiman, 2026).
+
+## 📋 한국어 번역
+시드니 에크, 트랑 호앙, 카터 믹스, 마들렌 레이
+
+2026년 4월 9일 '소비용 수입품' 3건이 '수입품'으로 수정되었습니다.
+
+지난 해 미국은 무역 파트너에 대한 관세를 역사적 수준으로 인상했습니다. 그러나 수입업체가 지불해야 하는 실제 관세에 따른 관세율은 발표된 정책에 따른 관세율에 미치지 못합니다(Gopinath and Neiman, 2026). 이 노트에서 우리는 "관세율 격차"라고 부르는 동인을 탐구하는 것을 목표로 합니다. 이는 발표된 관세에 내재된 평균 미국 세율(ETR)과 인구조사에서 계산한 수입품 비율에 따른 평균 세율인 실현 유효 관세율(RETR) 사이의 차이입니다. 우리는 2018~2019년과 2025년 관세 인상 에피소드의 관세율 격차를 수학적으로 분해합니다. 이러한 분해를 통해 우리는 수입업체의 다양한 행동(예: 낮은 관세 제품으로의 대체 또는 프런트로딩)이나 제품 국가 수준에서 발표된 관세율과 묵시적인 관세율의 차이로 인해 격차가 얼마나 설명되는지 확인할 수 있습니다.
+
+ETR 측정값은 고정된 수입 행태에 따른 정책 변화의 규모를 파악하는 반면, RETR은 관세로 인해 창출되는 수익이 얼마나 되는지 알려줍니다. 그러나 RETR은 수입 및 관세에 대한 데이터가 필요하기 때문에 관세 발표가 있은 지 오랜 시간이 지난 후에만 계산할 수 있습니다. 따라서 시행 시 새로운 관세로 인한 수익 창출 효과를 고려하려면 수입업자의 행동 및 기타 요인이 ETR에 따른 수익을 어떻게 감소시킬 수 있는지에 대한 아이디어를 갖는 것이 유용합니다. 또한, 현재 에피소드와 이전 에피소드의 격차 요인을 비교함으로써 중간 기간 동안 수입업체의 행동이 어떻게 변했는지에 대한 통찰력을 얻을 수 있습니다.
+
+우리의 연구 결과에 따르면 비슷한 기간 동안의 2018~2019년 관세 에피소드보다 현재 관세 에피소드의 관세율 격차가 훨씬 더 컸습니다. 이러한 더 큰 격차는 이전 에피소드보다 더 낮은 관세 제품과 소스 국가로의 대체 속도가 빠르고 소스 국가-제품 수준에서 발표된 관세율과 묵시적인 관세율 간의 더 큰 불일치에서 비롯됩니다. 우리는 이러한 격차에 기여할 수 있는 몇 가지 요인과 시간이 지남에 따라 이러한 요인이 어떻게 진화할 것으로 예상하는지 논의합니다.
+
+$$\bar{\tau}_t$$는 $$t$$ 시점의 ETR 또는 관세 발표에 따른 미국의 평균 헤드라인 관세율을 나타냅니다. $$\bar{\tau}_t$$를 다음과 같이 정의합니다.
+
+$$$$\bar{\tau}_t = \sum_j \sum_p \bar{\omega}_{jp} \bar{\tau}_{jpt}\ (1)$$$$
+
+여기서 $$\bar{\tau}_{jpt}$$는 $$t$$ 시간에 $$j$$ 국가에서 수입된 $$p$$ 제품에 대해 발표된 세율이며, 중량 $$\bar{\omega}_{jp}$$는 연구 중인 관세 정책이 시행되기 전인 기준 연도의 수입 금액을 해당 연도의 미국 총 수입품의 관세 금액으로 나눈 값으로 계산됩니다. 1 각 국가-제품 쌍의 공시 요율은 두 단계로 결정됩니다. 먼저, 기준연도의 묵시관세(수입품에 대한 관세 지불)를 초기관세로 취한다. 그런 다음 대통령령이나 포고 등 기준 연도 이후의 공식 관세 발표를 꼼꼼하게 읽어 원산지 국가 제품 수준에서 관세 에피소드에 대해 할당된 추가 관세를 결정합니다. 당사의 관세율은 2018~2019년 에피소드의 특정 국가 철강 또는 최근 관세 에피소드의 전자제품과 같이 발표된 국가 또는 제품 수준의 면제를 고려합니다.
+
+당사의 ETR은 또한 USMCA 협정에 따라 수입되는 캐나다 및 멕시코에서 수입되는 제품에 대한 면제를 설명합니다. 특히, 우리는 기준 준수율(2025년 7월 인구조사에서 보고한 준수율)을 사용하여 각 제품의 유효 관세를 계산합니다. 예를 들어, 기본 USMCA 준수율이 50%이고 새로운 관세가 10%인 제품에는 유효 관세 5%가 할당됩니다. 기준 연도(2024)에 보고된 준수율보다 2025년 7월의 준수율을 기준으로 선택하는 데에는 두 가지 이유가 있습니다. 첫째, 2024년 세계무역기구(WTO)의 최혜국(MFN) 요건에 따라 많은 제품에 관세가 없거나 매우 낮은 관세가 적용되었습니다. 이러한 조건에서 캐나다 또는 멕시코 수입품에 대한 USMCA 준수는 비준수보다는 편의로 인해 보고되지 않았을 수 있으므로 보고된 2024년 준수율은 실제 준수율보다 낮을 가능성이 높습니다. 둘째, 2025년 7월 이전 데이터의 경우, 인구 조사 데이터에서 제품 수준의 USMCA 준수율이 과소평가되었습니다. 왜냐하면 수입자가 세관 서류에서 이를 주장하더라도 MFN 관세가 전혀 적용되지 않은 많은 제품에 대한 준수가 인구 조사 데이터에 보고되지 않았기 때문입니다(미국 인구 조사국, 2026). 2025년 7월부터 시작되는 데이터의 경우, 인구 조사에서는 수입업자가 보고한 대로 보다 강력한 규정 준수 척도를 사용하여 이 문제가 해결되었습니다. 2
+
+ETR 구축 및 USMCA 준수 역할에 대한 자세한 내용은 연방 준비 은행 동료의 FEDS 노트(Minton et al., 2026)와 작업 문서(Eck et al., 2026)를 참조하세요.
+
+$$\tau_t$$는 $$t$$ 시점의 RETR을 나타냅니다. 이는 인구 조사 데이터를 사용하여 계산된 모든 관세의 합계를 수입품의 총 관세 가치로 나눈 값으로 정의됩니다. 3 4 마찬가지로 $$\tau_t$$를 다음과 같이 표현할 수 있습니다.
+
+$$$$\tau_t = \sum_j \sum_p \omega_{jpt} \tau_{jpt}\ (2)$$$$
+
+여기서 $$\tau_{jpt}$$는 계산된 관세 값을 소스 국가-제품 수준에서 수입품의 관세 값으로 나눈 값이고, 중량 $$\omega_{jpt}$$는 $$t$$ 시간에 $$j$$ 국가에서 $$p$$ 제품에 대한 수입 관세 값을 $$t$$ 시간의 총 미국 수입량으로 나눈 값으로 계산됩니다.
+
+방정식 1과 2에서 ETR과 RETR 사이의 간격이 다음과 같이 분해될 수 있음을 쉽게 알 수 있습니다.
+
+$$$$ \bar{\tau}_t - \tau_t = \sum_j \sum_p \left[ \underbrace{\bar{\tau}_{jpt}(\bar{\omega}_{jp} - \omega_{jpt})}_{\text{composition}} + \underbrace{\omega_{jpt}(\bar{\tau}_{jpt} - \tau_{jpt})}_{\text{비율 불일치}} \right]\ (3) $$$$
+
+방정식 3의 오른쪽에 있는 첫 번째 항은 수입 구성의 변화에서 발생하는 ETR-RETR 격차에 대한 기여도를 포착하며 이를 "구성"이라고 부릅니다. 이 용어는 고관세 제품에서 저관세 제품으로의 모든 대체를 반영합니다. 구성을 다른 국가 및 제품에 대한 영구적인 지출 이동만을 포착하는 것으로 간주해서는 안 됩니다. 이는 관세에 앞서 예상되는 프런트로딩을 통해 수입자가 구매를 일시적으로 연기할 수 있는 경우와 같이 구성의 일시적인 변화를 반영할 수 있습니다. 또한 관세가 높은 국가를 통한 (합법적이든 불법적이든) 환적, 관세에 따라 수입품의 구성이 전혀 변하지 않으면 모든 $$j$$ 및 $$p$$에 대해 $$\bar{\omega}_{jp} = \omega_{jpt}$$가 반영되며 이 항은 0입니다.
+
+"요율 불일치"라고 하는 방정식 3의 두 번째 항은 현재 수입 비중에 따라 개별 제품-국가 쌍에 대해 발표된 요율과 실제 요율 간의 평균 차이를 포착합니다. 이 항의 0이 아닌 값은 기본 요율, 관세가 부과되기 전에 발송되었지만 관세가 부과된 후에 도착한 배송 또는 관세 지불이 지연될 수 있어 현재 관세율을 반영하지 않는 자유 무역 지역이나 보세 창고의 사용에 대한 USMCA 준수 증가를 반영할 수 있습니다. 우리는 다음과 같은 요소를 예상할 수 있습니다. 배송 시기나 자유 무역 지대 사용은 일시적인 반면 USMCA 규정 준수와 같은 요소는 보다 영구적입니다.
+
+요약하면, 구성요소는 수입품 구성의 변화를 반영하는 반면, 요율 불일치 구성요소는 국가-제품 수준에서 발표된 관세와 적용 관세 간의 실제 차이를 반영합니다. 당사의 작업 문서에서는 USMCA 규정 준수, 자유 무역 지역 사용, 배송 시기 등 각 구성 요소에 대한 잠재적인 기여 요인을 자세히 살펴봅니다. 그러나 이 노트에서는 두 가지 일반적인 용어에만 초점을 맞춥니다.
+
+인구 조사 데이터와 국가 및 제품별 ETR을 사용하여 RETR, 관세율 격차 및 시간에 따른 분해 조건을 모두 계산할 수 있습니다. 실제로 우리는 ETR, RETR 및 구성 구성요소를 명시적으로 계산한 다음 관세율 격차의 잔차로 요율 불일치 구성요소를 계산합니다.
+
+그림 1의 상단 패널은 2018년 1월부터 2019년 12월까지 2018~2019년 에피소드에서 발표된 관세의 분해를 보여줍니다. 5 하단 패널은 2025년 1월부터 2025년 12월까지 2025년 에피소드의 분해를 보여줍니다. 각 막대의 전체 높이는 ETR을 나타내고 각 색상 구성 요소는 범례에 표시된 대로 분해의 다른 부분을 나타냅니다.
+
+각 구성 요소를 개별적으로 논의하기 전에 두 관세 에피소드에 걸쳐 발표된 관세율의 전반적인 차이를 고려하십시오. 두 에피소드 모두 무역 자유화를 향한 수십 년간의 추세에서 벗어났음을 나타내지만, 미국의 전체 관세가 2018년과 2019년보다 2025년에 훨씬 더 많이 증가했다는 것은 분명합니다. 2025년 12월 현재, 최근 관세 조치로 인한 미국 ETR은 14.7%로, 2024년 평균 관세율보다 12.4% 포인트 더 높습니다. 2018년 초부터 2020년 말까지의 이전 에피소드입니다.
+
+참고: 키는 아래에서 위로 순서대로 시리즈를 식별합니다.
+
+출처: 미국 인구 조사; FRB 직원의 계산
+
+표제 요율 인상의 차이 외에도 에피소드마다 관세 인상이 특정 국가에 얼마나 집중되었는지도 다릅니다. 이를 보여주기 위해 우리는 미국으로 수출하는 상위 20개 수출국의 관세 변화에 대한 Herfindahl-Hirschman Index(HHI)를 계산합니다. 6 $$\Delta \bar{\tau}_j$$를 관세 에피소드 시작부터 특정 기간(첫 번째 에피소드는 2019년 12월, 두 번째 에피소드는 2025년 12월)까지 $$j$$ 국가에 대한 ETR의 변화라고 가정합니다. 그럼, 하자
+
+$$$$ s_j = \frac{\Delta \bar{\tau}_j}{\sum_k \Delta \bar{\tau}_k} $$$$
+
+여기서 합계는 미국으로의 상위 20개 수출업체 $$k$$를 초과합니다. $$s_j$$ 값은 상위 무역 파트너 전체의 총 관세 변경 중 국가 $$j$$의 비가중 비중을 나타냅니다. 그러면 HHI는 $$\sum_k s^2_k$$이며, HHI가 1에 가까우면 관세 변경이 더 집중되었음을 나타냅니다. 2018~2019년 에피소드에서 HHI는 0.29였으며, 중국이 가장 큰 영향을 받은 국가였습니다. 반면 2025년에는 HHI가 0.06에 그쳤다.
+
+이제 우리는 이 두 가지 관세 에피소드에서 ETR과 RETR 간의 격차를 비교합니다. 2018~2019년 에피소드에서 RETR은 관세 인상 첫 해 동안 ETR과 매우 유사했습니다. 2018년 12월까지 ETR은 2017년에 비해 1.93% 포인트 상승한 반면, RETR은 1.49% 포인트 상승했습니다. 즉, 관세율 격차는 0.44%포인트, 전체 ETR 증가분의 약 22%에 해당한다. 그 격차는 구성과 요율 불일치 사이에서 대략 균등하게 나누어졌습니다.
+
+2025회에서는 비슷한 시간대에 비해 격차가 훨씬 커졌다. 2025년 12월까지 ETR은 12.37%포인트 올랐고, 관세율 격차는 5.43%포인트, 즉 ETR 증가분의 약 44%에 달했다. 더욱이 2025년 4월과 5월의 관세율 격차는 둘 다 그 시점까지의 ETR 증가율의 54%를 초과했습니다. 구성(적갈색으로 표시)과 요율 불일치(황갈색으로 표시) 모두 지금까지 관세율 격차의 큰 원인이었습니다. 다음 두 섹션에서는 관세율 격차의 각 구성요소와 최근 관세 사건에서 그 차이가 그렇게 큰 잠재적인 이유에 대해 논의합니다.
+
+구성 요소는 두 에피소드 모두에서 ETR-RETR 격차를 설명하는 데 중요한 역할을 하지만 두 가지 패턴은 논의할 가치가 있습니다.
+
+첫째, 2025년 수입 구성의 변화 속도는 2018~19년보다 훨씬 빨랐습니다. 국제 무역 문헌의 표준 모델은 새로운 생산자를 찾고 새로운 관계를 구축하는 데 시간이 걸리기 때문에 기업이 무역 비용의 변화에 ​​느리게 반응할 것이라고 예측합니다. 기업과 가계가 무역 비용의 지속적인 변화를 확신할 수 없는 경우 반응은 더욱 느려질 것입니다(Hoang and Mix, 2026). 이러한 역동성은 2018~2019년 에피소드에서 명확하게 드러납니다. 그림 1의 구성 구성 요소의 진화에서 볼 수 있듯이 중국산 수입품의 대체가 천천히 발생했으며 관세 인상이 시작된 후 1년까지 상당히 제한되었습니다. 이와 대조적으로 2025년에는 초기 관세 발표 직후 수입 구성이 변경되었습니다.
+
+둘째, 2018~2019회에 비해 2025년 구성요소의 규모는 상당히 크다. 전자의 경우 관세 인상이 중국에 훨씬 더 집중되었고 후자의 경우에는 더 고르게 분포되었음에도 불구하고 말이다. 일반적으로 거래 파트너 간 요율 차이가 더 클수록 지출 전환 행동이 더 강력해질 것으로 예상됩니다. 반대로, 국가 간 금리 인상이 더 균등해지면 한 국가에서 다른 국가로 전환하려는 인센티브가 줄어듭니다. 실제로 우리가 관찰한 바에 따르면 미국이 거의 모든 주요 무역 상대국에 대규모 관세 인상을 부과했음에도 불구하고 기업은 여전히 ​​관세가 높은 공급업체에서 (상대적으로) 낮은 공급업체로 전환하고 있습니다.
+
+2025년 수입 구성의 빠르고 중요한 변화에 대한 몇 가지 잠재적인 설명이 있습니다.
+
+한 가지 이유는 2018년 관세 인상이 크게 예상되지 않았던 반면(Alessandria et al., 2025), 2025년 관세 조치가 널리 방송되어 기업이 관세 인상에 앞서 재고를 늘릴 수 있는 충분한 시간을 갖게 되었기 때문입니다(우리가 프론트로딩이라고 함). 트럼프 대통령이 약속한 관세가 시행되자 기업들이 수입품을 비축해 구매를 줄이면서 미국산 상품 수입이 트럼프 대통령 당선 이후 급격히 증가했다. 높은 재고로 인해 기업은 관세가 높은 국가에서 수입을 대체할 수 있게 되었습니다. 지난 4월 중국에 대한 관세가 일시적으로 100%포인트 이상 인상되자 많은 미국 기업들은 양국 간 협상에 따라 관세가 다시 인하될 때까지 중국으로부터의 추가 구매를 연기할 수 있었습니다.
+
+프런트로딩 행위는 인위적으로 저관세 상품 수입 비중을 늘리고 고관세 수입 비중을 감소시키지만, 관세에 대한 실제 수요 반응을 반영하지는 않습니다. 따라서 프런트로딩으로 인한 구성 변경은 대부분 일시적입니다. 재고가 줄어들면 기업은 결국 새로운 상품을 주문해야 하며, 새로운 공급업체를 빨리 찾을 수 없다면 더 높은 관세를 적용해야 합니다.
+
+구성 막대에도 포착되는 보다 영구적인 변화는 원산지 국가 또는 수입품을 고관세 지정에서 저관세 지정으로 재할당하는 모든 행동입니다. 예를 들어, 구성에는 관세가 더 낮은 제품 코드가 적용되도록 수입품을 수정하는 관행인 관세 엔지니어링이 반영될 수 있습니다. 이는 또한 상품의 최종 가공이 관세가 낮은 국가에서 이루어지도록 이동하여 수입 상품에 낮은 관세가 적용되고 생산의 대부분은 관세가 높은 국가에 유지되는 생산 재분배 증가를 반영할 수도 있습니다. 이러한 행위는 합법적일 수 있지만 수입 제품 코드를 고의로 잘못 분류하거나 원산지 국가를 제품에 아무런 가치도 추가하지 않은 낮은 관세 국가로 잘못 기재하는 등 불법적인 행위도 존재합니다. 이와 관련하여, 더 높은 관세가 적용되는 국가 및 제품에 대해 더 광범위하게 수행되는 경우 과소 청구 또는 실제 금액보다 낮은 수입 가치를 보고하는 경우 공식 통계에서 무역 비중이 왜곡되고 RETR 측정이 낮아질 수도 있습니다. 8
+
+일시적인 프런트로딩 행동과 영구적인 수입 대체(관세 엔지니어링, 공급업체 전환 등) 사이의 무역 데이터를 구별할 수는 없지만, 후자가 2018~2019년보다 2025년에 더 빠른 속도와 더 큰 규모로 일어날 수 있다고 믿을 만한 이유가 있습니다. 많은 기업은 2018~2019년 미-중 관세 인상과 코로나19 팬데믹 이후 공급업체를 다각화하여 공급망을 더욱 민첩하게 만드는 경험을 했습니다. 더욱이 2025년에는 관세 인상 규모가 훨씬 커져, 높은 관세를 지불하는 데 드는 비용이 새로운 공급업체를 찾는 데 드는 상당한 비용보다 클 가능성이 높습니다. 9
+
+향후 수입 구성의 변화는 미국 가계와 기업이 새로운 관세를 얼마나 지속적으로 인식하느냐에 크게 좌우됩니다. 관세가 빨리 철회될 것이라고 믿는다면, 관세가 곧 인하될 것이라는 희망으로 관세가 높은 국가로부터의 구매를 계속 연기할 강력한 유인이 있습니다. 그들이 관세가 더 영구적이라고 믿는다면, 미국 기업이 관세가 높은 수입품을 재입고함에 따라 관세율 격차의 구성 요소가 일시적으로 감소했다가 관세가 낮은 공급업체와 영구적인 관계를 형성함에 따라 시간이 지나면서 다시 상승할 것으로 예상할 수 있습니다. 즉, 2018~2019년 관세 사건 이후 기업이 더욱 민첩해지면 관세가 낮은 국가와의 새로운 영구적 관계가 예상보다 빠르게 형성되어 수입 구성이 ETR과 RETR 사이에 큰 격차로 남아 있는 것을 볼 수 있습니다.
+
+출발지 국가-제품 수준에서 요율 불일치의 역할은 2018~2019년보다 가장 최근 에피소드에서 관세 인상 직후 훨씬 더 커졌습니다. 다시 한번, 우리는 관세율 격차의 이러한 구성 요소에 기여하는 일시적 및 영구적 요인이 모두 작용하고 있음을 확인합니다.
+
+2025년 4월의 요율 불일치는 ETR 전체 상승의 거의 50%를 차지하므로 조사를 시작하기에 좋은 곳인 것 같습니다. 지난 4월 초, 트럼프 대통령은 여러 국가에 걸쳐 광범위한 관세를 발표했습니다. 중국이 미국산 수입품에 관세를 부과하면서 보복 관세율이 인상되어 미중 무역에 대한 관세가 양방향으로 100%를 훨씬 넘었습니다. 중요한 점은 이러한 관세(중국 및 기타 국가 모두)는 관세가 발표된 이후에 배송된 상품에만 적용된다는 점입니다. 해상 선박을 통해 많은 국가에서 미국으로 상품을 배송하는 데 몇 주가 걸릴 수 있으므로 4월에 미국에 도착하는 많은 상품이 관세가 시행되기 전에 배송되었습니다. 따라서 ETR에 반영된 관세보다 낮은 관세가 적용되었습니다. 따라서 배송 시기는 분해 시 요율 불일치에 큰 영향을 미칩니다. 일반적으로 배송 시기는 의무 관세율이 인상된 후 최대 몇 개월 동안 지속되는 일시적인 요소입니다.
+
+요율 불일치에 기여하는 또 다른 요인은 USMCA 규정 준수율의 변화입니다. 캐나다와 멕시코에 대한 많은 관세는 USMCA에 따라 수입되는 제품에 대해 면제를 제공합니다. ETR은 기준 연도의 기본 준수율을 설명하지만 제품 수준의 준수율 증가는 관세율 격차의 요율 불일치 구성 요소에 포함됩니다.
+
+요금 불일치에 대한 기타 원인으로는 자유 무역 지역이나 보세 창고(제품이 회수될 때까지 관세 납부가 지연될 수 있음)의 사용 또는 시행 지연이 있습니다. 수입업자는 수입품 상태를 신고하며, 기업이 해당 수입품의 과세 가치를 고의로 또는 무의식적으로 잘못 보고할 가능성이 있습니다. 시간이 지남에 따라 국가 및 제품별 관세 상태가 더욱 명확해짐에 따라 이러한 잘못된 보고가 줄어들 것으로 예상됩니다.
+
+발표된 관세율과 묵시적인 관세율 간의 격차는 2018~2019년 관세 에피소드보다 이번 관세 에피소드에서 더 큰 것으로 보입니다. 이러한 관세율 격차는 현재 국가 및 제품 간 수입 구성의 급격한 변화와 원산지 국가-제품 수준에서 발표된 관세율과 묵시적인 관세율 간의 불일치를 모두 반영합니다. 관세율 격차를 유발하는 요인 중 상당수는 초기 선적에 따른 대체, 선적 시기의 요금 불일치 등 일시적인 요인일 가능성이 높지만, 다른 요인은 보다 영구적인 요인일 가능성이 높습니다. 현재의 관세가 그대로 유지된다면 관세율 격차는 어느 정도 줄어들 것이며, 시간이 지나면서 관세가 낮은 공급업체로의 대체가 더욱 영구적이 되어 다시 상승할 것으로 예상됩니다.
+
+첨부 문서에서는 USMCA 준수율 변경, 자유 무역 지역 사용, 배송 시기 등의 요소를 명시적으로 설명하고 소스 지역별 관세율 격차를 자세히 설명하여 관세율 격차를 보다 철저하게 분해합니다. 우리는 또한 국가 및 부문 간 관세 격차 구성요소의 이질성을 문서화했으며, 이는 현재와 이전 에피소드에서 관세에 대한 수입업체의 반응 차이를 더욱 강조합니다.
+
+Alessandria, George, Shafaat Yar Khan, Armen Khederlarian, Kim J. Ruhl 및 Joseph B. Steinberg. "무역 전쟁과 평화: 2015년부터 2050년까지의 미중 무역 및 관세 위험." 국제경제학저널 155(2025): 104066.
+
+Eck, Sydney, Trang Hoang, Carter Mix 및 Madeleine Ray, "격차를 염두에 두세요: 최근 무역 정책 에피소드에서 발표된 대 묵시 관세율". 2026. 작업 문서.
+
+고피나스, 기타, 브렌트 니먼. 관세의 발생: 요율과 현실. 번호 w34620. 국립 경제 연구국, 2026.
+
+호앙, 뜨랑(2022). "글로벌 소싱의 역학", 국제 금융 토론 논문 1337. 워싱턴: 연방 준비 제도 이사회.
+
+Hoang, Trang, Carter Mix, "무역 전쟁과 무역 전쟁의 소문: 미국-중국 관세 인상의 역동적인 효과", Journal of International Economics, Volume 160, 2026, 104229, ISSN 0022-1996, https://doi.org/10.1016/j.jinteco.2026.104229.
+
+Minton, Robert, Mariano Somale 및 Madeleine Ray, "실시간으로 소비자 가격에 대한 관세 효과 감지 - 2부", FEDS Notes. 워싱턴: 연방준비제도 이사회, 2026년 4월 8일.
+
+미국 인구조사국, "USMCA 자격에 대한 통지." 2026년 3월 19일, https://www.census.gov/foreign-trade/statistics/corrections/index.html .
+
+1. 2018~19년 관세인상 분석 시 기준연도는 2017년, 2025년 관세인상 분석 시 기준연도는 2024년으로 설정하였다.  텍스트로 돌아가기
+
+2. 글을 쓰는 시점에서 2025년 7월 이전의 데이터는 본문에 설명된 이유로 USMCA 자격을 과소평가했습니다. 인구조사국은 2026년 6월 9일에 발표된 연간 개정판에 2025년 3월부터 2025년 6월까지 데이터에 대한 수정 사항을 통합할 것이라고 발표했습니다. 텍스트로 돌아가기
+
+3. 계산된 관세는 해당 거래에 대해 수입자가 지불해야 하는 관세이며, 해당 관세가 아직 지불되었는지 여부에 관계 없습니다. 미국 재무부 데이터와 같은 기타 관세 수입 척도는 수입업자가 지불할 때 관세 수입을 제공합니다. 관세 지불이 지연되는 경우가 있기 때문에 계산된 관세에 대한 인구 조사 측정값은 특정 월 내 수입을 기준으로 한 묵시적 관세 수입을 측정하는 데 더 적합합니다. 그러나 이 계열은 일반적으로 재무부 데이터, 특히 낮은 빈도의 경우 상관관계가 있습니다.  텍스트로 돌아가기
+
+4. NIPA 공식 수입자료는 일반 수입을 사용하므로 소비용 수입이 아닌 일반 수입을 사용합니다. 다만, 이 계열에는 자유무역지역이나 보세창고에 반입된 수입품 등 면제 이외의 사유로 관세가 적용되지 않는 수입품도 포함됩니다. 우리의 연구 보고서에서 우리는 관세율 격차 분해의 일환으로 이 두 가지 수입 시리즈의 차이점을 명시적으로 설명했습니다.  텍스트로 돌아가기
+
+5. 코로나19 기간을 피하기 위해 2019년 12월 1차 무역전쟁 분석을 종료합니다.  텍스트로 돌아가기
+
+6. 상위 20개 수출국만을 사용하는데, 그 이유는 이들 국가의 수출품에 부과되는 평균 관세율이 제품 구성에 의해 지나치게 영향을 받을 가능성이 적기 때문입니다. 관세 사건 전반에 걸쳐 최고 수출국 목록을 일정하게 유지하기 위해 우리는 두 기준 연도인 2017년과 2024년에 각 국가의 대미 수출 합계를 기준으로 최고 수출국을 결정합니다.  텍스트로 돌아가기
+
+7. Hoang and Mix(2026)는 또한 미국의 중국 상품 관세에 대한 무역 대응이 무역 전쟁 초기에 다소 지연되었음을 보여줍니다.  텍스트로 돌아가기
+
+8. 2025년 중국으로부터의 수입에 대한 미국의 공식 데이터는 미국으로의 수출에 대한 중국의 공식 데이터보다 1,120억 달러 낮습니다. 이는 기업이 관세 납부를 낮추기 위해 중국으로부터의 수입을 과소보고했기 때문일 수 있습니다.  텍스트로 돌아가기
+
+9. 예를 들어 Hoang(2022)은 중국 화학 기업의 맥락에서 새로운 공급업체를 찾는 것이 기존 관계를 유지하는 것보다 훨씬 더 많은 비용이 든다는 사실을 발견했습니다.  텍스트로 돌아가기
+
+에크, 시드니, 트랑 호앙, 카터 믹스, 마들렌 레이(2026). "격차를 염두에 두십시오: 최근 무역 정책 에피소드에서 발표된 관세율과 묵시적인 관세율", FEDS 노트. 워싱턴: 연방준비제도 이사회, 2026년 4월 8일, https://doi.org/10.17016/2380-7172.4023.
+
+면책 조항: FEDS Notes는 이사회 직원이 자신의 견해를 제공하고 경제 및 금융 분야의 다양한 주제에 대한 분석을 제공하는 기사입니다. 이 기사는 FEDS 작업 보고서 및 IFDP 보고서보다 짧고 기술 지향적이지 않습니다.
+
+## 📄 영문 원본
+Sydney Eck,  Trang Hoang ,  Carter Mix , and Madeleine Ray
+
+On April 9, 2026, three references to "imports for consumption" were corrected to "imports."
+
+In the past year, the U.S. has raised its tariffs on trading partners to a historic level. The tariff rate implied by actual tariff payments owed by importers, however, falls short of the tariff rate implied by announced policies (Gopinath and Neiman, 2026). In this note, we aim to explore drivers of what we call the "tariff rate gap," which is the disparity between the average U.S. rate implied by announced tariffs—what we will call the effective tariff rate (ETR)—and the average rate implied by Census calculated duties as a share of imports—the realized effective tariff rate (RETR). We perform a mathematical decomposition of the tariff rate gaps in the 2018-2019 and 2025 tariff hike episodes. With this decomposition, we can determine how much of the gap is accounted for by various behavior of importers—such as substitution toward lower-tariff products or frontloading—or by differences between announced and implied tariff rates at the product-country level.
+
+While our measure of the ETR captures the size of policy changes given fixed import behaviors, the RETR tells us how much revenue the tariffs are generating. But, the RETR can only be calculated with a lag, long after tariff announcements are made, as it requires data on imports and tariff duties. To consider the revenue-producing effects of a new tariff upon implementation, therefore, it is useful to have an idea of how importer behavior and other factors may reduce revenues implied by the ETR. Furthermore, in comparing the drivers of the gap in current and previous episodes, we gain insights into how importer behavior has changed in the intervening period.
+
+Our findings show that the tariff rate gap is much larger in the current tariff episode than in the 2018-2019 tariff episode over a similar time period. This larger gap comes from both faster substitution toward lower-tariff products and source countries than in the previous episode, as well as larger discrepancies between the announced and implied tariff rates at the source country-product level. We discuss several factors that could be contributing to this gap and how we would expect those factors to evolve over time.
+
+Let $$\bar{\tau}_t$$ denote the ETR at time $$t$$, or the average U.S. headline tariff rate based on tariff announcements. We define $$\bar{\tau}_t$$ as
+
+$$$$\bar{\tau}_t = \sum_j \sum_p \bar{\omega}_{jp} \bar{\tau}_{jpt}\ (1)$$$$
+
+where $$\bar{\tau}_{jpt}$$ is the announced rate for product $$p$$ imported from country $$j$$ at time $$t$$, and the weight $$\bar{\omega}_{jp}$$ is calculated as the values of imports in the reference year, which is prior to the time the tariff policies being studied are enacted, divided by the customs value of total U.S. imports in that year. 1  The announced rate for each country-product pair is determined in two steps. First, we take the implied tariff (tariff payments over imports) in the reference year as the initial tariff. Then, we meticulously read each official tariff announcement since the reference year, such as presidential executive orders or proclamations, to determine the additional tariff assigned over the tariff episode at the source country-product level. Our tariff rates account for announced country- or product-level exemptions, such as those for steel from certain countries in the 2018-2019 episode, or for electronics in the recent tariff episode.
+
+Our ETR also accounts for exemptions for products imported from Canada and Mexico that are imported under the USMCA agreement. Specifically, we use a baseline compliance rate—the Census-reported compliance rate in July 2025—to calculate the effective tariff for each product. For example, a product with a baseline 50 percent USMCA compliance rate and a new 10 percent tariff is assigned an effective tariff of 5 percent. There are two reasons why we choose as our baseline the compliance rate in July 2025 over compliance rates as reported in our reference year (2024). First, many products were subject to zero or very low tariffs under the World Trade Organization's Most-Favored-Nation (MFN) requirement in 2024. Under these conditions, USMCA compliance of a Canadian or Mexican import may have been unreported due to convenience rather than non-compliance, so that reported 2024 compliance rates are likely lower than actual compliance rates. Second, for data prior to July 2025, USMCA compliance rates at the product-level were understated in Census data, as compliance for many products that faced zero MFN tariffs was not reported in the Census data even if the importer claimed it in customs paperwork (U.S. Census Bureau, 2026). For data starting in July 2025, Census uses a more robust measure of compliance as reported by the importer, and this issue is resolved. 2
+
+For more details on the construction of our ETR and the role of USMCA compliance, see a FEDS note from our Federal Reserve colleagues (Minton et al., 2026), as well as our working paper (Eck et al., 2026).
+
+Let $$\tau_t$$ denote the RETR at time $$t$$, which is defined using Census data as the sum of all calculated duties divided by the total customs value of imports. 3 4  Equivalently, we can express $$\tau_t$$ as
+
+$$$$\tau_t = \sum_j \sum_p \omega_{jpt} \tau_{jpt}\ (2)$$$$
+
+where $$\tau_{jpt}$$ is the value of calculated duties divided by the customs value of imports at the source country-product level, and the weight $$\omega_{jpt}$$ is calculated as the customs value of imports for product $$p$$ from country $$j$$ at time $$t$$ divided by total U.S. imports at time $$t$$.
+
+From equations 1 and 2, it is straightforward to see that the gap between the ETR and RETR can be decomposed as:
+
+$$$$ \bar{\tau}_t - \tau_t = \sum_j \sum_p \left[ \underbrace{\bar{\tau}_{jpt}(\bar{\omega}_{jp} - \omega_{jpt})}_{\text{composition}} + \underbrace{\omega_{jpt}(\bar{\tau}_{jpt} - \tau_{jpt})}_{\text{rate discrepancies}} \right]\ (3) $$$$
+
+The first term on the right-hand side of equation 3 captures the contribution to the ETR-RETR gap that comes from changes in the composition of imports, which we will call "composition.'' This term reflects any substitution away from higher-tariff products and toward lower-tariff products. One should not view composition as capturing only permanent shifts in expenditure toward other countries and products. It could reflect temporary changes in composition, such as when anticipatory frontloading ahead of tariffs allows importers to delay purchases temporarily from high-tariff countries. It could also reflect increases in tariff engineering, (legal or illegal) transshipment through lower-tariff countries, and de minimis imports. If the composition of imports doesn't change at all in response to tariffs, $$\bar{\omega}_{jp} = \omega_{jpt}$$ for all $$j$$ and $$p$$ and this term is equal to 0.
+
+The second term in Equation 3, which we call "rate discrepancies,'' captures the average difference between the announced rate and actual rate for individual product-country pairs, weighted by current import shares. A non-zero value for this term can reflect increases in USMCA compliance from the base rate, shipments that were sent before but arrived after a tariff was imposed, or to the use of free trade zones or bonded warehouses where tariff payments can be delayed and therefore not reflect current tariff rates. We might expect factors like shipment timing or free trade zone use to be temporary, while factors such as USMCA compliance would be more permanent.
+
+In summary, the composition component reflects changes to the composition of imports, while the rate discrepancies component reflects actual differences between announced and applied tariffs at the country-product level. In our working paper, we take a closer look at the potential contributors to each component, such as USMCA compliance, use of free trade zones, and shipment timing. In this note, however, we focus only on the two general terms.
+
+Using Census data and our ETRs by country and product, we can calculate the RETR, the tariff rate gap, and both terms of the decomposition across time. In practice, we calculate the ETR, RETR, and composition component explicitly, then calculate the rate discrepancies component as a residual of the tariff rate gap.
+
+The top panel of Figure 1 shows the decomposition of announced tariffs in the 2018-2019 episode from January 2018 to December 2019. 5  The bottom panel shows the decomposition in the 2025 episode from January 2025 to December 2025. The total height of each bar represents the ETR, and each colored component represents a different part of the decomposition, as indicated in the legend.
+
+Before discussing each component separately, consider the overall differences in announced tariff rates across the two tariff episodes. While both episodes represent a departure from a decades-long trend toward more liberalized trade, it is clear that overall U.S. tariffs increased by much more in 2025 than in 2018 and 2019. As of December 2025, the U.S. ETR from recent tariff actions is 14.7 percent, 12.4 percentage points higher than the average tariff rate in 2024. By contrast, the ETR rose by 4.1 percentage points in the earlier episode from the beginning of 2018 to the end of 2020.
+
+Note: The key identifies series in order from bottom to top.
+
+Source: U.S. Census; FRB staff's calculations
+
+In addition to differences in headline rate increases, the episodes also differ in how concentrated the tariff increases were among certain countries. To show this, we calculate a Herfindahl-Hirschman Index (HHI) on the tariff changes across the top 20 exporters to the U.S. 6  Let $$\Delta \bar{\tau}_j$$ be the change in the ETR for country $$j$$ from the beginning of a tariff episode to a given period—December 2019 for the first episode and December 2025 for the second. Then, let
+
+$$$$ s_j = \frac{\Delta \bar{\tau}_j}{\sum_k \Delta \bar{\tau}_k} $$$$
+
+where the summation is over the top 20 exporters to the U.S. $$k$$. The value $$s_j$$ represents country $$j$$'s unweighted share of the total tariff changes across these top trade partners. The HHI is then $$\sum_k s^2_k$$, with HHI closer to 1 indicating that tariff changes were more concentrated. In the 2018-2019 episode, the HHI was 0.29, with China being by far the most affected country. In the 2025 episode, by contrast, the HHI was only 0.06.
+
+Now we turn to a comparison of the gap between the ETR and the RETR in these two tariff episodes. In the 2018-2019 episode, the RETR was very close to the ETR throughout the first year of the tariff increases. By December 2018, the ETR had risen 1.93 percentage points relative to 2017, while the RETR had risen 1.49 percentage points. In other words, the tariff rate gap was 0.44 percentage points, or roughly 22 percent of the total ETR increase. That gap was roughly equally split between composition and rate discrepancies.
+
+In the 2025 episode, the gap was much bigger over a similar time frame. By December 2025, the ETR had risen 12.37 percentage points, and the tariff rate gap was 5.43 percentage points, or roughly 44 percent of the ETR increase. Furthermore, the tariff rate gaps in April and May 2025 both exceeded 54 percent of the ETR increase to that point. Both composition (shown in maroon) and rate discrepancies (shown in tan) have been large contributors to the tariff rate gap so far. In the next two sections, we discuss each component of the tariff rate gap and the potential reasons why they are so large in the most recent tariff episode.
+
+While the composition factor plays an important role in explaining the ETR-RETR gap in both episodes, two patterns are worth discussing.
+
+First, the pace of change in import composition during 2025 was much faster than during 2018-19. Standard models in international trade literature predict that firms will react slowly to changes in trade costs, as it takes time to search for new producers and establish new relationships. The reaction would be even slower when firms and households are unsure of how persistent changes to trade costs will be (Hoang and Mix, 2026). This dynamic plays out clearly in the 2018-2019 episode: substitution away from imported Chinese goods happened slowly and was quite limited up until a year after the start of the tariff hikes, as shown by the evolution of the composition component in Figure 1. 7  By contrast, in 2025 the import composition changed immediately after the initial tariff announcements.
+
+Second, relative to the 2018-2019 episode, the size of the composition factor in 2025 is quite substantial, even though tariff hikes were a lot more concentrated on China in the former episode and more evenly distributed in the latter. Generally, when there is more rate differential across trading partners, we would expect stronger expenditure switching behaviors. Vice versa, when rate hikes are more equal across countries, there is less incentive to switch from one to another. Indeed, what we observed is that even though the U.S. imposed large tariff increases on almost all major trading partners, firms still switch from high to (relatively) low tariff suppliers.
+
+There are several potential explanations for the quick and significant changes in import composition during 2025.
+
+One reason was that, whereas in 2018, the tariff hikes were largely unanticipated (Alessandria et al., 2025), the 2025 tariff actions were widely broadcast, leaving firms with sufficient time to increase inventories ahead of tariff increases (what we call frontloading). U.S. goods imports rose sharply following the election of President Trump as firms stocked up on imported goods to reduce purchases when President Trump's promised tariffs were implemented. Higher inventories have allowed firms to substitute imports more sharply away from high-tariff countries than they otherwise would. In April, when tariffs on China temporarily increased by over 100 percentage points, many U.S. firms were able to delay further purchases from China until tariffs came back down following negotiations between the two countries.
+
+The frontloading behavior artificially increases the share of low-tariffed goods imports and decreases the share of high-tariffed imports but does not reflect the actual demand response to tariffs. Thus, compositional changes from frontloading are mostly temporary. As inventories are drawn down, firms eventually need to order new goods and must do so at the higher tariffs unless they manage to find new suppliers quickly.
+
+A more permanent change, also captured in the composition bars, would be any behavior that reassigns the source country or product of an import from a high-tariff designation to a low-tariff designation. Composition could reflect, for example, increased tariff engineering, which is the practice of modifying imported goods such that a lower-tariff product code applies. It could also reflect increased reallocation of production, where the final processing of a good is moved to occur in a lower-tariff country, such that the imported good is subject to a lower tariff while much of the production remains in the higher-tariffed country. While these behaviors might be legal, illegal counterparts also exist, such as purposely misclassifying the imported product code or misstating the source country as a lower-tariffed country where no value was added to the product. Relatedly, under-invoicing, or reporting a lower import value than the actual amount, if done more extensively for countries and products that are subject to higher tariffs, could also distort the trade shares in official statistics and lower our measure of RETR. 8
+
+While we are unable to differentiate in trade data between temporary frontloading behaviors and permanent import substitution (tariff engineering, switching suppliers, etc.), there are reasons to believe that the latter could be happening at a faster pace and larger scale in 2025 than in 2018-2019. Many firms have had experience diversifying suppliers after the 2018—2019 U.S.-China tariff hikes and the COVID pandemic, leading to more agile supply chains. Furthermore, the size of the tariff hikes in 2025 is much more significant, and thus, the cost of paying higher tariffs is more likely to outweigh the substantial cost of finding new suppliers. 9
+
+The future evolution of import composition relies heavily on how persistent U.S. households and firms perceive new tariffs to be. If they believe that tariffs will quickly be reversed, there is a strong incentive to continue delaying purchases from high-tariff countries in hopes that tariffs will fall soon. If they believe tariffs are more permanent, we might expect to see the composition component of the tariff rate gap temporarily fall as U.S. firms restock on high-tariff imported goods but then rise again over time as they form permanent relations with low-tariff suppliers. That said, if firms have become more agile since the 2018—2019 tariff episode, we may see new permanent relations with lower-tariff countries form faster than we expect, such that import composition remains a large wedge between the ETR and RETR.
+
+The role of rate discrepancies at the source country-product level have also been much larger soon after tariff increases in the most recent episode than in 2018-2019. Once again, we see both temporary and permanent factors at play that contribute to this component of the tariff rate gap.
+
+Rate discrepancies in April 2025 accounted for almost 50 percent of the total rise in the ETR and thus seems like a good place to start our investigation. Early in April, President Trump announced broad tariffs across many countries. When China retaliated with tariffs on imports from the U.S., there followed a tit-for-tat increase in tariff rates that left tariffs on U.S.-China trade well above 100 percent in both directions. Importantly, these tariffs (both on China and on other countries) applied only to goods that were  shipped after the tariffs were announced . Since shipment of goods to the U.S. from many countries by ocean vessel can take several weeks, many goods arriving in the U.S. in April were shipped before the tariffs were implemented. As such, they were subject to lower tariffs than those reflected in the ETR. Thus, shipment timing is a substantial contributor to rate discrepancies in our decomposition. In general, shipment timing is a temporary factor which should last at most a few months after an increase in the mandated tariff rate.
+
+Another factor contributing to rate discrepancies is changes in the rate of compliance with USMCA regulations. Many of the tariffs on Canada and Mexico give exemptions to products imported under USMCA. While our ETR accounts for a base rate of compliance in the reference year, any increase in the rate of compliance at the product level will be included in the rate discrepancies component of the tariff rate gap.
+
+Other possible contributors to rate discrepancies include use of free trade zones or bonded warehouses (where payment of tariffs can be delayed until a product is withdrawn), or enforcement lags. Importers declare the status of their imports, and it is possible that firms are knowingly or unknowingly misreporting the dutiable value of those imports. We would expect such misreporting to decrease over time as the status of tariffs across countries and products becomes clearer.
+
+The gap between announced and implied tariff rates seems to be larger in this tariff episode than in the 2018-2019 tariff episode. This tariff rate gap reflects both swift changes in the current episode in the composition of imports across countries and products and discrepancies between announced and implied tariff rates at the source country-product level. Many drivers of the tariff rate gap are likely temporary, such as substitution enabled by earlier frontloading and rate discrepancies from shipment timing, while other drivers are likely more permanent. We anticipate that if current tariffs remain in place, the tariff rate gap will likely fall somewhat, then rise again over time as substitution toward lower-tariff suppliers becomes more permanent.
+
+In a companion paper, we perform a more thorough decomposition of the tariff rate gap, explicitly accounting for factors such as changes in USMCA compliance rates, use of free trade zones, and shipment timing, as well as detailing source region-specific tariff rate gaps. We also document heterogeneity in components of the tariff gaps across countries and sectors, which further highlights the differences in importer response to tariffs in the current and previous episodes.
+
+Alessandria, George, Shafaat Yar Khan, Armen Khederlarian, Kim J. Ruhl, and Joseph B. Steinberg. "Trade war and peace: US-China trade and tariff risk from 2015–2050." Journal of International Economics 155 (2025): 104066.
+
+Eck, Sydney, Trang Hoang, Carter Mix, and Madeleine Ray, "Mind the Gap: Announced versus implied tariff rates in recent trade policy episodes". 2026. Working Paper.
+
+Gopinath, Gita, and Brent Neiman. The Incidence of Tariffs: Rates and Reality. No. w34620. National Bureau of Economic Research, 2026.
+
+Hoang, Trang (2022). " The Dynamics of Global Sourcing ," International Finance Discussion Papers 1337. Washington: Board of Governors of the Federal Reserve System.
+
+Hoang, Trang, and Carter Mix, "Trade wars and rumors of trade wars: The dynamic effects of the U.S.–China tariff hikes", Journal of International Economics, Volume 160, 2026, 104229, ISSN 0022-1996, https://doi.org/10.1016/j.jinteco.2026.104229.
+
+Minton, Robert, Mariano Somale, and Madeleine Ray, " Detecting Tariff Effects on Consumer Prices in Real Time—Part II ," FEDS Notes. Washington: Board of Governors of the Federal Reserve System, April 08, 2026.
+
+U.S. Census Bureau, "Notice for USMCA Eligibility." March 19, 2026,  https://www.census.gov/foreign-trade/statistics/corrections/index.html .
+
+1. We choose the reference year as 2017 when analyzing the 2018-19 tariff hikes, and 2024 when analyzing the 2025 tariff hikes.  Return to text
+
+2. At the time of writing, data prior to July 2025 understate USMCA eligibility due to the reason we describe in the main text. Census has announced that they will incorporate the corrections to data from March 2025 to June 2025 in their Annual Revisions released on June 9, 2026.  Return to text
+
+3. Calculated duties are those tariff payments owed by the importer for a given transaction, regardless of whether those payments have been made yet. Other measures of tariff revenue, such as from U.S. Treasury data, give tariff revenue as payments are made by importers. Since tariff payments can sometimes be delayed, we find the Census measure of calculated duties to be a better measure of implied tariff revenue based on imports within a given month, though this series generally correlates with Treasury data, especially with lower frequencies.  Return to text
+
+4. We use general imports rather than imports for consumption, as general imports are used for official NIPA imports data. That said, this series includes imports to which tariffs are not applied for reasons other than exemptions, such as imports entered into free trade zones or bonded warehouses. In our working paper, we explicitly account for differences in these two import series as part of our decomposition of the tariff rate gap.  Return to text
+
+5. We end our analysis of the first trade war in December 2019 to avoid the COVID-19 period.  Return to text
+
+6. We use only the top 20 exporters because the average tariff rates imposed on exports from these countries are less likely to be overly affected by product composition. To hold the list of top exporters constant across tariff episodes, we determine the top exporters based on the sum of each country's exports to the U.S. in 2017 and 2024, our two reference years.  Return to text
+
+7. Hoang and Mix (2026) also show that the trade response to the U.S. tariffs on Chinese goods was somewhat delayed in the initial years of the trade war.  Return to text
+
+8. In 2025, the U.S. official data for imports from China is 112 billion USD lower than China's official data for exports to the U.S., which could potentially be due to firms underreporting their imports from China to lower tariff payments.  Return to text
+
+9. For example, Hoang (2022) finds that finding new suppliers is much more costly than maintaining existing relationships in the context of Chinese chemicals firms.  Return to text
+
+Eck, Sydney, Trang Hoang, Carter Mix, and Madeleine Ray (2026). "Mind the Gap: Announced versus Implied Tariff Rates in Recent Trade Policy Episodes," FEDS Notes. Washington: Board of Governors of the Federal Reserve System, April 08, 2026, https://doi.org/10.17016/2380-7172.4023.
+
+Disclaimer:  FEDS Notes are articles in which Board staff offer their own views and present analysis on a range of topics in economics and finance. These articles are shorter and less technically oriented than FEDS Working Papers and IFDP papers.
+
+
+---
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/mind-the-gap-announced-versus-implied-tariff-rates-in-recent-trade-policy-episodes-20260408.html | 수집: 2026-06-10 01:24 | 지표: FEDS_NOTES*

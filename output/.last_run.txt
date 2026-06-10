@@ -1,4 +1,2 @@
-TIME=2026-06-10 00:50 UTC
-FOMC의사록=❌ 실패
-연준의장연설=❌ 실패
-FEDS_Notes=❌ 실패
+TIME=2026-06-10 01:45 UTC
+FEDS_Notes=✅ 완료

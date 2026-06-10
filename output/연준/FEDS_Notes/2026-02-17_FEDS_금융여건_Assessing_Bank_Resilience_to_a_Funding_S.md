@@ -1,0 +1,315 @@
+# FEDS Notes - Assessing Bank Resilience to a Funding Shock
+
+> 날짜: 2026-02-17
+> 저자: Faith Achugamonu,Tim Schmidt-Eisenlohr, andMatthew P. Seay
+> 주제: 금융여건
+> 출처: https://www.federalreserve.gov/econres/notes/feds-notes/assessing-bank-resilience-to-a-funding-shock-20260217.html
+
+## 📌 초록 (원문)
+Deposits are the largest source of funding for U.S. banks, representing approximately two-thirds of liabilities. Deposits also remain key to bank profitability, as they typically function as a stable source of long-term funding at a cost well-below interest earned on bank assets.
+
+## 📋 한국어 번역
+Faith Achugamonu, Tim Schmidt-Eisenlohr, Matthew P. Seay 1
+
+예금은 미국 은행의 가장 큰 자금 조달원으로 부채의 약 3분의 2를 차지합니다. 예금은 또한 은행 수익성의 핵심으로 남아 있습니다. 일반적으로 예금은 은행 자산에 대한 이자보다 훨씬 낮은 비용으로 안정적인 장기 자금 조달원으로 기능하기 때문입니다. 그러나 은행 예금의 상당 부분은 보험에 가입되어 있지 않으며 이러한 예금은 2023년 3월 SVB(Silicon Valley Bank)의 실패에서 입증된 것처럼 추가적인 위험을 초래할 수 있습니다. SVB의 붕괴 이후 일부 은행은 예금 유출이 증가했으며 운영을 안정화하기 위해 해당 예금을 더 비싼 도매 자금원으로 대체해야 했습니다(Cipriani et al., 2024; Glancy et al., 2024). 또한 은행권 전반에 걸쳐 예금 금리가 상승하기 시작했습니다. 예금 유출과 높은 조달 비용 등 이러한 요인은 수익성을 약화시키고 일부 은행의 장기 생존 가능성에 대한 우려를 심화시켰습니다.
+
+이 노트에서 우리는 가상의 시스템 전반에 걸친 자금 조달 충격이 은행 수익성과 은행 자본 비율에 큰 영향을 미칠지 여부를 묻습니다. 이 질문을 해결하기 위해 우리는 FLARE(Forward-Looking Analysis of Risk Events) 스트레스 테스트 모델을 사용하여 은행 수익과 자본을 예측합니다. 2 우리는 은행의 무보험 예금 자금에 대한 충격을 포함하기 위해 모델을 확장합니다. 이 모델에서 시장 조정 자본 비율(대출 ​​및 증권의 공정 가치 변동을 고려한 자본 비율)이 낮은 은행은 무보험 예금에 대한 조달 비용이 더 높습니다. 3 이러한 자금 조달 비용의 증가는 은행이 예금 기반을 유지하기 위해 더 높은 예금 금리를 지불하거나 더 비싼 대체 소스로부터 자금을 확보함으로써 발생하는 추가 비용을 나타냅니다. 4
+
+이러한 자금 충격의 영향은 이사회의 2024년 탐색적 분석에서 나온 심각한 자금 스트레스를 포함하는 스태그플레이션 시나리오와 이사회의 2024년 감독 스트레스 테스트에서 나온 심각한 불리한 시나리오 모두에 대해 설명됩니다. 5 스태그플레이션 시나리오에서 자금 조달 충격을 추가하면 수익성과 자본 비율이 모두 감소합니다. 인플레이션이 높아지면 이자율이 높아지고, 이는 두 가지 이유로 자금 충격의 영향을 악화시키기 때문입니다. 첫째, 높은 수익률은 은행의 시장조정 자본비율을 감소시켜 더 많은 은행이 자금조달 충격을 받게 됩니다. 둘째, 자금 충격을 조건으로 스태그플레이션 시나리오에서 높은 수익률은 더 큰 가격 인상 효과를 유발합니다. 왜냐하면 무보험 예금은 3개월 국채 수익률에 50bps 스프레드를 더한 가격으로 가격이 조정되기 때문입니다. 대조적으로, 심각하게 불리한 시나리오에서는 자금 충격을 추가해도 효과가 최소화됩니다. 이러한 차이는 인플레이션 상승 없이 심각한 경기 침체가 진행되는 동안 연방기금 금리가 급격하게 0으로 떨어지면서 자산의 공정 가치 손실과 전반적인 자금조달 비용이 크게 줄어들기 때문에 발생합니다. 이러한 대조적인 답변은 금리 환경이 자금조달 충격이 은행 성과에 미치는 영향을 근본적으로 어떻게 결정하는지를 강조합니다.
+
+FLARE는 공공 재무제표 데이터와 거시 경제 변수를 사용하여 은행 시스템의 PPNR(사전 충당 순수익), 대출 손실 및 자본을 예측하는 하향식 은행 수준 스트레스 테스트 모델입니다. 6, 7 이러한 거시경제 변수는 연간 스트레스 테스트 시나리오에 사용된 16개 국내 변수의 하위 집합을 나타냅니다. PPNR의 구성 요소와 대출 유형별 손실은 자기회귀(AR) 조건, 금융 시장 지표, 거시경제 변수 및 은행별 제어 변수를 통합하는 회귀 모델을 사용하여 개별적으로 추정됩니다. 우리의 추정 ​​표본 범위는 1997년부터 2024년까지입니다. 8 추정된 민감도를 기반으로 이 모델은 각 은행의 수입, 지출, 대출 손실 및 그에 따른 자본 변화를 예측합니다.
+
+보통주 Tier 1(CET1) 자본은 규제 기관이 모니터링하는 금융 지급 능력의 주요 척도입니다. FLARE에서 CET1 비율 예측은 도약 기간의 실제 CET1을 사용하고 PPNR을 추가한 다음 대손충당금, 기타포괄손익 누계액, 세금 및 자본 지급액의 변화를 뺍니다. 9 비현실적인 자본 축적을 피하기 위해 은행은 점프오프 시 CET1 비율의 4분기 평균과 동일한 CET1 비율을 목표로 삼는 것으로 가정합니다. 은행의 자본 비율이 목표 수준을 초과하게 만드는 수익은 주주들에게 분배됩니다. 그렇지 않으면 배당금 분포는 자동회귀(AR) 프로세스를 따르며 점차적으로 장기 지급률로 수렴됩니다.
+
+CET1과 같은 규제 자본의 표준 측정은 대부분의 증권 및 대출에 대한 이자율 위험을 완전히 설명하지 않습니다. 은행 자산의 이자율 위험은 주로 주택담보대출, 정부채, 주택저당증권 등 장기 고정금리 자산에서 발생합니다. 이러한 장기 자산의 가치는 장기 수익률이 상승함에 따라 감소합니다. 이러한 미실현 손실은 2021년부터 2022년까지 10년물 수익률이 약 2.3% 포인트 증가한 경우에서 볼 수 있듯이 장기 수익률이 급격하게 상승하는 동안 상당할 수 있습니다.
+
+이러한 미실현 손실을 설명하기 위해 FLARE 모델에는 MACET1(시장 조정 CET1)이라는 시가 평가 자본 측정치가 추가되었습니다. MACET1 비율은 CET1 비율의 분자에서 모든 증권 및 대출의 공정 가치 손실을 공제하여 계산됩니다. 10, 11 MACET1 비율은 무보험 예금의 비율과 결합하여 다음 섹션에서 논의되는 바와 같이 자금 충격의 근본적인 취약점을 나타냅니다.
+
+펀더멘털이 약한 은행은 자금 압박을 받을 가능성이 더 높습니다. 은행 시스템에 스트레스가 발생할 경우 예금자를 유지하기 위해 더 큰 비용에 직면할 수 있습니다. 이러한 위험을 통합하기 위해 자금 충격은 자본화 수준이 낮은 은행(MAET1 비율이 낮은 은행)과 무보험 예금에 대한 의존도가 높은 은행이 더 큰 자금 조달 비용 증가를 겪도록 모델링됩니다.
+
+우리는 고정 대차대조표를 가정하고 무보험 예금의 가격 조정으로 자금 충격을 모델링합니다. 즉, 무보험 예금의 일부가 더 높은 금리로 가격이 조정되며, 이는 3개월 국채 수익률에 스프레드 금리를 더한 값입니다. 실제로는 적어도 두 가지 일이 일어날 수 있습니다. 첫째, 은행은 예금을 은행에 유지하기 위해 예금 금리를 인상할 수 있습니다. 둘째, 은행은 예금자에게 제공되는 금리와 관계없이 예금 기반의 일부를 보유할 수 없으며 운영 안정화를 위해 외부 차입에 의존할 수 있습니다. 다루기 쉽고 고정 대차대조표 가정에 맞추기 위해 자금 충격은 첫 번째 채널만 명시적으로 모델링합니다. 그러나 가격 조정 비율이 충분히 높다면 모델은 두 채널의 정량적 효과를 모두 포착해야 합니다. 자금조달 충격은 아래에서 논의되는 바와 같이 몇 가지 특징을 갖는다.
+
+어떤 은행이 영향을 받나요? 
+이 모델은 주어진 자본 비율 임계값 미만의 모든 은행이 자금 조달 충격의 영향을 받는 것으로 가정합니다. 다음 분석에서는 MACET1 비율이 7% 이하인 모든 은행에 자금 충격이 적용됩니다. 우리 분석의 도약기인 2024년 4분기 기준으로 은행의 약 5분의 1이 MACET1 비율이 7% 이하였으며 따라서 시나리오 1분기에 발생한 자금 조달 충격의 영향을 받았습니다. 12 이는 광범위한 금융 스트레스를 가정할 때 자금 충격의 기능을 입증하는 데 도움이 되는 보수적인 가정입니다.
+
+무엇이 영향을 받나요? 
+분석은 두 가지 이유로 무보험 예금의 가격 조정에 중점을 둡니다. 첫째, 무보험 예금자는 위험이 있을 때 자금을 회수하려는 다른 예금자보다 더 강한 유인을 가지고 있습니다. 13 둘째, 대부분의 은행은 시장 금리보다 훨씬 낮은 예금 금리를 지불하는 반면, 다른 유형의 도매 자금 조달에는 연방기금 금리와 비슷하거나 그보다 높은 비용이 듭니다. 따라서 비용이 더 많이 드는 자금원에 적용되는 자금충격은 은행 수익성과 자본에 미치는 영향이 더 작을 것입니다. 14
+
+$$\alpha_i$$로 가격이 조정되는 자금의 일부를 나타냅니다. 이 부분은 유연한 방식으로 지정되며 자본 비율 기준점과의 거리에 따라 달라질 수 있습니다. $$\alpha_i$$는 다음 표현식으로 제공됩니다.
+
+$$$$ \alpha_i = \begin{cases} 0, & \text{if } \mathrm{MACET1}_i \ge \mathrm{CUT}^{up} \\ S^{l} + (S^{h} - S^{l}) \left(\dfrac{\mathrm{CUT}^{up} - \mathrm{MACET1}_i} {\mathrm{CUT}^{up} - \mathrm{CUT}^{low}}\right)^x & \text{if } \mathrm{CUT}^{low} < \mathrm{MACET1}_i < \mathrm{CUT}^{up} \\ S^{h} & \text{if } \mathrm{MACET1}_i \le \mathrm{CUT}^{low}, \end{사례} \ (1)$$$$
+
+여기서 $$S^{h}$$는 영향을 받은 은행에 대해 가격이 조정되는 최대 자금 몫입니다. $$ S^{l}$$는 영향을 받은 은행에 대해 가격이 조정되는 자금의 최소 지분입니다. $${CUT}^{up}$$는 은행이 자금 조달 충격의 영향을 받는 임계값 MACET1 비율입니다. $${CUT}^{low}$$는 은행이 최대 자금 충격의 영향을 받는 임계값 MACET1 비율로, 무보험 예금의 $$S^{h}$$ 주가가 재조정됩니다. 15
+
+비용은 어떤 영향을 받나요? 
+펀딩 쇼크에 따른 가격 인상율도 또 다른 주요 변수이다. 즉, 은행이 영향을 받은 무보험 예금에 대해 현재 지불하고 있는 금리 대신 은행이 지불하는 금리입니다. 아래 제시된 정량화는 3개월 국채 수익률에 50 베이시스 포인트 스프레드를 더한 가격 조정 금리를 가정한 것입니다. 16 이러한 고려 사항은 아래 방정식 (2)에 요약되어 있습니다.
+
+$$$$ IE_{it} = \begin{cases} \widehat{IE}_{it} & \text{if } \mathrm{MACET1}_i \ge \mathrm{CUT}^{up} \\ \left(1 - \alpha_i UD_i\right)\widehat{IE}_{it} + \alpha_i UD_i RR_t & \text{if } \mathrm{MACET1}_i < \mathrm{CUT}^{up}, \end{cases} \ (2) $$$$
+
+여기서 $$\widehat{IE}_{it}$$는 $$t$$ 기간 동안 $$i$$ 은행에 대한 자금 조달 충격이 없는 평균 이자 비용율입니다. $$UD_i$$는 은행 $$i$$의 총 자금 중 무보험 예금의 비율입니다. $$RR_t$$는 $$t$$ 기간 동안 가격 조정에 대한 가격 조정 요율입니다. 위에서 설명한 대로 $$\alpha_i$$는 가격이 조정되는 은행 $$i$$ 자금의 일부입니다.
+
+그림 1은 모델의 다양한 매개변수가 다양한 수준의 MACET1 비율을 가진 은행 전체에서 자금 조달 충격이 은행 자금 조달 비용에 미치는 영향을 어떻게 변화시키는지 보여줍니다. 패널 (a)는 방정식 (1)의 형상 매개변수 $$x$$가 변경될 때 자금 조달 비용의 변화를 보여줍니다. $$x$$ = 0이면 상한선 $${CUT}^{up}$$ 아래의 모든 은행에 대해 비용 조정이 동일합니다. $$x$$ = 1의 경우, 자본 비율이 MACET1 비율이 하한 임계값인 $${CUT}^{low}$$와 동일한 지점까지 떨어지면서 비용은 선형적으로 증가합니다. 이 시점부터 모든 은행은 가격이 조정된 최대 금액 $$S^{h}$$을 받습니다. 패널 (b)는 다양한 수준의 $$S^{h}$$(가격이 조정되는 최대 자금 비율)에 대한 자금 조달 비용을 보여줍니다. 이 비율이 높을수록 자금 조달 비용에 미치는 영향이 커집니다. 패널 (c)에는 다양한 상한선 $${CUT}^{up}$$에 대한 자금 조달 비용이 표시됩니다. 이 임계값이 높을수록 자금 충격의 영향을 받는 은행이 더 많아집니다.
+
+참고: 달리 명시하지 않는 한 설명을 위한 매개변수 값: $$CUT^{up} = 7; CUT^{낮음} = 2.5; x=1; S^h = 1; S^l = 0; RR=$$ 3개월 국채수익률 +50bps; 3개월 국채수익률 = 4.25%; $$UI$$ = 0.4.
+
+다음으로, 이사회의 2024년 탐색적 분석을 통해 심각한 자금 압박이 있는 스태그플레이션 시나리오에서 FLARE의 자금 충격이 미치는 영향을 설명합니다. 또한 이사회의 2024년 연례 스트레스 테스트의 심각한 불리한 시나리오에서 자금 충격의 영향이 어떻게 다른지 간략하게 논의합니다. 17 우리의 도약 기간은 2024년 4분기이며, 2027년 1분기까지 은행 수익성과 자본을 예상합니다.
+
+우리는 MACET1 비율인 7% 미만으로 떨어지는 모든 은행에 충격을 적용하고 무보험 예금의 가격이 3개월 국채 수익률에 50bp를 더한 값으로 조정된다고 가정합니다. 효과의 강도는 위쪽 컷오프로부터의 거리에 따라 선형적으로 증가한다고 가정합니다. 즉, 모양 매개변수 x를 1로 설정합니다. 무보험 예금은 MACET1 비율이 위험가중자산의 2.5% 이하인 은행의 경우 완전히 가격이 조정됩니다.
+
+우리의 주요 분석은 심각한 스태그플레이션 시나리오에 초점을 맞추고 있지만, 다음에서는 글로벌 금융 위기 동안 관찰된 역학을 일반적으로 모방하는 심각한 불리한 시나리오도 설명합니다. 두 시나리오 모두 실제 변수에 대해 유사한 경로를 가지며, 실업률은 각각 10%까지 상승하고 계속 상승한 상태를 유지합니다. 두 시나리오의 주요 차이점은 인플레이션 경로이며, 이로 인해 금리 경로가 달라집니다. 심각하게 불리한 시나리오에서는 실질 활동이 감소하고 10년 만기 국채 수익률이 약 1%로 떨어지면서 연준은 경제를 지원하기 위해 금리를 인하합니다(그림 2, 오른쪽 패널). 이와 대조적으로 스태그플레이션 시나리오에서는 연준이 경기 침체에도 불구하고 상승하는 인플레이션에 대처하기 위해 금리를 인상하여 10년 만기 수익률이 약 5%까지 증가한 후 약간 감소합니다(그림 2, 왼쪽 패널).
+
+출처: 연방준비은행, 연간 스트레스 테스트 시나리오, ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+자금조달 충격의 영향은 순이자마진(NIM)을 통해 직접 포착된다. 순이자마진은 대출과 증권에서 얻은 이자와 예금, 부채, 기타 차입금에 대해 지불한 이자를 이자수익자산으로 나눈 값이다. 그림 3의 왼쪽 패널은 자금 충격이 있거나 없는 스태그플레이션 시나리오의 가중 평균 은행 시스템 NIM과 보다 온화한 기준 시나리오의 NIM을 보여줍니다.
+
+출처: FR Y-9C, 통화 보고서, 연방준비은행, 연간 스트레스 테스트 시나리오. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+스태그플레이션 시나리오에서는 자금 충격 없이 NIM이 크게 증가합니다. 수익률이 높을수록 변동금리 대출 및 증권에 대한 이자 수익이 높아지기 때문입니다. 반면 은행은 금리 인상을 예금 금리로 부분적으로만 통과하기 때문에 조달 비용은 덜 증가합니다. 이와 대조적으로, 금리 환경이 우호적임에도 불구하고 자금 충격이 있는 스태그플레이션 시나리오에서는 은행 시스템 NIM이 약 1년 동안 기준 수준보다 약간 낮습니다. 18 이는 일부 은행이 자금조달 충격으로 타격을 받았기 때문입니다. 자금 충격으로 인해 무보험 예금에 대해 더 높은 이율을 지불하게 되고, 이는 그림 3의 오른쪽 패널에 표시된 것처럼 은행 시스템의 자산 수익률(또는 총 순이익을 자산으로 나눈 값)이 압축됩니다. 19 주목할 점은 스태그플레이션 시나리오의 높은 수익률은 두 가지 방식으로 자금 충격을 악화시킨다는 것입니다. 즉, 가격 조정 금리를 직접적으로 높이고 시장 조정 자본에 부담을 주어 더 많은 은행을 자금 충격 MACET1 임계값 아래로 밀어 넣습니다.
+
+그림 4는 자금 충격이 있는 스태그플레이션 시나리오와 자금 충격이 없는 스태그플레이션 시나리오 및 기준 시나리오(이사회의 연간 스트레스 테스트에서도 제공됨)에서 은행 시스템 보통주 1등급(CET1) 비율(은행 지불 능력에 대한 규제 척도)을 보여줍니다. 스태그플레이션 시나리오의 심각한 실제 상황은 보다 온건한 기준 시나리오에 비해 자본의 실질적인 감소를 초래합니다. 자금 조달 충격은 총 은행 시스템 자본의 추가 감소로 이어집니다. 그러나 대부분의 은행이 여전히 수익성을 유지하고 있기 때문에 추가 하락폭은 상대적으로 적습니다.
+
+참고: 은행의 목표 자본 수준은 CET1 비율의 4분기 평균과 동일하다고 가정합니다. CET1 비율은 회사의 목표 CET1 비율을 초과하는 자본이 해당 시점에 지급되므로 첫 번째 예측 기간 동안 모든 시나리오에서 감소합니다.
+
+출처: FR Y-9C, 통화 보고서, 연방준비은행, 연간 스트레스 테스트 시나리오. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+장기 수익률의 증가는 은행의 장기 고정 금리 대출 및 증권의 공정 가치를 감소시킵니다. 앞서 논의한 바와 같이, 이러한 변화는 자본의 비규제 척도인 MACET1 비율로 설명됩니다. 그림 5는 각 시나리오에 대한 스트레스 후 최소 MACET1 비율의 분포를 보여줍니다. 20 자금 스트레스가 없는 스태그플레이션 시나리오에서 장기 고정 금리 자산의 비중이 더 높은 은행은 파란색 선으로 표시된 분포의 왼쪽 이동에서 알 수 있듯이 MACET1 비율이 크게 감소하는 것을 관찰합니다. 자금 충격이 적용될 때 스트레스 후 최소값은 더욱 악화됩니다. 이는 추가적인 왼쪽 이동과 MACET1 비율이 0 미만인 기업의 질량 증가로 입증됩니다.
+
+참고: 가장 오른쪽 점선 수직선은 자금 조달 충격에서 무보험 예금의 가격이 조정되기 시작하는 임계값을 나타냅니다. 가장 왼쪽 점선 수직선은 은행의 전체 무보험 예금 기준 가격이 3개월 국채 수익률에 50bp 스프레드를 더한 값으로 조정되는 임계값을 나타냅니다.
+
+출처: FR Y-9C, 통화 보고서, S&P Capital IQ Pro, FR Y-14Q, Schedule B, FR Y-14Q, Schedule G, 연방준비은행, 연간 스트레스 테스트 시나리오. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+이 섹션에서는 자금 충격이 은행 시스템 자본 비율에 미치는 영향이 금리 조정에 따라 어떻게 달라지는지 연구합니다. 이 그림에서는 다른 모든 자금 충격 매개변수를 고정된 상태로 유지합니다.
+
+그림 6은 무보험 예금에 대한 금리 인상이 스태그플레이션 시나리오에서 스트레스 후 최소 은행 시스템 CET1 비율(왼쪽 패널)과 MACET1 비율(오른쪽 패널)을 1% 이상 크게 감소시키지만 심각한 불리한 시나리오에서는 최소한의 영향을 미친다는 것을 보여줍니다. 여기에는 두 가지 이유가 있습니다. 첫째, 낮은 금리는 심각하게 불리한 시나리오에서 은행 자산의 공정 가치를 높여 시장 조정 자본을 늘리고 자금 조달 충격에 직면하는 은행의 수를 제한합니다. 둘째, 심각한 불리한 시나리오에서 3개월 국채 수익률 수준은 상당히 낮은 수준을 유지하므로 은행 자금 조달 비용에 미치는 영향이 적습니다.
+
+출처: FR Y-9C, 통화 보고서, S&P Capital IQ Pro, FR Y-14Q, Schedule B, FR Y-14Q, Schedule G, 연방준비은행, 연간 스트레스 테스트 시나리오. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+다음으로, 유사한 연습을 수행하고 무보험 예금의 가격을 조정하기 시작하는 MACET1 비율 임계값을 변경합니다. 한도가 높아짐에 따라 더 많은 수의 은행이 무보험 예금 비용의 증가에 노출됩니다. 스태그플레이션 시나리오에서 MACET1 비율 임계값을 7%에서 12%로 높이면 은행 시스템 CET1 비율(그림 7, 왼쪽 패널) 및 MACET1 비율(그림 7, 오른쪽 패널)이 약 0.5% 포인트 추가로 감소합니다.
+
+출처: FR Y-9C, 통화 보고서, S&P Capital IQ Pro, FR Y-14Q, Schedule B, FR Y-14Q, Schedule G, 연방준비은행, 연간 스트레스 테스트 시나리오.
+
+이 노트에서는 자금 충격과 관련된 일부 위험을 분석할 수 있는 FLARE 스트레스 테스트 모델의 확장 기능을 소개했습니다. 우리는 자금 충격 위험이 금리가 높은 환경에서 가장 두드러진다는 것을 발견했습니다. 그러나 여기에서 고려된 스태그플레이션 시나리오에서도 은행 자금 조달 충격은 총 은행 시스템 규제 자본 비율에 중간 정도의 영향만 미칩니다. 부분적으로, 적당한 영향은 SVB 실패 이후 은행 시스템의 실행 가능한 자금 및 자산 기간이 최근 감소했기 때문입니다. 자산 지속 기간이 길고 실행 가능한 자금에 대한 의존도가 높은 은행의 경우 충격이 가장 심각하지만 두 가지 취약점에 직면한 은행의 수는 매우 제한되어 있습니다.
+
+우리 분석에서 한 가지 주의할 점은 자금 조달 충격이 예금 비용에만 영향을 미친다는 것입니다. 실제로 대규모 예금 유출이 있는 은행이나 상당한 예금 가격 인상 및 수익성 압박에 직면한 은행은 비즈니스의 다른 부분에도 영향을 미칠 수 있습니다. 예를 들어, 거래 상대방은 은행의 생존 가능성에 대해 걱정하게 되고 우리가 가정하는 것보다 더 빨리 예금을 인출할 수 있습니다. 또한, 상장 은행은 투자자로부터 상당한 압력을 받을 수 있으며, 이로 인해 주가가 크게 하락하고 예금자가 추가로 이탈할 수 있습니다.
+
+FLARE의 장점은 모듈식 구조가 진화하는 다양한 위험을 고려할 수 있는 유연성을 제공한다는 것입니다. 다음 은행 실패가 마지막 실패와 유사할 가능성은 거의 없습니다. 따라서 FLARE는 은행 시스템의 탄력성과 거시경제 간의 관계를 더 잘 이해하기 위해 계속 발전하고 대체 시나리오를 테스트할 것입니다.
+
+Armantier, Olivier, Marco Cipriani 및 Asani Sarkar(2024), "글로벌 금융 위기 이후 할인 창구 낙인." 뉴욕 직원 보고서의 FRB.
+
+Cipriani, Marco, Thomas M Eisenbach 및 Anna Kovner(2024), "실시간으로 은행 운영 추적." 뉴욕 직원 보고서의 FRB.
+
+Correia, Sergio, Matthew P Seay 및 Cindy M Vojtech(2022), "위험 이벤트(플레어) 모델의 미래 예측 분석에 대한 업데이트된 입문서: 하향식 스트레스 테스트 모델." FEDS 작업 문서.
+
+Drechsler, Itamar, Alexi Savov, Philipp Schnabl 및 Olivier Wang(2023), "예금 프랜차이즈가 운영됩니다." 국립 경제 연구국.
+
+Glancy, David, Felicia Ionescu, Elizabeth Klee, Antonis Kotidis, Michael Siemer 및 Andrei Zlate(2024), "2023년 은행 혼란 및 은행 기간 자금 조달 프로그램."
+
+Hirtle, Beverly, Anna Kovner, James Vickery 및 Meru Bhanot(2016), "재정 안정성 평가: 스트레스 시나리오(클래스) 모델에서 자본 및 손실 평가." 은행 및 금융 저널, 69, S35–S55.
+
+심각한 불리한 시나리오에서 결과는 어떻게 보입니까? 
+심각하게 불리한 시나리오에서는 인플레이션이 진정되고 3개월 국채 수익률이 하한 0으로 떨어지며 10년 만기 금리가 크게 하락합니다. 낮은 수익률은 두 가지 방식으로 자금 조달 충격의 영향을 감소시킵니다. 첫째, 낮은 장기 수익률은 MACET1 비율을 높여 자금 충격 한계선 아래에 있는 은행 수를 줄입니다. 둘째, 단기 금리가 낮을 때 가격 조정 금리(3개월 국채수익률 + 50bp 스프레드)는 자금 충격으로 타격을 입은 은행의 자금조달 비용을 소폭 증가시킵니다. 이러한 고려 사항은 심각한 불리한 시나리오 하에서 은행 시스템 CET1 비율과 MACET1 분포를 보여주는 그림 A1 및 A2에 반영되어 있습니다. 예상한 대로 자금 충격은 총 CET1 수준이나 MACET1 비율 분포에 실질적인 영향을 미치지 않습니다.
+
+출처: FR Y-9C, 통화 보고서, 연방준비은행, 연간 스트레스 테스트 시나리오. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+출처: FR Y-9C, 통화 보고서, S&P Capital IQ Pro, FR Y-14Q, Schedule B, FR Y-14Q, Schedule G, 연방준비은행, 연간 스트레스 테스트 시나리오. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+1. Achugamonu, Schmidt-Eisenlohr 및 Seay는 연방준비은행 금융안정부 직원입니다. 본 문서의 견해는 전적으로 저자의 견해이며 연방준비제도 이사회의 견해를 반영하는 것으로 해석되어서는 안 됩니다. 이 분석에 사용된 스트레스 테스트 모델 개발에 상당한 기여를 한 Sergio Corriea에게 감사드립니다. 유용한 의견을 주신 William Bassett, Jose Berrospide, Skander Van den Heuvel 및 Cindy Vojtech에게 감사드립니다.  텍스트로 돌아가기
+
+2. FLARE에 대한 입문서는 Correia et al. (2022).  텍스트로 돌아가기
+
+3. 분석은 취약한 은행으로부터의 자금 유출이 은행 시스템에 남아 더 나은 자본을 갖춘 은행으로 흘러갈 가능성을 추상화합니다.  텍스트로 돌아가기
+
+4. 더 높은 예금 금리를 제공하여 자금을 확보하거나 예금 기반을 유지할 수 없는 은행은 대차대조표를 축소해야 할 수도 있습니다. 그러나 이 연습에서는 시뮬레이션 전체에 걸쳐 고정된 대차대조표를 가정합니다. 결과적으로, 우리 모델의 자금 충격은 총량이나 부채 구성의 변화보다는 이자 비용 조정을 통해서만 작동합니다.  텍스트로 돌아가기
+
+5. 위원회의 2024년 스트레스 테스트 및 탐색적 분석에 대한 자세한 내용은 여기에서 확인할 수 있습니다. https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm 중요한 점은 이러한 시나리오는 예측을 나타내지 않으며 시나리오의 금리 경로는 이러한 시나리오가 구체화된 경우 FOMC의 실제 반응을 반드시 반영하지 않는 규칙을 따른다는 것입니다.  텍스트로 돌아가기
+
+6. FLARE는 CLASS(스트레스 시나리오 하의 자본 및 손실 평가) 모델 기반을 바탕으로 구축되었습니다. CLASS 모델에 대한 자세한 내용은 Hirtle et al. (2016).  텍스트로 돌아가기
+
+7. 하향식 모델은 대출 수준 및 보안 수준 데이터와 같은 보다 세부적인 데이터를 사용하는 상향식 모델과 달리 은행 수준 데이터를 사용합니다. 연간 스트레스 테스트 연습에서 손실을 예측하는 데 사용되는 많은 모델은 상향식 모델입니다. FLARE는 주로 FR Y-9C 및 통화 보고서의 은행 수준 데이터를 사용하여 구성됩니다. FR Y-9C 신고자에는 통합 자산이 30억 달러 이상인 모든 은행 지주 회사가 포함됩니다. 통화 보고서 파일에는 자산 규모에 관계없이 상업 은행이 포함됩니다. 상업 은행은 모델에 사용하기 위해 모회사로 통합됩니다.  텍스트로 돌아가기
+
+8. 코로나19 팬데믹과 대규모 재정 및 통화 정책 대응은 거시경제 변수와 은행 성과 지표 간의 역사적 관계에 심각한 혼란을 가져왔습니다. 모델링 프레임워크에서 이러한 문제를 해결하기 위해 데이터 평활화 기술을 적용하고 팬데믹 기간 동안 거시 변수를 과거 평균으로 대체했습니다. 이러한 방법론적 조정은 더 긴 시계열을 보존하면서 전염병 관련 왜곡으로 인해 모델의 매개변수 추정치가 편향되는 것을 방지합니다.  텍스트로 돌아가기
+
+9. 이익에는 21%의 세금이 부과됩니다.  텍스트로 돌아가기
+
+10. 부채는 제외됩니다. 은행 부채의 공정 가치도 금리 변동에 따라 변동하며 자산 공정 가치 하락에 대한 자연스러운 헤지 역할을 할 수 있습니다. 그러나 2023년 사건에서 알 수 있듯이 이 헤지는 스트레스를 받으면 취약해질 수 있습니다.  텍스트로 돌아가기
+
+11. 과거 증권 공정 가치 손실은 FR Y-9C 및 Call Reports를 포함한 규제 서류에서 비롯되었습니다. 시나리오의 가상 증권 손실은 각 시나리오의 수익률 변화, FR Y-14Q, Schedule B의 듀레이션 데이터, 콜 보고서의 증권 만기/가격 조정 시간 분포를 사용하여 예측됩니다. 과거 대출 공정 가치는 상장 은행의 S&P Capital IQ Pro에서 가져옵니다. 다른 모든 은행의 경우, 우리는 상장 은행의 과거 대출 공정 가치의 함수로 과거 대출 공정 가치를 추정합니다. 가상 대출 공정 가치 예측은 각 시나리오의 수익률 변화, 콜 보고서의 대출 만기/가격 조정 시간 분포, FR Y-14Q, Schedule G에서 선택한 가중 평균 수명 정보를 사용하여 추정됩니다. 텍스트로 돌아가기
+
+12. 모형에서 자금충격은 전분기 MACET1 비율을 기준으로 한다. 예를 들어, 2025년 1분기에 은행은 2024년 4분기 MACET1 비율이 7% 미만인 경우 자금 충격의 영향을 받습니다.  텍스트로 돌아가기
+
+13. 예를 들어 Drechsler et al. (2023).  텍스트로 돌아가기
+
+14. 그럼에도 불구하고 모든 예금의 가격이 재조정되는 대안을 상상할 수 있습니다. 또한, 도매 자금과 같은 다른 자금 출처에서는 가격 조정 비율이 다양해지면서 비용이 증가할 수 있습니다.  텍스트로 돌아가기
+
+15. 이 노트에 제시된 모든 분석에 대해 $$S^{h}$$를 1로 설정하고 $$S^{l}$$를 0으로 설정했습니다.  텍스트로 돌아가기
+
+16. 이 가정은 유연하다. 이 분석에 사용된 가격 인상률 가정은 Armantier et al.이 제공한 추정치와 일치합니다. (2024).  텍스트로 돌아가기
+
+17. 심각한 불리한 시나리오의 추가 결과는 부록에 나와 있습니다.  텍스트로 돌아가기
+
+18. 앞서 논의한 바와 같이, 이번 행사에서는 고정 대차대조표를 가정합니다. 실제로 스태그플레이션은 우리 분석에 반영되지 않은 은행 대출 규모의 축소를 유발할 수 있는 실질적인 영향을 미칠 수 있습니다.  텍스트로 돌아가기
+
+19. 자금 조달 충격으로 인해 은행의 평균 자산 수익률이 약간 감소하는 반면, 스태그플레이션 시나리오에서 자산 수익률이 크게 하락하는 것은 주로 다른 시나리오 특성으로 인해 발생합니다. 여기에는 자산 가격 및 금융 상황의 심각한 악화가 포함되며, 이는 비이자 이익의 큰 감소와 관련됩니다.  텍스트로 돌아가기
+
+20. 각 은행에 대해 9분기 스트레스 테스트 기간 동안 최소 MACET1 비율을 계산합니다. 이러한 최소 MACET1 비율은 하나의 밀도 분포로 결합됩니다.  텍스트로 돌아가기
+
+21. 두 차트는 3개월 만기 국채 수익률에 대한 금리 조정을 0에서 500 베이시스 포인트까지 변화시키는 효과를 보여줍니다. 이 값 범위는 모델 메커니즘을 설명하기 위한 것이며 은행이 현실적으로 3개월 국채 수익률에 대해 500 베이시스 포인트의 스프레드를 지불한다는 의미로 간주되어서는 안 됩니다.  텍스트로 돌아가기
+
+Achugamonu, Faith, Tim Schmidt-Eisenlohr 및 Matthew P. Seay(2026). "자금 충격에 대한 은행 탄력성 평가", FEDS Notes. 워싱턴: 연방준비제도 이사회, 2026년 2월 17일, https://doi.org/10.17016/2380-7172.3987.
+
+면책 조항: FEDS Notes는 이사회 직원이 자신의 견해를 제공하고 경제 및 금융 분야의 다양한 주제에 대한 분석을 제공하는 기사입니다. 이 기사는 FEDS 작업 보고서 및 IFDP 보고서보다 짧고 기술 지향적이지 않습니다.
+
+## 📄 영문 원본
+Faith Achugamonu,  Tim Schmidt-Eisenlohr , and  Matthew P. Seay 1
+
+Deposits are the largest source of funding for U.S. banks, representing approximately two-thirds of liabilities. Deposits also remain key to bank profitability, as they typically function as a stable source of long-term funding at a cost well-below interest earned on bank assets. However, a sizable fraction of bank deposits are uninsured, and these deposits can pose additional risks, as demonstrated by the failure of Silicon Valley Bank (SVB) in March of 2023. Following SVB's collapse, a subset of banks experienced growing deposit outflows and were forced to replace those deposits with costlier wholesale funding sources to stabilize their operations (Cipriani et al., 2024; Glancy et al., 2024). In addition, deposit rates began to rise across the banking sector. These factors — deposit outflows and higher funding costs —weakened profitability and intensified concerns about the long-term viability of certain banks.
+
+In this Note, we ask whether a hypothetical system-wide funding shock would significantly impact bank profitability and bank capital ratios. To address this question, we project bank profits and capital using the Forward-Looking Analysis of Risk Events (FLARE) stress testing model. 2  We extend the model to incorporate a shock to banks' uninsured deposit funding. In the model, banks with low market-adjusted capital ratios – capital ratios after accounting for changes in the fair values of loans and securities – face higher funding costs on their uninsured deposits. 3  This increase in funding costs represents the additional expenses banks incur either by paying higher deposit rates to retain their deposit base or by securing funding from alternative, more expensive sources. 4
+
+The effects of this funding shock are illustrated for both the stagflation scenario with severe funding stress from the Board's 2024 exploratory analysis as well as the severely adverse scenario from the Board's 2024 supervisory stress test. 5  In the stagflation scenario, adding the funding shock reduces both profitability and capital ratios. This is the case because elevated inflation leads to higher interest rates, which worsens the impact of funding shock for two reasons. First, higher yields reduce banks' market-adjusted capital ratios, causing more banks to be subject to the funding shock. Second, conditional on being hit by the funding shock, higher yields in the stagflation scenario cause a larger repricing effect, because uninsured deposits are repriced to the 3-month Treasury yield plus a 50 bps spread. In contrast, in the severely adverse scenario, adding the funding shock produces minimal effects. This difference arises because during a severe recession without elevated inflation, the Federal Funds rate rapidly declines to zero, substantially reducing both fair value losses on assets and overall funding costs. These contrasting responses highlight how the interest rate environment fundamentally determines how much the funding shock weighs on bank performance.
+
+FLARE is a top-down, bank-level stress testing model that projects the banking system's pre-provision net revenues (PPNR), loan losses, and capital using public financial statement data and macroeconomic variables. 6 , 7  These macroeconomic variables represent a subset of the 16 domestic variables used in the annual stress test exercise scenarios. Components of PPNR and losses by loan type are individually estimated using regression models that incorporate autoregressive (AR) terms, financial market indicators, macroeconomic variables, and bank-specific control variables. Our estimation sample spans from 1997 to 2024. 8  Based on the estimated sensitivities, the model forecasts each bank's income, expenses, loan losses, and resulting capital changes.
+
+Common Equity Tier 1 (CET1) capital is a key measure of financial solvency monitored by regulators. In FLARE, CET1 ratio projections use actual CET1 at the jump-off period, add PPNR, and then subtract loan loss provisions, changes in accumulated other comprehensive income, taxes, and capital payouts. 9  To avoid an unrealistic accumulation of capital, it is assumed that banks target CET1 ratios equal to the 4-quarter average of their CET1 ratios at jump-off. Any earnings that would cause a bank's capital ratio to exceed the target level are distributed to shareholders. Otherwise, dividend distributions follow an autoregressive (AR) process and gradually converge toward a long-term payout rate.
+
+Standard measures of regulatory capital, such as CET1, do not fully account for interest rate risk on most securities and loans. Interest rate risk on bank assets primarily stems from their long-term fixed-rate assets, including mortgage loans, government debt, and mortgage-backed securities. The value of these long-term assets declines as long-term yields rise. These unrealized losses can be substantial during a sharp, upward shift in long-term yields, as witnessed when 10-year yields increased about 2.3 percentage points from 2021 through 2022.
+
+To account for these unrealized losses, the FLARE model is augmented with a measure of mark-to-market capital called market-adjusted CET1 (MACET1). MACET1 ratios are calculated by deducting the fair value losses on all securities and loans from the numerator of the CET1 ratios. 10 , 11  MACET1 ratios, in combination with the share of uninsured deposits, represent the key vulnerabilities underlying the funding shock, as discussed in the next section.
+
+Banks with weaker fundamentals are more likely to experience funding pressure: they may face larger costs to retain their depositors should stress emerge in the banking system. To incorporate these risks, the funding shock is modeled such that less capitalized banks (those with lower MACET1 ratios) and banks with more reliance on uninsured deposits suffer larger funding cost increases.
+
+We assume a fixed balance sheet and model the funding shock as a repricing of uninsured deposits. That is, a fraction of uninsured deposits gets repriced to a higher rate, which is given by the 3-month Treasury yield plus a spread rate. In reality, at least two things could happen. First, banks could raise deposit rates to help keep deposits in the bank. Second, banks may be unable to retain some portion of their deposit base regardless of rates offered to depositors and may turn to external borrowings to help stabilize their operations. For tractability and to fit with the fixed-balance-sheet assumption, the funding shock only explicitly models the first channel. However, given a sufficiently high repricing rate, the model should capture the quantitative effect of both channels. The funding shock has several characteristics as discussed below.
+
+Which banks are affected? 
+The model assumes that all banks below a given capital ratio threshold are affected by the funding shock. In the analysis that follows, the funding shock is applied to all banks with MACET1 ratios of 7 percent or less. As of 2024:Q4, the jump-off period in our analysis, about one-fifth of banks had MACET1 ratios less than or equal to 7 percent and are therefore impacted by the funding shock in the first quarter of the scenario. 12  This is a conservative assumption, intended to help demonstrate functionality of the funding shock under the assumption of a broad-based financial stress.
+
+What is affected? 
+The analysis focuses on the repricing of uninsured deposits for two reasons. First, uninsured depositors have stronger incentives than other depositors to withdraw funding in the presence of risk. 13  Second, while most banks pay deposit rates well-below market rates, other types of wholesale funding have costs close to or above the Fed Funds rate. Thus, a funding shock applied to more costly funding sources will have a smaller, effect on bank profitability and capital. 14
+
+Denote the fraction of the funding that gets repriced as $$\alpha_i$$. This fraction is specified in a flexible way and can vary based on the distance from the capital ratio threshold. $$\alpha_i$$ is given by the following expression
+
+$$$$ \alpha_i = \begin{cases} 0, & \text{if } \mathrm{MACET1}_i \ge \mathrm{CUT}^{up} \\ S^{l} + (S^{h} - S^{l}) \left(\dfrac{\mathrm{CUT}^{up} - \mathrm{MACET1}_i} {\mathrm{CUT}^{up} - \mathrm{CUT}^{low}}\right)^x & \text{if } \mathrm{CUT}^{low} < \mathrm{MACET1}_i < \mathrm{CUT}^{up} \\ S^{h} & \text{if } \mathrm{MACET1}_i \le \mathrm{CUT}^{low}, \end{cases} \ (1)$$$$
+
+where $$S^{h}$$ is the maximum share of funding that gets repriced for affected banks; $$ S^{l}$$ is the minimum share of funding that gets repriced for affected banks; $${CUT}^{up}$$ is the threshold MACET1 ratio below which banks are affected by the funding shock; $${CUT}^{low}$$ is the threshold MACET1 ratio below which banks are affected by the maximum funding shock, where a share $$S^{h}$$ of uninsured deposits gets repriced. 15
+
+How are costs affected? 
+The repricing rate under the funding shock is another key variable. That is, the rate which banks pay instead of the one they are currently paying on their affected uninsured deposits. The quantification presented below assumes a repricing rate given by the 3-month Treasury Yield plus a 50 basis points spread. 16  These considerations are captured in equation (2) below.
+
+$$$$ IE_{it} = \begin{cases} \widehat{IE}_{it} & \text{if } \mathrm{MACET1}_i \ge \mathrm{CUT}^{up} \\ \left(1 - \alpha_i UD_i\right)\widehat{IE}_{it} + \alpha_i UD_i RR_t & \text{if } \mathrm{MACET1}_i < \mathrm{CUT}^{up}, \end{cases} \ (2) $$$$
+
+where $$\widehat{IE}_{it}$$ is the average interest expense rate in the absence of the funding shock for bank $$i$$ in period $$t$$; $$UD_i$$ is the share of uninsured deposit in total funding of bank $$i$$; and $$RR_t$$ is the repricing rate for repricing in period $$t$$; and as described above, $$\alpha_i$$ is the fraction of bank $$i$$'s funding that gets repriced.
+
+Figure 1 illustrates how varying parameters in the model change the impact of the funding shock on bank funding costs across banks with different levels of MACET1 ratios. Panel (a) illustrates changes in the funding costs when shape parameter $$x$$ in equation (1) is varied. When $$x$$ = 0, the cost adjustment is the same for all banks below the upper threshold $${CUT}^{up}$$. For $$x$$ = 1, the costs increase linearly as the capital ratio falls up to the point where the MACET1 ratio equals the lower threshold, $${CUT}^{low}$$. From this point on, all banks get a maximum share of funds $$S^{h}$$ repriced. Panel (b) shows funding costs for different levels of $$S^{h}$$ (the maximum share of funds that get repriced). The higher this share, the larger the impact on funding costs. In Panel (c), funding costs are shown for different upper thresholds $${CUT}^{up}$$. The higher this threshold is, the more banks are affected by the funding shock.
+
+Notes: Parameter values for illustration unless indicated otherwise: $$CUT^{up} = 7; CUT^{low} = 2.5; x=1; S^h = 1; S^l = 0; RR=$$ 3-month Treasury yield +50 bps; 3-month Treasury yield = 4.25 percent; $$UI$$ = 0.4.
+
+Next, we illustrate the effects of the funding shock in FLARE in the stagflation scenario with severe funding stress from the Board's 2024 exploratory analysis. We also briefly discuss how effects of the funding shock differ in the severely adverse scenario from the Board's 2024 annual stress test. 17  Our jump-off period is 2024:Q4, and we project bank profitability and capital through 2027:Q1.
+
+We apply the shock to any bank that falls below a MACET1 ratio of 7 percent and assume uninsured deposits reprice towards the 3-month Treasury yield plus 50 basis points. The strength of the effect is assumed to increase linearly with distance from the upper cutoff, that is, we set shape parameter x to one. Uninsured deposits are fully repriced for banks with a MACET1 ratio at or below 2.5 percent of risk-weighted assets.
+
+While our main analysis focuses on the severe stagflation scenario, in the following, we also describe the severely adverse scenario, which generally mimics dynamics observed during the Global Financial Crisis. Both scenarios have similar paths for real variables, with the unemployment rate climbing to 10 percent in each and remaining elevated. The key difference between the two scenarios is the path for inflation, which leads to different paths for interest rates. In the severely adverse scenario, the Fed cuts rates to support the economy as real activity declines and the 10-year Treasury yield dips to about 1 percent (figure 2, right panel). By contrast, in the stagflation scenario, the Fed raises rates despite the recession to combat elevated inflation, causing the 10-year yield to increase to approximately 5 percent before declining slightly (figure 2, left panel).
+
+Source: Federal Reserve, Annual Stress Test Scenarios, ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+The impact of the funding shock is captured directly through net interest margins (NIM), which are the difference between interest earned on loans and securities and interest paid on deposits, debt, and other borrowings divided by interest-earning assets. The left panel of figure 3 shows the weighted average banking system NIMs in the stagflation scenarios with and without funding shock and NIMs in the more benign baseline scenario.
+
+Source: FR Y-9C, Call Reports, Federal Reserve, Annual Stress Test Scenarios. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+NIMs increase materially in the stagflation scenario without funding shock, as higher yields lift interest earnings on variable rate loans and securities, while funding costs increase by less because banks only partially pass through rate increases to deposit rates. In contrast, banking system NIMs are slightly below baseline levels for about a year in the stagflation scenario with funding shock, despite a more favorable interest rate environment. 18  This is because a subset of banks is hit by the funding shock. The funding shock causes them to pay higher rates on their uninsured deposits, which leads to a compression of banking system return on assets – or total net income divided by assets – as shown in the right panel of figure 3. 19  Of note, the higher yields in the stagflation scenario worsen the funding shock in two ways: they directly increase the repricing rate  and  weigh on market-adjusted capital, pushing more banks below the funding shock MACET1 threshold.
+
+Figure 4 shows banking system common equity tier 1 (CET1) ratios – a regulatory measure of bank solvency – in the stagflation scenarios with and without funding shock and in the baseline scenario (also provided in the Board's annual stress test). The severe real conditions in the stagflation scenario cause material declines in capital relative to the more benign baseline scenario. The funding shock leads to additional declines in aggregate banking system capital. The additional declines are relatively small, however, because most banks remain profitable.
+
+Note: We assume banks target capital levels equal to the 4-quarter average of their CET1 ratios. CET1 ratios decline across all scenarios during the first projection period as any capital in excess of the firm's target CET1 ratio is paid out at that time.
+
+Source: FR Y-9C, Call Reports, Federal Reserve, Annual Stress Test Scenarios. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+Increases in long-term yields reduce the fair value of banks' long-term fixed rate loans and securities. As discussed before, these changes are accounted for in MACET1 ratios, a non-regulatory measure of capital. Figure 5 shows the distribution of post-stress minimum MACET1 ratios for each scenario. 20  In the stagflation scenario without funding stress, banks with larger shares of long-term fixed rate assets observe sizable declines in their MACET1 ratios, as demonstrated by the leftward shift of the distribution shown by the blue line. Post-stress minimums worsen further when the funding shock is applied, as evidenced by an additional leftward shift and an increase in mass of firms with MACET1 ratios below zero.
+
+Note: The right-most dashed vertical line denotes the threshold at which uninsured deposits start to reprice in the funding shock. The left-most dashed vertical lines denote the threshold at which a bank's entire uninsured deposit base reprices to the 3-month Treasury yield plus the 50 basis points spread.
+
+Source: FR Y-9C, Call Reports, S&P Capital IQ Pro, FR Y-14Q, Schedule B, FR Y-14Q, Schedule G, Federal Reserve, Annual Stress Test Scenarios. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+In this section we study how the effect of the funding shock on banking system capital ratios varies with the repricing rate. In this illustration, we hold all other funding shock parameters fixed.
+
+Figure 6 shows that increasing the repricing rate on uninsured deposits significantly decreases the post-stress minimum banking system CET1 ratios (left panel) and MACET1 ratios (right panel) in the stagflation scenario by more than 1 percentage point but has minimal effects in the severely adverse scenario. This is the case for two reasons. First, lower interest rates boost the fair value of bank assets in the severely adverse scenario, which increases market-adjusted capital and limits the number of banks that face funding shocks. Second, the level of 3-month Treasury yields remains significantly lower in the severely adverse scenario and thus has smaller effects on bank funding costs.
+
+Source: FR Y-9C, Call Reports, S&P Capital IQ Pro, FR Y-14Q, Schedule B, FR Y-14Q, Schedule G, Federal Reserve, Annual Stress Test Scenarios. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+Next, we conduct a similar exercise and change the MACET1 ratio threshold at which we begin to reprice uninsured deposits. As the threshold is raised, an increasing number of banks are exposed to higher uninsured deposit costs. In the stagflation scenario, raising MACET1 ratio threshold from 7 percent to 12 percent causes an additional decline of about 0.5 percentage points in banking system CET1 ratios (figure 7, left panel) and MACET1 ratios (figure 7, right panel).
+
+Source: FR Y-9C, Call Reports, S&P Capital IQ Pro, FR Y-14Q, Schedule B, FR Y-14Q, Schedule G, Federal Reserve, Annual Stress Test Scenarios.
+
+In this note we introduced an extension to the FLARE stress testing model that allows us to analyze some risks associated with funding shocks. We find that funding shock risks are most pronounced in an environment with high interest rates. However, even in the stagflation scenario considered here, the bank funding shock only has a moderate effect on aggregate banking system regulatory capital ratios. In part, the moderate impact is due to the recent reduction in runnable funding and asset duration in the banking system since the SVB failure. The shock is most severe for banks with high asset duration and significant reliance on runnable funding, but there are a very limited number of banks facing both vulnerabilities.
+
+One caveat of our analysis is that the funding shock only hits deposit costs. In reality, a bank with large deposit outflows or a bank facing significant deposit repricing and profitability pressures may also see other parts of its business affected. For example, counter-parties may become worried about the viability of the bank and pull deposits faster than what our exercise assumes. In addition, publicly-traded banks might experience substantial pressures from investors, which could lead to large equity price declines and additional depositor flight.
+
+A benefit of FLARE is that its modular structure provides flexibility to consider a variety of evolving risks. It is unlikely that the next set of bank failures will resemble the last. And thus, FLARE will continue to evolve and to test alternative scenarios to better understand the relationship between the resiliency of the banking system and the macroeconomy.
+
+Armantier, Olivier, Marco Cipriani, and Asani Sarkar (2024), "Discount window stigma after the global financial crisis." FRB of New York Staff Report.
+
+Cipriani, Marco, Thomas M Eisenbach, and Anna Kovner (2024), "Tracing bank runs in real time." FRB of New York Staff Report.
+
+Correia, Sergio, Matthew P Seay, and Cindy M Vojtech (2022), "Updated primer on the forward-looking analysis of risk events (flare) model: A top-down stress test model." FEDS Working Paper.
+
+Drechsler, Itamar, Alexi Savov, Philipp Schnabl, and Olivier Wang (2023), "Deposit franchise runs." National Bureau of Economic Research.
+
+Glancy, David, Felicia Ionescu, Elizabeth Klee, Antonis Kotidis, Michael Siemer, and Andrei Zlate (2024), "The 2023 banking turmoil and the bank term funding program."
+
+Hirtle, Beverly, Anna Kovner, James Vickery, and Meru Bhanot (2016), "Assessing financial stability: The capital and loss assessment under stress scenarios (class) model." Journal of Banking & Finance, 69, S35–S55.
+
+What do results look like under the severely adverse scenario? 
+In the severely adverse scenario, inflation is subdued, and the 3-month Treasury yield drops to the zero lower bound while the 10-year rate declines markedly. The lower yields reduce the effect of the funding shock in two ways: first, lower long-term yields boost MACET1 ratios, leaving fewer banks below the funding shock cutoff. Second, when short rates are low, the repricing rate (3-month Treasury yield plus the 50 basis points spread) mildly increases funding costs at banks hit by the funding shock. These considerations are reflected in figures A1 and A2 that show the banking system CET1 ratio and the MACET1 distributions under the severely adverse scenario. As expected, the funding shock does not materially affect the aggregate CET1 level or the distribution of MACET1 ratios.
+
+Source: FR Y-9C, Call Reports, Federal Reserve, Annual Stress Test Scenarios. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+Source: FR Y-9C, Call Reports, S&P Capital IQ Pro, FR Y-14Q, Schedule B, FR Y-14Q, Schedule G, Federal Reserve, Annual Stress Test Scenarios. ( https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm )
+
+1. Achugamonu, Schmidt-Eisenlohr, and Seay are staff in the Division of Financial Stability at the Federal Reserve Board. The views in this Note are solely those of the authors and should not be interpreted as reflecting the views of the Board of Governors of the Federal Reserve System. We thank Sergio Corriea for his substantial contributions to the development of the stress testing model used in this analysis. We thank William Bassett, Jose Berrospide, Skander Van den Heuvel, and Cindy Vojtech for their helpful comments.  Return to text
+
+2. For a primer on FLARE, see Correia et al. (2022).  Return to text
+
+3. The analysis abstracts from the possibility that outflows from weaker banks may stay in the banking system and flow toward better capitalized banks.  Return to text
+
+4. Banks unable to secure funding or maintain their deposit base by offering higher deposit rates may be forced to shrink their balance sheets. However, in this exercise we assume a fixed balance sheet throughout the simulation. Consequently, the funding shock in our model operates solely through adjustments to interest expenses rather than changes in either aggregate quantities or in the composition of liabilities.  Return to text
+
+5. Details on the Board's 2024 stress test and exploratory analysis are available here:  https://www.federalreserve.gov/supervisionreg/dfa-stress-tests-2024.htm  Importantly, these scenarios do not represent forecasts and the interest rate paths in the scenarios follow a rule that does not necessarily reflect the actual response by the FOMC if these scenarios materialized.  Return to text
+
+6. FLARE is built from the Capital and Loss Assessment under Stress Scenarios (CLASS) model foundation. For more information on the CLASS model see Hirtle et al. (2016).  Return to text
+
+7. Top-down models use bank-level data, as opposed to a bottom-up model that would use more granular data such as loan-level and security-level data. Many of the models used to project losses in the annual stress test exercises are bottom-up models. FLARE is constructed using mostly bank-level data from FR Y-9C and Call Reports. FR Y-9C filers include all bank holding companies with at least $3 billion in consolidated assets. Call report filers include commercial banks regardless of asset size. Commercial banks are consolidated to their parent for use in the model.  Return to text
+
+8. The COVID-19 pandemic and the sizeable fiscal and monetary policy responses created significant disruptions in the historical relationships between macroeconomic variables and bank performance metrics. To address these concerns in our modeling framework, we applied data smoothing techniques and substituted historical averages for macro variables during the pandemic period. This methodological adjustment prevents pandemic-specific distortions from biasing our model's parameter estimates while preserving the longer time series.  Return to text
+
+9. Profits are taxed at 21 percent.  Return to text
+
+10. Liabilities are excluded. The fair value of bank liabilities also fluctuates with interest rate movements and can function as a natural hedge against declines in asset fair values. However, as events in 2023 demonstrated, this hedge can be fragile under stress.  Return to text
+
+11. Historical securities fair-value losses are sourced from regulatory filings including FR Y-9C and Call Reports. Hypothetical securities losses in scenarios are projected using changes in yields in each scenario, duration data from FR Y-14Q, Schedule B, and the maturity/repricing time distribution of securities from Call Reports. Historical loan fair values are sourced from S&P Capital IQ Pro for publicly traded banks. For all other banks, we estimate historical loan fair values as a function of publicly traded banks' historical loan fair values. Hypothetical loan fair value projections are estimated using changes in yields in each scenario, the maturity/repricing time distribution of loans from Call Reports, and select weighted average life information from FR Y-14Q, Schedule G.  Return to text
+
+12. In the model, the funding shock is based on the previous quarter's MACET1 ratio. For example, in 2025:Q1, a bank is affected by the funding shock if its MACET1 ratio in 2024:Q4 is below 7 percent.  Return to text
+
+13. See, e.g., Drechsler et al. (2023).  Return to text
+
+14. Still, one could imagine alternatives where all deposits get repriced. In addition, other sources of funding, like wholesale funding, could experience cost increases at varying repricing rates.  Return to text
+
+15. For all analysis presented in this note, we set $$S^{h}$$ equal to one and $$S^{l}$$ equal to zero.  Return to text
+
+16. This assumption is flexible. The repricing rate assumption used in this analysis is in line with estimates provided by Armantier et al. (2024).  Return to text
+
+17. Additional results from the severely adverse scenarios are shown in the appendix.  Return to text
+
+18. As discussed earlier, the exercise assumes a fixed balance sheet. In reality, stagflation may have real effects that could cause contractions in bank lending volumes which are not reflected in our analysis.  Return to text
+
+19. While the funding shock reduces banks' average return on assets modestly, the large drop in return on assets in the stagflation scenario is primarily caused by other scenario features. These include a severe deterioration in asset prices and financial conditions, which is associated with large declines in non-interest income.  Return to text
+
+20. For each bank we calculate the minimum MACET1 ratio over the 9-quarter stress test horizon. These minimum MACET1 ratios are then combined in one density distribution.  Return to text
+
+21. The two charts illustrate the effect of varying the repricing rate over the 3-month Treasury yield from 0 to 500 basis points. This range of values is meant to illustrate the model mechanics and should not be seen as suggesting that banks would realistically pay a spread of 500 basis points over the 3-month Treasury yield.  Return to text
+
+Achugamonu, Faith, Tim Schmidt-Eisenlohr, and Matthew P. Seay (2026). "Assessing Bank Resilience to a Funding Shock," FEDS Notes. Washington: Board of Governors of the Federal Reserve System, February 17, 2026, https://doi.org/10.17016/2380-7172.3987.
+
+Disclaimer:  FEDS Notes are articles in which Board staff offer their own views and present analysis on a range of topics in economics and finance. These articles are shorter and less technically oriented than FEDS Working Papers and IFDP papers.
+
+
+---
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/assessing-bank-resilience-to-a-funding-shock-20260217.html | 수집: 2026-06-10 01:33 | 지표: FEDS_NOTES*
