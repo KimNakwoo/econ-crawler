@@ -1,6 +1,7 @@
 requests
 beautifulsoup4
 lxml
+google-generativeai
 deep-translator
 playwright
 python-dateutil
