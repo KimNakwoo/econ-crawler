@@ -123,4 +123,4 @@ Ding L., Hwang, J., & Divringi, E. (2016). 필라델피아의 고급화와 주�
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/measuring-renters-in-credit-data-evidence-from-linked-survey-and-administrative-data-20260508.html | 수집: 2026-06-11 02:10 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/measuring-renters-in-credit-data-evidence-from-linked-survey-and-administrative-data-20260508.html | 수집: 2026-06-11 03:04 | 지표: FEDS_NOTES*

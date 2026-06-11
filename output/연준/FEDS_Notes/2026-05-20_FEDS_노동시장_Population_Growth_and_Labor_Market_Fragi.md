@@ -195,4 +195,4 @@ de Soyres, François, Johannes Fleck, William Peterman, Avani Pradhan 및 David 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/population-growth-and-labor-market-fragility-lessons-from-domestic-and-international-experiences-20260520.html | 수집: 2026-06-11 02:08 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/population-growth-and-labor-market-fragility-lessons-from-domestic-and-international-experiences-20260520.html | 수집: 2026-06-11 03:03 | 지표: FEDS_NOTES*

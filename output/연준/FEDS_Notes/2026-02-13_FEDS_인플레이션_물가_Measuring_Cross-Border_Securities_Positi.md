@@ -108,4 +108,4 @@ Bertaut, Carol C. 및 Ralph Tryon(2007), "미국 국경 간 증권 포지션의 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/measuring-cross-border-securities-positions-explaining-asymmetries-20260213.html | 수집: 2026-06-11 02:33 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/measuring-cross-border-securities-positions-explaining-asymmetries-20260213.html | 수집: 2026-06-11 03:12 | 지표: FEDS_NOTES*

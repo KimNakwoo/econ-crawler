@@ -110,4 +110,4 @@ de Soyres, François, Alex Haag, Mike Liu, Eva Van Leemput(2026). "AI 인프라 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/the-global-trade-effects-of-the-ai-infrastructure-boom-20260213.html | 수집: 2026-06-11 02:32 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/the-global-trade-effects-of-the-ai-infrastructure-boom-20260213.html | 수집: 2026-06-11 03:11 | 지표: FEDS_NOTES*

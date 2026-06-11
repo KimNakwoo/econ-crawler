@@ -212,4 +212,4 @@ Hamdi, Naser, Erica Xuewei Jiang, Brittany Lewis, Manisha Padi(2025). “가계�
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/mortgage-servicing-right-valuations-under-stress-20260604.html | 수집: 2026-06-11 02:03 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/mortgage-servicing-right-valuations-under-stress-20260604.html | 수집: 2026-06-11 03:01 | 지표: FEDS_NOTES*

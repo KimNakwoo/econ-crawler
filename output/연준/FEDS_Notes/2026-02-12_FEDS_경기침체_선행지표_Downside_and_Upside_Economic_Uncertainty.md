@@ -70,4 +70,4 @@ Londono, Juan M., Sai Ma(2026). "경제적 불확실성의 하향 및 상향", F
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/downside-and-upside-economic-uncertainty-20260212.html | 수집: 2026-06-11 02:35 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/downside-and-upside-economic-uncertainty-20260212.html | 수집: 2026-06-11 03:12 | 지표: FEDS_NOTES*

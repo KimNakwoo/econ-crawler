@@ -82,4 +82,4 @@ Bord, Vitaly M., Agnes Kovacs 및 Patrick Moran(2025). "더 많은 신용, 더 �
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/more-credit-more-debt-new-evidence-on-automated-credit-decisions-20260116.html | 수집: 2026-06-11 02:37 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/more-credit-more-debt-new-evidence-on-automated-credit-decisions-20260116.html | 수집: 2026-06-11 03:14 | 지표: FEDS_NOTES*

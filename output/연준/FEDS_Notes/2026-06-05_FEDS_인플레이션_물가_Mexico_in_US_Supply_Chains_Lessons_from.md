@@ -141,7 +141,7 @@ A.2 정의
 
 6. 분석에서는 세 가지 기준을 충족하는 경우에만 제품을 환적 제품으로 분류합니다. 첫째, 경로 변경에 대한 증거가 필요합니다. 중국으로부터의 미국 수입은 감소한 반면 멕시코의 중국 수입과 멕시코의 대미 수출은 모두 증가했습니다. 둘째, 중국의 전반적인 수출 확대를 배제하려면 멕시코에 대한 중국의 수출이 전 세계로의 중국 수출보다 더 빠르게 성장해야 합니다. 셋째, 멕시코 내수 증가를 배제하기 위해 멕시코의 대미 수출 증가율은 멕시코의 중국 수입 증가율을 크게 초과할 수 없습니다(최소 부가가치를 나타냄). 우리의 접근 방식은 환적을 식별하기 위해 양자 무역 패턴을 사용하는 Freund(2025)와 유사하지만 기준은 약간 더 보수적입니다.  텍스트로 돌아가기
 
-7. 우리의 추정치는 멕시코의 Freund(2025) 1~1.5% 범위의 하한선과 일치합니다. 미국-중국 무역의 절대적인 감소와 멕시코의 수출 증가율이 중국의 수입 증가율을 초과하지 않아야 한다는 보다 엄격한 기준에 따라 우리의 추정치는 하한선에 설정됩니다. However, even if transshipment were 1.7 percent instead of 1 percent, this would not change our core finding that China's backdoor strategies primarily involve production rather than pure transshipment.  텍스트로 돌아가기
+7. 우리의 추정치는 멕시코의 Freund(2025) 1~1.5% 범위의 하한선과 일치합니다. 미국-중국 무역의 절대적인 감소와 멕시코의 수출 증가율이 중국의 수입 증가율을 초과하지 않아야 한다는 보다 엄격한 기준에 따라 우리의 추정치는 하한선에 설정됩니다. 그러나 환적 비율이 1%가 아니라 1.7%라고 해도 중국의 백도어 전략이 순수한 환적보다는 주로 생산과 관련되어 있다는 우리의 핵심 발견은 바뀌지 않을 것입니다.  텍스트로 돌아가기
 
 아리스티자발-라미레즈, 마리아, 크리스 A. 아발로스, 엠마 로젠바움, 에바 반 림푸트(2026). "미국 공급망의 멕시코: 2018~2019년 관세에서 얻은 교훈", FEDS 노트. 워싱턴: 연방준비제도 이사회, 2026년 6월 5일, https://doi.org/10.17016/2380-7172.4073.
 
@@ -186,4 +186,4 @@ A.2 정의
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/mexico-in-u-s-supply-chains-lessons-from-2018-19-tariffs-20260605.html | 수집: 2026-06-11 02:00 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/mexico-in-u-s-supply-chains-lessons-from-2018-19-tariffs-20260605.html | 수집: 2026-06-11 03:00 | 지표: FEDS_NOTES*

@@ -263,4 +263,4 @@ Gerner, Thesia, George Janini, William Passero, Laura Paszkiewicz 및 Mark Vende
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/measurement-of-computer-software-and-accessories-inflation-20260522.html | 수집: 2026-06-11 02:05 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/measurement-of-computer-software-and-accessories-inflation-20260522.html | 수집: 2026-06-11 03:02 | 지표: FEDS_NOTES*
