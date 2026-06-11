@@ -105,4 +105,4 @@ Hyman, Ben, Jaison R. Abel, Natalia Emanuel, Nick Montalbano 및 Richard Deitz. 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/ai-adoption-and-firms-job-posting-behavior-20260327.html | 수집: 2026-06-11 03:09 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/ai-adoption-and-firms-job-posting-behavior-20260327.html | 수집: 2026-06-11 17:14 | 지표: FEDS_NOTES*

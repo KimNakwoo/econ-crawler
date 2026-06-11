@@ -98,4 +98,4 @@ Li, Yi, Nick Panetta, Weston Watts(2026). "머니 마켓 펀드의 투자자 구
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/investor-composition-of-money-market-funds-and-its-implications-for-flow-dynamics-20260508.html | 수집: 2026-06-11 03:05 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/investor-composition-of-money-market-funds-and-its-implications-for-flow-dynamics-20260508.html | 수집: 2026-06-11 16:56 | 지표: FEDS_NOTES*

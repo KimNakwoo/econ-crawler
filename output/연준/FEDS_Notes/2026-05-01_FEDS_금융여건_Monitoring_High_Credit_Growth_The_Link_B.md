@@ -180,4 +180,4 @@ SOD는 지점 기반 설문조사이므로 모든 예금이 특정 실제 주소
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/monitoring-high-credit-growth-the-link-between-local-deposits-and-cre-lending-20260501.html | 수집: 2026-06-11 03:05 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/monitoring-high-credit-growth-the-link-between-local-deposits-and-cre-lending-20260501.html | 수집: 2026-06-11 16:59 | 지표: FEDS_NOTES*

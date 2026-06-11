@@ -112,4 +112,4 @@ Holston, K., Laubach, T., & Williams, J.C. 2017. "자연이자율 측정: 국제
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/why-have-far-forward-nominal-treasury-rates-increased-so-much-in-the-past-few-years-20260212.html | 수집: 2026-06-11 03:12 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/why-have-far-forward-nominal-treasury-rates-increased-so-much-in-the-past-few-years-20260212.html | 수집: 2026-06-11 17:29 | 지표: FEDS_NOTES*

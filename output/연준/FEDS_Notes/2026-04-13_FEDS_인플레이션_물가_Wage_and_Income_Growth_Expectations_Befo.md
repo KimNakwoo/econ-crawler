@@ -150,4 +150,4 @@ Pilossoph, L., Ryngaert, J. M. (2025).  구직, 임금 및 인플레이션.  국
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/wage-and-income-growth-expectations-before-during-and-after-the-pandemic-period-20260413.html | 수집: 2026-06-11 03:06 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/wage-and-income-growth-expectations-before-during-and-after-the-pandemic-period-20260413.html | 수집: 2026-06-11 17:01 | 지표: FEDS_NOTES*

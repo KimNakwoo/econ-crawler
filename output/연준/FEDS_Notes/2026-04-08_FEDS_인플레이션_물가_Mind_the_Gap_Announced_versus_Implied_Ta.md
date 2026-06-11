@@ -140,4 +140,4 @@ Minton, Robert, Mariano Somale 및 Madeleine Ray, "실시간으로 소비자 가
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/mind-the-gap-announced-versus-implied-tariff-rates-in-recent-trade-policy-episodes-20260408.html | 수집: 2026-06-11 03:07 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/mind-the-gap-announced-versus-implied-tariff-rates-in-recent-trade-policy-episodes-20260408.html | 수집: 2026-06-11 17:06 | 지표: FEDS_NOTES*
