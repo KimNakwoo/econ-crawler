@@ -186,4 +186,4 @@ A.2 정의
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/mexico-in-u-s-supply-chains-lessons-from-2018-19-tariffs-20260605.html | 수집: 2026-06-11 16:39 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/mexico-in-u-s-supply-chains-lessons-from-2018-19-tariffs-20260605.html | 수집: 2026-06-11 21:08 | 지표: FEDS_NOTES*

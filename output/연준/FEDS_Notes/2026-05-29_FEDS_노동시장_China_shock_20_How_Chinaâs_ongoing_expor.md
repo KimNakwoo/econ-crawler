@@ -150,4 +150,4 @@ de Soyres, François, Ece Fisgin, Ana Maria Santacreu, Eva Van Leemput 및 Kevin
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/china-shock-2-0-how-china-ongoing-export-surge-differs-from-the-early-2000s-20260529.html | 수집: 2026-06-11 16:46 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/china-shock-2-0-how-china-ongoing-export-surge-differs-from-the-early-2000s-20260529.html | 수집: 2026-06-11 21:15 | 지표: FEDS_NOTES*

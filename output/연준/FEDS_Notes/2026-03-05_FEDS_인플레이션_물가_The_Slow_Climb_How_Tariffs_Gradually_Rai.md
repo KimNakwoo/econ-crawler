@@ -103,7 +103,7 @@ Hinz, J., A. Lohmann, H. Mahlkow 및 A. Yonzan (2026). 미국 자신의 목표: 
 
 Weber, M., F. D'Acunto, Y. Gorodnichenko 및 O. Coibion(2022). 가계와 기업의 주관적인 인플레이션 기대: 측정, 결정요인 및 시사점.  경제적 관점 저널 36 (3), 157-184.
 
-1. 여기에 제시된 분석 및 결론은 저자의 것이며 다른 연구원이나 연방준비은행 이사회의 동의를 의미하지 않습니다. 여기에서 상업적으로 제공된 데이터를 사용하는 것은 연구 목적으로만 사용되며 이사회나 연방준비제도가 브랜드, 제품, 서비스 또는 회사를 지지, 추천 또는 선호한다는 것을 의미하지 않습니다. 본 논문에 표현된 견해는 저자의 책임이며 Numerator의 견해를 반영하는 것으로 해석되어서는 안 됩니다. 모든 오류는 우리 자신의 것입니다.  텍스트로 돌아가기
+1. 여기에 제시된 분석 및 결론은 저자의 것이며 다른 연구원이나 연방준비제도 이사회의 동의를 의미하지 않습니다. 여기에서 상업적으로 제공된 데이터를 사용하는 것은 연구 목적으로만 사용되며 이사회나 연방준비제도가 브랜드, 제품, 서비스 또는 회사를 지지, 추천 또는 선호한다는 것을 의미하지 않습니다. 본 논문에 표현된 견해는 저자의 책임이며 Numerator의 견해를 반영하는 것으로 해석되어서는 안 됩니다. 모든 오류는 우리 자신의 것입니다.  텍스트로 돌아가기
 
 2. Cavallo et al. (2025)은 비가중 기하 가격 평균으로 계산된 일일 가격 지수를 구성합니다. 그들은 PriceStats가 미국 5개 주요 소매업체로부터 수집한 온라인 소매 가격을 사용하여 원산지 및 관세 노출별로 분류하여 2025년 미국 관세의 단기 통과를 소비자 가격으로 추적합니다.  텍스트로 돌아가기
 
@@ -168,4 +168,4 @@ Sinem Hacıoğlu-Hoke, Sarojini Malladi 및 Leo Feler(2026). "느린 상승: 관
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/the-slow-climb-how-tariffs-gradually-raised-retail-prices-in-2025-20260305.html | 수집: 2026-06-11 17:16 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/the-slow-climb-how-tariffs-gradually-raised-retail-prices-in-2025-20260305.html | 수집: 2026-06-11 21:45 | 지표: FEDS_NOTES*

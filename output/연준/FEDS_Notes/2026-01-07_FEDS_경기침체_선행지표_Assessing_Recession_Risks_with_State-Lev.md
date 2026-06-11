@@ -168,4 +168,4 @@ Michaillat, Pascal, Emmanuel Saez(2025). "불황이 시작됐나요?"  옥스포
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/assessing-recession-risks-with-state-level-data-20260107.html | 수집: 2026-06-11 17:43 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/assessing-recession-risks-with-state-level-data-20260107.html | 수집: 2026-06-11 22:13 | 지표: FEDS_NOTES*

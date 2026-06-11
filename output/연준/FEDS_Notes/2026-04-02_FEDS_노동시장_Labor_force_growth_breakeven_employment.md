@@ -131,7 +131,7 @@ $$$$\Delta \text{잠재적 LF}_t = \Delta \text{인구}_t ~ * ~ \text{잠재적 
 
 13. 브루킹스 연구소의 추정 범위 상한이 인구 조사국의 2026년 순 이민 추정치보다 낮은 데에는 여러 가지 이유가 있을 수 있습니다. 이민자 유입 측면에서 브루킹스는 인구 조사국이 2025년 하반기에 시행한 비자 금지로 인해 합법적인 영주권 자격을 가진 이민자 유입이 2025년부터 2026년까지 감소할 것으로 예상하고 있습니다. 순 이민 추정치를 개발합니다. 이러한 비자 금지로 인해 브루킹스는 2026년 임시 비자를 소지한 이민자 유입 추정치를 2025년 대비 낮췄습니다. 이민자 유출 측면에서 브루킹스는 2025년 11월까지 ICE 제거가 증가하는 것을 보여주는 제거에 대한 데이터와 지난 여름에 제정된 One Big Beautiful Bill Act에 따른 ICE 및 CBP 자금 증가의 예상 효과를 모두 반영하여 ICE 제거 및 이민자의 자발적인 출국이 증가할 것으로 예상하고 있습니다. 브루킹스 연구소의 순 이민 추정치에 대한 자세한 내용은 Edelberg et al. (2026).  텍스트로 돌아가기
 
-14. CBO는 CBO의 2026년 인구통계 전망에 대한 지원 문서로 게시되는 연령-성별 이민자 신분별 이민자 유입 및 유출 추정치를 발표합니다. 이러한 추정치는 https://www.cbo.gov/system/files/2026-01/57059-2026-01-Demographic-Projections.zip(ZIP)에서 다운로드할 수 있습니다. 또한 2026년 Brooking Institutions에서 예상한 이민자 제거 수는 성인뿐일 것으로 가정합니다. 어린이가 ICE에 의해 구금되는 경우는 거의 없기 때문입니다.  텍스트로 돌아가기
+14. CBO는 CBO의 2026년 인구통계 전망에 대한 지원 문서로 게시되는 연령-성별 이민자 신분별 이민자 유입 및 유출 추정치를 발표합니다. 이러한 추정치는 https://www.cbo.gov/system/files/2026-01/57059-2026-01-Demographic-Projections.zip(ZIP)에서 다운로드할 수 있습니다. 또한 2026년에 브루킹 연구소가 예상한 이민자 제거 수는 성인뿐일 것으로 가정합니다. 어린이가 ICE에 의해 구금되는 경우는 거의 없기 때문입니다.  텍스트로 돌아가기
 
 15. 예를 들어 Gregory와 Bick(2025)을 참조하세요.  텍스트로 돌아가기
 
@@ -166,4 +166,4 @@ $$$$\Delta \text{잠재적 LF}_t = \Delta \text{인구}_t ~ * ~ \text{잠재적 
 
 
 ---
-*출처: https://www.federalreserve.gov/econres/notes/feds-notes/labor-force-growth-breakeven-employment-and-potential-gdp-growth-20260402.html | 수집: 2026-06-11 17:10 | 지표: FEDS_NOTES*
+*출처: https://www.federalreserve.gov/econres/notes/feds-notes/labor-force-growth-breakeven-employment-and-potential-gdp-growth-20260402.html | 수집: 2026-06-11 21:38 | 지표: FEDS_NOTES*
