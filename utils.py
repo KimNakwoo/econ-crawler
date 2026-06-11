@@ -11,10 +11,17 @@ from config import OUTPUT_FOLDERS, TARGET_LANGUAGE, REQUEST_DELAY
 # 번역 (Gemini API → 실패 시 Google Translate 폴백)
 # ------------------------------------------------------------
 
+# Gemini 무료 티어: 분당 15회 제한 → 호출 간 최소 간격(초) 확보
+_GEMINI_MIN_INTERVAL = 4.5
+_last_gemini_call_at = [0.0]
+
+
 def _translate_with_gemini(text: str) -> str:
     """
     Gemini API로 문서 전체를 한 번에 번역.
     GEMINI_API_KEY 환경변수 필요.
+    분당 호출 제한(429) 방지를 위해 호출 간격을 두고,
+    429 발생 시 한 번 대기 후 재시도한다.
     """
     import google.generativeai as genai
     api_key = os.environ.get("GEMINI_API_KEY", "")
@@ -32,7 +39,24 @@ def _translate_with_gemini(text: str) -> str:
         f"{text}"
     )
 
-    response = model.generate_content(prompt)
+    # ── 호출 간격 확보 (분당 15회 제한 대응) ──────────────────
+    elapsed = time.time() - _last_gemini_call_at[0]
+    if elapsed < _GEMINI_MIN_INTERVAL:
+        time.sleep(_GEMINI_MIN_INTERVAL - elapsed)
+
+    try:
+        response = model.generate_content(prompt)
+    except Exception as e:
+        if "429" in str(e):
+            print("  [번역] Gemini 429 - 30초 대기 후 1회 재시도")
+            time.sleep(30)
+            _last_gemini_call_at[0] = time.time()
+            response = model.generate_content(prompt)
+        else:
+            raise
+    finally:
+        _last_gemini_call_at[0] = time.time()
+
     return response.text.strip()
 
 
