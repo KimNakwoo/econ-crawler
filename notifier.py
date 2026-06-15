@@ -112,6 +112,27 @@ BLS_SCHEDULE = {
 }
 
 
+# ── FOMC 정례회의 일정 (하드코딩) ─────────────────────────────
+# federalreserve.gov 사이트가 GitHub Actions(클라우드 IP)에서
+# 정상적으로 파싱되지 않아(BLS와 동일한 문제) 발표가 누락되는
+# 사례가 있어 BLS_SCHEDULE과 동일한 방식으로 하드코딩.
+# 매년 federalreserve.gov/monetarypolicy/fomccalendars.htm 에서 확인 후 업데이트
+# 날짜는 회의 둘째 날(성명서 발표일), 시간은 발표 직후 한국시간 기준
+FOMC_SCHEDULE = {
+    "fomc": [
+        # 2026
+        (2026,  1, 28, "새벽 4:00"),  # EST
+        (2026,  3, 18, "새벽 3:00"),  # EDT 전환 후
+        (2026,  4, 29, "새벽 3:00"),
+        (2026,  6, 17, "새벽 3:00"),  # ← 이번 주 (6/16-17)
+        (2026,  7, 29, "새벽 3:00"),
+        (2026,  9, 16, "새벽 3:00"),
+        (2026, 10, 28, "새벽 3:00"),
+        (2026, 12,  9, "새벽 4:00"),  # EST 전환 후
+    ],
+}
+
+
 def fetch_bls_schedule(year: int) -> list:
     """
     BLS 발표 일정 반환.
@@ -201,8 +222,29 @@ def fetch_bls_schedule(year: int) -> list:
     return results
 
 
-def fetch_fed_schedule() -> list:
+def fetch_fomc_schedule(year: int) -> list:
+    """
+    FOMC 정례회의 일정 반환.
+    하드코딩 일정이 있으면 우선 사용, 없으면 federalreserve.gov 크롤링 시도.
+    """
     results = []
+    has_hardcoded = False
+    for entry in FOMC_SCHEDULE.get("fomc", []):
+        y, m, d, kst_time = entry
+        if y == year:
+            results.append({
+                "indicator": "fomc",
+                "date": date(y, m, d),
+                "time": kst_time,
+            })
+            has_hardcoded = True
+
+    if has_hardcoded:
+        print(f"[FOMC 일정] 하드코딩 일정 사용: {len(results)}건 ({year}년)")
+        return results
+
+    # 하드코딩 데이터 없는 연도(예: 2027년 이후)는 federalreserve.gov 크롤링 시도
+    print(f"[FOMC 일정] {year}년 하드코딩 없음 - federalreserve.gov 크롤링 시도")
     try:
         url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
         resp = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
@@ -222,13 +264,13 @@ def fetch_fed_schedule() -> list:
                 except Exception:
                     pass
     except Exception as e:
-        print(f"[Fed FOMC 일정] 수집 실패: {e}")
+        print(f"[FOMC 일정] 수집 실패: {e}")
     return results
 
 
 def get_all_schedule() -> list:
     year = today_kst().year
-    schedule = fetch_bls_schedule(year) + fetch_fed_schedule()
+    schedule = fetch_bls_schedule(year) + fetch_fomc_schedule(year)
     schedule.sort(key=lambda x: x["date"])
     return schedule
 
