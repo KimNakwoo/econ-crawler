@@ -1,0 +1,58 @@
+name: 일정 알림
+
+# econ-crawler.yml(크롤링)과 완전히 독립된 워크플로우입니다.
+# 크롤링 작업이 길게 걸리더라도 이 워크플로우의 스케줄 트리거에는
+# 영향을 주지 않도록 분리했습니다. (요청한 시각과 실제 알림 시각의
+# 오차를 최소화하기 위한 구조적 분리)
+
+on:
+  schedule:
+    # ── 주간 예고: 일요일 오전 9시 (다음 주 일정) ───────────
+    # UTC 00:00 일요일 = 한국시간 오전 9:00 일요일
+    - cron: '0 0 * * 0'
+
+    # ── 주간 예고: 금요일 오후 3:30 (다음 주 일정) ──────────
+    # UTC 06:30 금요일 = 한국시간 오후 3:30 금요일
+    - cron: '30 6 * * 5'
+
+    # ── 평일 당일 알림: 오전 8시 (당일 발표 예정 + 말일 평일이면 다음달 예고) ─
+    # UTC 23:00 (전날) = 한국시간 오전 8:00
+    - cron: '0 23 * * 0-4'
+
+    # ── 평일 9시 알림: 말일 공휴일인 경우에만 다음달 예고 ───
+    # UTC 00:00 평일 = 한국시간 오전 9:00
+    - cron: '0 0 * * 1-5'
+
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_SCHEDULE_CHAT_ID }}
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 3.11 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 패키지 설치
+        run: pip install requests beautifulsoup4 lxml holidays
+
+      - name: 주간 예고 알림 (일요일 9시 / 금요일 3:30 → 둘 다 "다음 주")
+        if: ${{ github.event.schedule == '0 0 * * 0' || github.event.schedule == '30 6 * * 5' }}
+        run: NOTIFY_MODE=weekly python notifier.py
+
+      - name: 평일 당일 알림 (오전 8시, 말일 평일이면 다음달 예고 포함 / 수동 실행 포함)
+        if: ${{ github.event.schedule == '0 23 * * 0-4' || github.event_name == 'workflow_dispatch' }}
+        run: NOTIFY_MODE=daily python notifier.py
+
+      - name: 평일 9시 알림 (말일 공휴일인 경우에만 다음달 예고 전송)
+        if: github.event.schedule == '0 0 * * 1-5'
+        run: NOTIFY_MODE=daily_late python notifier.py
