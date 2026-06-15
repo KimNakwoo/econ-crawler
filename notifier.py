@@ -2,8 +2,8 @@
 # notifier.py - 경제지표 일정 알림 (텔레그램)
 #
 # 실행 모드 (GitHub Actions에서 환경변수로 구분):
-#   NOTIFY_MODE=weekly      → 주간 예고
-#                             일요일 오전 9시 = 이번 주(월~금) 일정
+#   NOTIFY_MODE=weekly      → 주간 예고 (둘 다 "다음 주"로 표기)
+#                             일요일 오전 9시 = 다음 주(월~금) 일정
 #                             금요일 오후 3:30 = 다음 주(월~금) 일정
 #   NOTIFY_MODE=daily       → 평일 오전 8시: 오늘 발표 예정 (항상 전송)
 #                             + 말일이고 공휴일 아니면 다음 달 일정도 전송
@@ -376,7 +376,7 @@ def main():
         else:  # 일요일
             next_monday = today + timedelta(days=1)
             week = this_week_schedule(schedule)
-            msg = fmt_weekly(week, label="이번 주", monday=next_monday)
+            msg = fmt_weekly(week, label="다음 주", monday=next_monday)
         send_telegram(msg)
 
     elif mode == "daily":
