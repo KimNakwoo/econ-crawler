@@ -4,9 +4,6 @@ __pycache__/
 *.pyo
 .env
 
-# 처리 완료 이력 (로컬 추적용, GitHub 커밋 불필요)
-**/.processed.txt
-
 # OS
 .DS_Store
 Thumbs.db
