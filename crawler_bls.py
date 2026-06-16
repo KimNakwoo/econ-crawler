@@ -116,11 +116,33 @@ INDENT_UNIT = "　"  # 전각 공백
 # ─── 공통 유틸 ────────────────────────────────────────────────
 
 def fetch(url: str) -> BeautifulSoup:
+    """
+    BLS.gov는 GitHub Actions 클라우드 IP의 requests 접근을 403으로 차단함.
+    Playwright(실제 Chromium 브라우저)로 우선 시도하고, 실패 시 requests로 폴백.
+    """
     time.sleep(REQUEST_DELAY)
-    resp = requests.get(url, headers=get_headers(), timeout=REQUEST_TIMEOUT)
-    resp.raise_for_status()
-    resp.encoding = "utf-8"
-    return BeautifulSoup(resp.text, "lxml")
+    try:
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            ctx = browser.new_context(
+                user_agent=(
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/125.0.0.0 Safari/537.36"
+                )
+            )
+            page = ctx.new_page()
+            page.goto(url, wait_until="domcontentloaded", timeout=30000)
+            html = page.content()
+            browser.close()
+        return BeautifulSoup(html, "lxml")
+    except Exception as pw_err:
+        print(f"  [BLS] Playwright 실패({pw_err}) → requests 폴백")
+        resp = requests.get(url, headers=get_headers(), timeout=REQUEST_TIMEOUT)
+        resp.raise_for_status()
+        resp.encoding = "utf-8"
+        return BeautifulSoup(resp.text, "lxml")
 
 
 def clean(text: str) -> str:
@@ -218,12 +240,10 @@ def extract_cpi_sections(soup: BeautifulSoup) -> dict:
         if el.name == "pre":
             raw = el.get_text()
             if state == "before_table":
-                # 첫 번째 <pre>: "CONSUMER PRICE INDEX" 부터 잘라서 intro로
                 m = re.search(r"CONSUMER PRICE INDEX", raw)
                 if m:
                     intro_text = raw[m.start():].strip()
             else:  # after_table
-                # "Contact Information" 이전까지만 수집
                 if "Contact Information" in raw:
                     idx = raw.find("Contact Information")
                     part = raw[:idx].strip()
@@ -249,7 +269,6 @@ def build_markdown_cpi(date_str: str, forecast: dict) -> str:
     md = f"# CPI 발표 · {date_str}\n\n"
     md += f"> 출처: BLS ({CPI_URL})\n\n"
 
-    # 예측치
     if forecast:
         md += "## 📊 예측치 vs 실제치\n\n"
         rows = []
@@ -266,14 +285,12 @@ def build_markdown_cpi(date_str: str, forecast: dict) -> str:
         soup = fetch(CPI_URL)
         sec = extract_cpi_sections(soup)
 
-        # ① 헤드라인 요약 번역
         if sec["intro_text"]:
             print("  [CPI] 헤드라인 번역 중...")
             ko_intro = translate_paragraph_by_paragraph(sec["intro_text"])
             md += "## 📰 헤드라인 요약\n\n"
             md += ko_intro + "\n\n"
 
-        # ② Table A
         md += "## 📋 Table A\n\n"
         if sec["table_headers"] and sec["table_rows"]:
             rows_indented = apply_indent_to_rows(sec["table_rows"])
@@ -282,7 +299,6 @@ def build_markdown_cpi(date_str: str, forecast: dict) -> str:
             md += "_테이블 파싱 실패_\n"
         md += "\n"
 
-        # ③ 본문 해설 번역 (Food / Energy / Core 등 전체)
         if sec["body_text"]:
             print("  [CPI] 본문 해설 번역 중...")
             ko_body = translate_paragraph_by_paragraph(sec["body_text"])
@@ -296,7 +312,7 @@ def build_markdown_cpi(date_str: str, forecast: dict) -> str:
     return md
 
 
-# ─── PPI / NFP (기존 방식 유지) ───────────────────────────────
+# ─── PPI / NFP ────────────────────────────────────────────────
 
 def extract_main_table(soup: BeautifulSoup) -> tuple:
     best_h, best_r, mx = [], [], 0
@@ -359,7 +375,6 @@ def build_markdown_bls(indicator: str, date_str: str, forecast: dict) -> str:
         md += f"### {table_label}\n\n"
         try:
             s = fetch(url)
-            # 첫 URL만 섹션 텍스트도 번역
             if url == DETAIL_TABLES[indicator][0][1]:
                 sections = extract_section_texts(s)
                 headers, rows = extract_main_table(s)
