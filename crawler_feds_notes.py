@@ -33,6 +33,12 @@ from utils import (
 
 FED_BASE = "https://www.federalreserve.gov"
 
+# ─── 1회 실행당 최대 번역 건수 ───────────────────────────────
+# 자정(KST 00:00) 실행 기준, 플랫폼 지연 최대 3시간 감안 시
+# 08:00 알림까지 약 5시간 여유 → 1건 약 2분 기준 150건 처리 가능
+# 당일 발행 자료 전량 번역 보장을 위해 상한을 높게 설정
+MAX_NOTES_PER_RUN = 100
+
 # ─── 주제별 키워드 ────────────────────────────────────────────
 TOPIC_KEYWORDS: dict = {
     "인플레이션_물가": [
@@ -241,6 +247,9 @@ def run_feds_notes():
 
     new_count = 0
     for note in notes:
+        if new_count >= MAX_NOTES_PER_RUN:
+            print(f"[FEDS Notes] 1회 최대 처리 건수({MAX_NOTES_PER_RUN}건) 도달 - 나머지는 다음 실행에서 처리")
+            break
         if note["url"] in processed:
             continue
 
