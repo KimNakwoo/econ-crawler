@@ -33,29 +33,41 @@ FED_BASE = "https://www.federalreserve.gov"
 
 def get_chair_lastname() -> str:
     """
-    Fed Board of Governors 페이지에서 현재 의장(Chair) 성씨 조회
-    "Vice Chair"는 제외, "Chair, Board of Governors" 등 정확한 타이틀 탐색
-    실패 시 빈 문자열 반환
+    Fed Board of Governors 페이지에서 현재 의장(Chair) 성씨 조회.
+    bio 링크 URL 패턴 (/aboutthefed/bios/board/LASTNAME.htm) 기반으로 추출.
+    Vice Chair는 제외. 실패 시 빈 문자열 반환.
     """
     try:
         resp = requests.get(FED_RSS["board_bios"], headers=get_headers(), timeout=15)
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "lxml")
 
-        for item in soup.find_all(["div", "li", "p", "td"]):
-            text = item.get_text(" ", strip=True)
-            # "Chair, Board of Governors" 또는 "Chair of the Board" 탐색
-            # Vice Chair는 제외
-            if re.search(r'\bChair\b', text) and "Vice" not in text:
-                # 이름 링크 또는 강조 태그에서 이름 추출
-                name_tag = item.find(["a", "strong", "b", "h3", "h4"])
-                if name_tag:
-                    name = name_tag.get_text(strip=True)
-                    parts = name.replace(".", "").split()
-                    if len(parts) >= 2:
-                        lastname = parts[-1].lower()
-                        print(f"[연설] 현재 의장 성씨 조회: {lastname}")
-                        return lastname
+        # bio 링크 패턴: /aboutthefed/bios/board/LASTNAME.htm
+        bio_pattern = re.compile(r"/aboutthefed/bios/board/(\w+)\.htm", re.I)
+
+        for a in soup.find_all("a", href=bio_pattern):
+            m = bio_pattern.search(a["href"])
+            if not m:
+                continue
+            lastname_candidate = m.group(1).lower()
+            if lastname_candidate in ("default", "board", "index"):
+                continue
+
+            # 해당 링크 주변 텍스트에서 "Chair" 확인 (Vice Chair 제외)
+            parent = a.find_parent()
+            if not parent:
+                continue
+            parent_text = parent.get_text(" ", strip=True)
+
+            # 부모가 너무 넓으면 조부모까지 확인
+            if len(parent_text) > 500:
+                parent = a.find_parent(["div", "li", "tr", "section"])
+                if parent:
+                    parent_text = parent.get_text(" ", strip=True)
+
+            if re.search(r'\bChair\b', parent_text, re.I) and "Vice" not in parent_text:
+                print(f"[연설] 현재 의장 성씨 조회: {lastname_candidate}")
+                return lastname_candidate
 
     except Exception as e:
         print(f"[연설] 의장 조회 실패: {e}")
