@@ -209,7 +209,7 @@ def _gemini_analysis(indicator: str, table_md: str, forecast: dict) -> str:
             return "_Gemini API 키 없음 - 해설 생략_\n"
 
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-2.0-flash")
 
         forecast_text = ""
         if forecast:
