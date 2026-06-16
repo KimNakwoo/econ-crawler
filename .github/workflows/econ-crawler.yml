@@ -22,6 +22,11 @@ on:
     - cron: '0 15 * * 0-4'
 
   workflow_dispatch:
+    inputs:
+      force_indicators:
+        description: '강제 실행 지표 (예: cpi,ppi,nfp,fomc,beige) — 미입력 시 오늘 날짜 자동 감지'
+        required: false
+        default: ''
 
 jobs:
   # ── Job 1: 경제지표 크롤링 ──────────────────────────────────
@@ -32,6 +37,7 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       CRON_SCHEDULE: ${{ github.event.schedule }}
+      FORCE_INDICATORS: ${{ github.event.inputs.force_indicators }}
 
     steps:
       - name: 저장소 체크아웃
