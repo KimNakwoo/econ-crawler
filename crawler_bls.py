@@ -11,10 +11,8 @@ from datetime import datetime
 from config import URLS, REQUEST_TIMEOUT, REQUEST_DELAY
 from utils import save_markdown, translate_paragraph_by_paragraph, get_headers
 
-# ── CPI는 nr0.htm 하나만 사용 (Table A + 텍스트 전부 포함)
 CPI_URL = "https://www.bls.gov/news.release/cpi.nr0.htm"
 
-# ── PPI / NFP 세부 테이블 URL
 DETAIL_TABLES = {
     "ppi": [
         ("요약", "https://www.bls.gov/news.release/ppi.nr0.htm"),
@@ -28,113 +26,90 @@ DETAIL_TABLES = {
     ],
 }
 
-# ── 월 이름 변환
 MONTH_MAP = {
     "Jan": "1월", "Feb": "2월", "Mar": "3월", "Apr": "4월",
     "May": "5월", "Jun": "6월", "Jul": "7월", "Aug": "8월",
     "Sep": "9월", "Oct": "10월", "Nov": "11월", "Dec": "12월",
 }
 
-# ── 들여쓰기 레벨
 INDENT_LEVELS = {
-    # CPI
-    "All items": 0,
-    "Food": 0,
-    "Food at home": 1,
-    "Cereals and bakery products": 2,
-    "Meats, poultry, fish, and eggs": 2,
-    "Dairy and related products": 2,
-    "Fruits and vegetables": 2,
-    "Nonalcoholic beverages and beverage materials": 2,
-    "Other food at home": 2,
-    "Food away from home": 1,
-    "Energy": 0,
-    "Energy commodities": 1,
-    "Fuel oil": 2,
-    "Motor fuel": 2,
-    "Gasoline (all types)": 3,
-    "Energy services": 1,
-    "Electricity": 2,
-    "Utility (piped) gas service": 2,
+    "All items": 0, "Food": 0, "Food at home": 1,
+    "Cereals and bakery products": 2, "Meats, poultry, fish, and eggs": 2,
+    "Dairy and related products": 2, "Fruits and vegetables": 2,
+    "Nonalcoholic beverages and beverage materials": 2, "Other food at home": 2,
+    "Food away from home": 1, "Energy": 0, "Energy commodities": 1,
+    "Fuel oil": 2, "Motor fuel": 2, "Gasoline (all types)": 3,
+    "Energy services": 1, "Electricity": 2, "Utility (piped) gas service": 2,
     "All items less food and energy": 0,
     "Commodities less food and energy commodities": 1,
-    "Apparel": 2,
-    "New vehicles": 2,
-    "Used cars and trucks": 2,
-    "Medical care commodities": 2,
-    "Alcoholic beverages": 2,
-    "Tobacco and smoking products": 2,
-    "Services less energy services": 1,
-    "Shelter": 2,
-    "Rent of primary residence": 3,
-    "Owners' equivalent rent of residences": 3,
-    "Medical care services": 2,
-    "Physicians' services": 3,
-    "Hospital services": 3,
-    "Transportation services": 2,
-    "Motor vehicle maintenance and repair": 3,
-    "Motor vehicle insurance": 3,
-    "Airline fares": 3,
-    # PPI
-    "Final demand": 0,
-    "Final demand goods": 1,
-    "Final demand foods": 2,
-    "Final demand energy": 2,
-    "Final demand goods less foods and energy": 2,
-    "Final demand services": 1,
-    "Final demand trade services": 2,
+    "Apparel": 2, "New vehicles": 2, "Used cars and trucks": 2,
+    "Medical care commodities": 2, "Alcoholic beverages": 2,
+    "Tobacco and smoking products": 2, "Services less energy services": 1,
+    "Shelter": 2, "Rent of primary residence": 3,
+    "Owners' equivalent rent of residences": 3, "Medical care services": 2,
+    "Physicians' services": 3, "Hospital services": 3,
+    "Transportation services": 2, "Motor vehicle maintenance and repair": 3,
+    "Motor vehicle insurance": 3, "Airline fares": 3,
+    "Final demand": 0, "Final demand goods": 1, "Final demand foods": 2,
+    "Final demand energy": 2, "Final demand goods less foods and energy": 2,
+    "Final demand services": 1, "Final demand trade services": 2,
     "Final demand transportation and warehousing services": 2,
     "Final demand services less trade, transportation, and warehousing": 2,
     "Final demand less foods, energy, and trade services": 0,
-    # NFP
-    "Total nonfarm": 0,
-    "Total private": 1,
-    "Goods-producing": 2,
-    "Mining and logging": 3,
-    "Construction": 3,
-    "Manufacturing": 3,
-    "Durable goods": 4,
-    "Nondurable goods": 4,
-    "Private service-providing": 2,
-    "Trade, transportation, and utilities": 3,
-    "Information": 3,
-    "Financial activities": 3,
-    "Professional and business services": 3,
-    "Education and health services": 3,
-    "Leisure and hospitality": 3,
-    "Other services": 3,
-    "Government": 1,
-    "Federal": 2,
-    "State and local": 2,
-    "Unemployment rate": 0,
-    "Average hourly earnings": 0,
+    "Total nonfarm": 0, "Total private": 1, "Goods-producing": 2,
+    "Mining and logging": 3, "Construction": 3, "Manufacturing": 3,
+    "Durable goods": 4, "Nondurable goods": 4, "Private service-providing": 2,
+    "Trade, transportation, and utilities": 3, "Information": 3,
+    "Financial activities": 3, "Professional and business services": 3,
+    "Education and health services": 3, "Leisure and hospitality": 3,
+    "Other services": 3, "Government": 1, "Federal": 2, "State and local": 2,
+    "Unemployment rate": 0, "Average hourly earnings": 0,
 }
 
-INDENT_UNIT = "　"  # 전각 공백
+INDENT_UNIT = "　"
 
 
-# ─── 공통 유틸 ────────────────────────────────────────────────
+# ─── Playwright 스텔스 fetch ──────────────────────────────────
 
 def fetch(url: str) -> BeautifulSoup:
     """
-    BLS.gov는 GitHub Actions 클라우드 IP의 requests 접근을 403으로 차단함.
-    Playwright(실제 Chromium 브라우저)로 우선 시도하고, 실패 시 requests로 폴백.
+    BLS.gov는 클라우드 IP의 requests를 403 차단.
+    Playwright + 스텔스 설정으로 우선 시도, 실패 시 requests 폴백.
     """
     time.sleep(REQUEST_DELAY)
     try:
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
+            browser = p.chromium.launch(
+                headless=True,
+                args=["--disable-blink-features=AutomationControlled",
+                      "--no-sandbox", "--disable-dev-shm-usage"],
+            )
             ctx = browser.new_context(
                 user_agent=(
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                     "AppleWebKit/537.36 (KHTML, like Gecko) "
                     "Chrome/125.0.0.0 Safari/537.36"
-                )
+                ),
+                locale="en-US",
+                timezone_id="America/New_York",
+                viewport={"width": 1280, "height": 800},
             )
             page = ctx.new_page()
-            page.goto(url, wait_until="domcontentloaded", timeout=30000)
+            # webdriver 감지 우회
+            page.add_init_script(
+                "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+            )
+            page.goto(url, wait_until="networkidle", timeout=60000)
+            # 페이지 구조 진단 로그
+            title = page.title()
             html = page.content()
+            soup_diag = BeautifulSoup(html, "lxml")
+            pre_cnt   = len(soup_diag.find_all("pre"))
+            tbl_cnt   = len(soup_diag.find_all("table"))
+            p_cnt     = len(soup_diag.find_all("p"))
+            print(f"  [BLS] 페이지 제목: {title}")
+            print(f"  [BLS] 태그 수 — pre:{pre_cnt}, table:{tbl_cnt}, p:{p_cnt}")
             browser.close()
         return BeautifulSoup(html, "lxml")
     except Exception as pw_err:
@@ -145,12 +120,13 @@ def fetch(url: str) -> BeautifulSoup:
         return BeautifulSoup(resp.text, "lxml")
 
 
+# ─── 공통 유틸 ────────────────────────────────────────────────
+
 def clean(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
 def shorten_header(h: str) -> str:
-    """BLS 헤더 → 짧은 한국어"""
     h = h.strip()
     if re.search(r"(expenditure|category|item|commodity|industry|series)", h, re.I):
         return "항목"
@@ -158,30 +134,21 @@ def shorten_header(h: str) -> str:
     m = re.search(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\.?\s*\d{4}", h)
     if m:
         mo = " " + MONTH_MAP.get(m.group(1), m.group(1))
-    if re.search(r"unadjusted.{0,15}12.mo", h, re.I):
-        return f"비조정 12M%{mo}"
-    if re.search(r"unadjusted.{0,15}1.mo", h, re.I):
-        return f"비조정 1M%{mo}"
-    if re.search(r"seasonally.{0,15}12.mo", h, re.I):
-        return f"계절조정 12M%{mo}"
-    if re.search(r"(seasonally|seas).{0,15}1.mo", h, re.I):
-        return f"계절조정 1M%{mo}"
-    if re.search(r"un-?\s*adjusted.{0,10}12", h, re.I):
-        return f"비조정 12M%{mo}"
-    if re.search(r"change.{0,10}month", h, re.I):
-        return f"월간%{mo}"
-    if re.search(r"change.{0,10}year|12.mo", h, re.I):
-        return f"연간%{mo}"
-    if re.search(r"level|number|thousand", h, re.I):
-        return f"수치{mo}"
+    if re.search(r"unadjusted.{0,15}12.mo", h, re.I):  return f"비조정 12M%{mo}"
+    if re.search(r"unadjusted.{0,15}1.mo",  h, re.I):  return f"비조정 1M%{mo}"
+    if re.search(r"seasonally.{0,15}12.mo", h, re.I):  return f"계절조정 12M%{mo}"
+    if re.search(r"(seasonally|seas).{0,15}1.mo", h, re.I): return f"계절조정 1M%{mo}"
+    if re.search(r"un-?\s*adjusted.{0,10}12", h, re.I): return f"비조정 12M%{mo}"
+    if re.search(r"change.{0,10}month", h, re.I):       return f"월간%{mo}"
+    if re.search(r"change.{0,10}year|12.mo", h, re.I):  return f"연간%{mo}"
+    if re.search(r"level|number|thousand", h, re.I):    return f"수치{mo}"
     return h
 
 
 def apply_indent(item_name: str) -> str:
-    clean_name = re.sub(r"\s*\d+\s*$", "", item_name).strip()
-    clean_name = re.sub(r"\s*\([^)]*\)\s*$", "", clean_name).strip()
-    level = INDENT_LEVELS.get(clean_name, 0)
-    return INDENT_UNIT * level + item_name
+    cn = re.sub(r"\s*\d+\s*$", "", item_name).strip()
+    cn = re.sub(r"\s*\([^)]*\)\s*$", "", cn).strip()
+    return INDENT_UNIT * INDENT_LEVELS.get(cn, 0) + item_name
 
 
 def apply_indent_to_rows(rows: list) -> list:
@@ -203,7 +170,6 @@ def fmt_table(headers: list, rows: list) -> str:
 
 
 def parse_table(table_el) -> tuple:
-    """BeautifulSoup table 요소 → (headers, rows)"""
     headers, rows = [], []
     for tr in table_el.find_all("tr"):
         ths = tr.find_all("th")
@@ -219,54 +185,86 @@ def parse_table(table_el) -> tuple:
     return headers, rows
 
 
-# ─── CPI 전용 추출 ────────────────────────────────────────────
+# ─── CPI 파싱: 구형(pre) + 신형(div/p) 양쪽 지원 ──────────────
 
 def extract_cpi_sections(soup: BeautifulSoup) -> dict:
     """
-    cpi.nr0.htm 페이지를 세 구간으로 분리:
-      intro_text  : 헤드라인 ~ Table A 직전 (첫 번째 <pre> 블록)
-      table_a     : (headers, rows)
-      body_text   : Table A 이후 ~ "Contact Information" 직전
+    BLS 구형 페이지: <pre> + <table> 구조
+    BLS 신형 페이지: <div>/<p> 구조 (사이트 리뉴얼 대응)
+    양쪽 모두 시도, 먼저 성공한 결과 반환.
     """
+    # ── 1) 구형 파싱 (pre + table) ──────────────────────────
     intro_text = ""
     table_headers, table_rows = [], []
     body_parts = []
-    state = "before_table"  # → after_table → done
+    state = "before_table"
 
     for el in soup.find_all(["pre", "table"]):
         if state == "done":
             break
-
         if el.name == "pre":
             raw = el.get_text()
             if state == "before_table":
-                m = re.search(r"CONSUMER PRICE INDEX", raw)
+                m = re.search(r"CONSUMER PRICE INDEX", raw, re.I)
                 if m:
                     intro_text = raw[m.start():].strip()
-            else:  # after_table
+            else:
                 if "Contact Information" in raw:
-                    idx = raw.find("Contact Information")
-                    part = raw[:idx].strip()
-                    if part:
-                        body_parts.append(part)
+                    body_parts.append(raw[:raw.find("Contact Information")].strip())
                     state = "done"
                 else:
                     body_parts.append(raw.strip())
-
         elif el.name == "table" and state == "before_table":
             table_headers, table_rows = parse_table(el)
             state = "after_table"
 
+    if intro_text or table_headers:
+        print("  [BLS] 구형 HTML 파싱 성공")
+        return {
+            "intro_text": intro_text,
+            "table_headers": table_headers,
+            "table_rows": table_rows,
+            "body_text": "\n\n".join(body_parts),
+        }
+
+    # ── 2) 신형 파싱 (div/p/article) ─────────────────────────
+    print("  [BLS] 구형 파싱 실패 → 신형 HTML 파싱 시도")
+    content_area = (
+        soup.find("article")
+        or soup.find("main")
+        or soup.find("div", id=re.compile(r"content|main|release", re.I))
+        or soup.find("div", class_=re.compile(r"content|main|release|news", re.I))
+        or soup.body
+    )
+
+    # 테이블 추출
+    if content_area:
+        tables = content_area.find_all("table")
+        if tables:
+            table_headers, table_rows = parse_table(tables[0])
+
+    # 텍스트 추출 (p 태그)
+    paras = []
+    if content_area:
+        for p in content_area.find_all("p"):
+            t = clean(p.get_text())
+            if len(t) > 40:
+                paras.append(t)
+
+    intro_text = "\n\n".join(paras[:5]) if paras else ""
+    body_text  = "\n\n".join(paras[5:]) if len(paras) > 5 else ""
+
+    print(f"  [BLS] 신형 파싱 결과 — 단락:{len(paras)}, 테이블 행:{len(table_rows)}")
     return {
         "intro_text": intro_text,
         "table_headers": table_headers,
         "table_rows": table_rows,
-        "body_text": "\n\n".join(body_parts),
+        "body_text": body_text,
     }
 
 
 def build_markdown_cpi(date_str: str, forecast: dict) -> str:
-    md = f"# CPI 발표 · {date_str}\n\n"
+    md  = f"# CPI 발표 · {date_str}\n\n"
     md += f"> 출처: BLS ({CPI_URL})\n\n"
 
     if forecast:
@@ -283,27 +281,24 @@ def build_markdown_cpi(date_str: str, forecast: dict) -> str:
 
     try:
         soup = fetch(CPI_URL)
-        sec = extract_cpi_sections(soup)
+        sec  = extract_cpi_sections(soup)
 
         if sec["intro_text"]:
             print("  [CPI] 헤드라인 번역 중...")
-            ko_intro = translate_paragraph_by_paragraph(sec["intro_text"])
             md += "## 📰 헤드라인 요약\n\n"
-            md += ko_intro + "\n\n"
+            md += translate_paragraph_by_paragraph(sec["intro_text"]) + "\n\n"
 
         md += "## 📋 Table A\n\n"
         if sec["table_headers"] and sec["table_rows"]:
-            rows_indented = apply_indent_to_rows(sec["table_rows"])
-            md += fmt_table(sec["table_headers"], rows_indented)
+            md += fmt_table(sec["table_headers"], apply_indent_to_rows(sec["table_rows"]))
         else:
             md += "_테이블 파싱 실패_\n"
         md += "\n"
 
         if sec["body_text"]:
-            print("  [CPI] 본문 해설 번역 중...")
-            ko_body = translate_paragraph_by_paragraph(sec["body_text"])
+            print("  [CPI] 본문 번역 중...")
             md += "## 📝 상세 해설\n\n"
-            md += ko_body + "\n\n"
+            md += translate_paragraph_by_paragraph(sec["body_text"]) + "\n\n"
 
     except Exception as e:
         md += f"_수집 실패: {e}_\n\n"
@@ -325,9 +320,13 @@ def extract_main_table(soup: BeautifulSoup) -> tuple:
 
 
 def extract_section_texts(soup: BeautifulSoup) -> list:
+    """
+    구형(pre/table/h태그 혼합) + 신형(p 태그 기반) 양쪽 지원
+    """
     sections = []
     current_title, current_paras = None, []
     found_first = False
+
     for el in soup.find_all(["pre", "table", "h2", "h3", "h4", "p"]):
         tag = el.name
         if tag in ("pre", "table"):
@@ -347,8 +346,17 @@ def extract_section_texts(soup: BeautifulSoup) -> list:
             t = clean(el.get_text())
             if len(t) > 60 and not t.startswith("NOTE:") and not t.startswith("Footnote") and current_title:
                 current_paras.append(t)
+
     if current_title and current_paras:
         sections.append({"title": current_title, "text": "\n\n".join(current_paras)})
+
+    # 구형 파싱 실패 시 신형 폴백: <p> 전체를 단락 묶음으로
+    if not sections:
+        print("  [BLS] 섹션 파싱 실패 → p 태그 폴백")
+        paras = [clean(p.get_text()) for p in soup.find_all("p") if len(clean(p.get_text())) > 60]
+        if paras:
+            sections = [{"title": "본문", "text": "\n\n".join(paras)}]
+
     return sections
 
 
@@ -356,7 +364,7 @@ def build_markdown_bls(indicator: str, date_str: str, forecast: dict) -> str:
     label_map = {"ppi": "PPI", "nfp": "비농업고용(NFP)"}
     label = label_map.get(indicator, indicator.upper())
 
-    md = f"# {label} 발표 · {date_str}\n\n"
+    md  = f"# {label} 발표 · {date_str}\n\n"
     md += f"> 출처: BLS (https://www.bls.gov)\n\n"
 
     if forecast:
@@ -384,8 +392,8 @@ def build_markdown_bls(indicator: str, date_str: str, forecast: dict) -> str:
                     md += "\n## 📝 표 해설\n\n"
                     for i, sec in enumerate(sections, 1):
                         print(f"  [{label}] 번역 중 ({i}/{len(sections)}): {sec['title'][:30]}...")
-                        ko = translate_paragraph_by_paragraph(sec["text"])
-                        md += f"### {sec['title']}\n\n{ko}\n\n"
+                        md += f"### {sec['title']}\n\n"
+                        md += translate_paragraph_by_paragraph(sec["text"]) + "\n\n"
             else:
                 headers, rows = extract_main_table(s)
                 if headers and rows:
