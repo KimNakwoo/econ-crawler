@@ -5,13 +5,13 @@
 # ============================================================
 
 import os
-from datetime import datetime
+from datetime import datetime, date, timezone, timedelta
 from config import OUTPUT_FOLDERS, IS_GITHUB
 
 # ────────────────────────────────────────────────────────────
 # 실행 트리거 판단
 #
-# - 새벽 5시(KST) 전용 크론('0 20 * * 0-4'): 매일 체크
+# - 자정(KST) 전용 크론('0 15 * * 0-4'): 매일 체크
 #   (FOMC의사록/연준연설/FEDS_Notes) 전담. today_flags 기반 지표
 #   (CPI/PPI/NFP/FOMC/베이지북)는 다른 크론에서 처리하므로 스킵
 #   → 같은 날 중복 실행/중복 번역 방지.
@@ -19,7 +19,49 @@ from config import OUTPUT_FOLDERS, IS_GITHUB
 #   매일 체크는 스킵.
 # - workflow_dispatch(수동 실행) / 로컬 실행: 둘 다 처리(테스트 편의).
 # ────────────────────────────────────────────────────────────
-DAILY_CHECK_CRON = "0 20 * * 0-4"
+DAILY_CHECK_CRON = "0 15 * * 0-4"
+
+# ────────────────────────────────────────────────────────────
+# 하드코딩 발표 일정 (Investing.com 차단 시 폴백용)
+# BLS_SCHEDULE / FOMC_SCHEDULE (notifier.py)과 동기화 필요
+# ────────────────────────────────────────────────────────────
+_KST = timezone(timedelta(hours=9))
+
+_HARDCODED_SCHEDULE: dict = {
+    "cpi": [
+        (2026,  1, 15), (2026,  2, 12), (2026,  3, 12), (2026,  4, 10),
+        (2026,  5, 13), (2026,  6, 10), (2026,  7, 14), (2026,  8, 12),
+        (2026,  9, 11), (2026, 10, 14), (2026, 11, 12), (2026, 12, 10),
+    ],
+    "ppi": [
+        (2026,  1, 16), (2026,  2, 13), (2026,  3, 13), (2026,  4, 11),
+        (2026,  5, 14), (2026,  6, 11), (2026,  7, 15), (2026,  8, 13),
+        (2026,  9, 15), (2026, 10, 16), (2026, 11, 13), (2026, 12, 11),
+    ],
+    "nfp": [
+        (2026,  1,  9), (2026,  2,  6), (2026,  3,  6), (2026,  4,  3),
+        (2026,  5,  1), (2026,  6,  5), (2026,  7,  3), (2026,  8,  7),
+        (2026,  9,  4), (2026, 10,  2), (2026, 11,  6), (2026, 12,  4),
+    ],
+    "fomc": [
+        (2026,  1, 28), (2026,  3, 18), (2026,  4, 29), (2026,  6, 17),
+        (2026,  7, 29), (2026,  9, 16), (2026, 10, 28), (2026, 12,  9),
+    ],
+}
+
+def _today_kst() -> date:
+    return datetime.now(_KST).date()
+
+def _get_today_flags_from_schedule() -> dict:
+    """Investing.com 실패 시 하드코딩 날짜로 today_flags 결정"""
+    today = _today_kst()
+    flags = {"cpi": False, "ppi": False, "nfp": False, "fomc": False, "beige": False}
+    for indicator, dates in _HARDCODED_SCHEDULE.items():
+        for y, m, d in dates:
+            if date(y, m, d) == today:
+                flags[indicator] = True
+                break
+    return flags
 _cron_schedule = os.environ.get("CRON_SCHEDULE", "")
 _event_name = os.environ.get("GITHUB_EVENT_NAME", "")
 
@@ -74,8 +116,10 @@ def main():
             print(f"[INFO] 오늘 발표 지표: { {k: v for k, v in today_flags.items() if v} }")
         except Exception as e:
             print(f"[WARNING] Investing.com 감지 실패: {e}")
-            print("[INFO] 수동 실행 모드로 전환 (모든 지표 OFF)")
-            today_flags = {"cpi": False, "ppi": False, "nfp": False, "fomc": False, "beige": False}
+            print("[INFO] 하드코딩 일정으로 폴백 (BLS_SCHEDULE / FOMC_SCHEDULE 기준)")
+            today_flags = _get_today_flags_from_schedule()
+            active = {k: v for k, v in today_flags.items() if v}
+            print(f"[INFO] 하드코딩 기반 오늘 지표: {active if active else '없음'}")
             calendar = []
 
         # ── CPI ─────────────────────────────────────────────────────
