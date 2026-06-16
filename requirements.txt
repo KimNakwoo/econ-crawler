@@ -4,4 +4,7 @@ lxml
 google-generativeai
 deep-translator
 playwright
+playwright-stealth
+pdfplumber
 python-dateutil
+holidays
