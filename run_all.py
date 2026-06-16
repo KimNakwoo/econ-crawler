@@ -122,6 +122,16 @@ def main():
             print(f"[INFO] 하드코딩 기반 오늘 지표: {active if active else '없음'}")
             calendar = []
 
+        # ── 강제 실행 지표 (workflow_dispatch 수동 입력) ─────────────
+        _force = os.environ.get("FORCE_INDICATORS", "").strip()
+        if _force:
+            print(f"[INFO] 강제 실행 지표 지정: {_force}")
+            for _ind in _force.split(","):
+                _ind = _ind.strip().lower()
+                if _ind in today_flags:
+                    today_flags[_ind] = True
+                    print(f"[INFO] {_ind.upper()} 강제 실행 ON")
+
         # ── CPI ─────────────────────────────────────────────────────
         if today_flags.get("cpi"):
             try:
