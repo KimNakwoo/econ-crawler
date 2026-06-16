@@ -218,17 +218,29 @@ def run_speech():
     print("[연설] 시작")
 
     chair_lastname = get_chair_lastname()
-    if not chair_lastname:
-        print("[연설] 의장 성씨 조회 실패 - 종료")
-        return
-
-    print(f"[연설] 의장 성씨: {chair_lastname}")
+    if chair_lastname:
+        print(f"[연설] 의장 성씨: {chair_lastname}")
+    else:
+        print("[연설] 의장 성씨 조회 실패 - RSS 첫 번째 발화자 기준으로 진행")
 
     speeches = fetch_speech_rss()
     processed = load_processed()
 
-    # 의장 연설만 필터
-    chair_speeches = [s for s in speeches if s["lastname"] == chair_lastname]
+    if chair_lastname:
+        # 의장 성씨로 필터
+        chair_speeches = [s for s in speeches if s["lastname"] == chair_lastname]
+    else:
+        # 폴백: RSS에서 가장 많이 등장한 성씨 = 현재 의장으로 추정
+        from collections import Counter
+        name_counts = Counter(s["lastname"] for s in speeches if s["lastname"])
+        if name_counts:
+            chair_lastname = name_counts.most_common(1)[0][0]
+            print(f"[연설] 폴백: RSS 최다 발화자 '{chair_lastname}' 를 의장으로 추정")
+            chair_speeches = [s for s in speeches if s["lastname"] == chair_lastname]
+        else:
+            print("[연설] 발화자 없음 - 종료")
+            return False
+
     print(f"[연설] 의장 연설 {len(chair_speeches)}건 발견")
 
     new_count = 0
