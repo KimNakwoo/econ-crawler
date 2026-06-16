@@ -121,6 +121,8 @@ def extract_presser(soup: BeautifulSoup) -> list:
 def find_latest_minutes_url() -> tuple:
     """
     FOMC 캘린더 페이지에서 가장 최근 의사록(Minutes) URL 탐색
+    - 모든 fomcminutes 링크 수집 후 날짜 기준 최신 선택
+    - HTML(.htm) 및 PDF(.pdf) 모두 지원
     반환: (url, meeting_date_str) or (None, None)
     """
     try:
@@ -128,17 +130,24 @@ def find_latest_minutes_url() -> tuple:
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "lxml")
 
-        # "Minutes" 링크 탐색 - 가장 먼저 나오는 것이 최신
+        candidates = []
         for a in soup.find_all("a", href=True):
             href = a["href"]
             if "fomcminutes" in href:
                 url = href if href.startswith("http") else "https://www.federalreserve.gov" + href
-                # 날짜 추출 (예: fomcminutes20260507.htm → 2026-05-07)
                 m = re.search(r"fomcminutes(\d{8})", href)
                 if m:
                     d = m.group(1)
                     date_str = f"{d[:4]}-{d[4:6]}-{d[6:]}"
-                    return url, date_str
+                    candidates.append((date_str, url))
+
+        if not candidates:
+            return None, None
+
+        # 날짜 기준 내림차순 정렬 → 최신 의사록 선택
+        candidates.sort(key=lambda x: x[0], reverse=True)
+        date_str, url = candidates[0]
+        return url, date_str
 
     except Exception as e:
         print(f"[FOMC 의사록] 캘린더 조회 실패: {e}")
@@ -288,8 +297,28 @@ def run_minutes():
         return False
 
     try:
-        soup = fetch_page(url)
-        body_en, image_urls = extract_fed_article(soup)
+        # PDF 의사록 처리 (최근 Fed 의사록은 PDF로 게시)
+        body_en = ""
+        image_urls = []
+        if url.endswith(".pdf"):
+            print("[FOMC 의사록] PDF 파싱 시작")
+            try:
+                import pdfplumber, io
+                pdf_resp = requests.get(url, headers=get_headers(), timeout=60)
+                pdf_resp.raise_for_status()
+                with pdfplumber.open(io.BytesIO(pdf_resp.content)) as pdf:
+                    pages = []
+                    for page in pdf.pages:
+                        t = page.extract_text()
+                        if t:
+                            pages.append(t)
+                body_en = "\n\n".join(pages)
+                print(f"[FOMC 의사록] PDF {len(pages)}페이지 추출 ({len(body_en)}자)")
+            except Exception as pdf_err:
+                print(f"[FOMC 의사록] PDF 파싱 실패: {pdf_err}")
+        else:
+            soup = fetch_page(url)
+            body_en, image_urls = extract_fed_article(soup)
 
         if not body_en or len(body_en) < 500:
             print("[FOMC 의사록] 본문이 너무 짧거나 없음 (아직 미공개일 수 있음)")
