@@ -14,10 +14,12 @@ on:
     # 겨울타임(EST): UTC 19:31 = 한국시간 새벽 4:31
     - cron: '31 19 * * 1-5'
 
-    # ── 매일 체크: FOMC의사록/연준연설/FEDS_Notes (한국시간 새벽 5시) ─
+    # ── 매일 체크: FOMC의사록/연준연설/FEDS_Notes (한국시간 자정 00:00) ─
     # (알림 4종은 notify.yml로 분리 - 크롤링 작업과 스케줄 독립)
-    # UTC 20:00 (전날) = 한국시간 새벽 5:00 (서머타임 영향 없음)
-    - cron: '0 20 * * 0-4'
+    # UTC 15:00 = 한국시간 자정 00:00 (서머타임 영향 없음)
+    # ※ 05:00 → 00:00으로 앞당김: 플랫폼 지연 3시간 발생해도 03:00 종료,
+    #   08:00/09:00 알림 시간과 충돌 원천 차단
+    - cron: '0 15 * * 0-4'
 
   workflow_dispatch:
 
@@ -25,6 +27,7 @@ jobs:
   # ── Job 1: 경제지표 크롤링 ──────────────────────────────────
   crawl:
     runs-on: ubuntu-latest
+    timeout-minutes: 240  # 최대 4시간 (자정 시작 + 플랫폼 지연 3시간 감안 → 07:00 전 종료 보장)
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
