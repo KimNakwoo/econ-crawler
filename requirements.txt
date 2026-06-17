@@ -1,7 +1,7 @@
 requests
 beautifulsoup4
 lxml
-google-generativeai
+google-genai
 deep-translator
 pdfplumber
 python-dateutil
