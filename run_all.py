@@ -169,9 +169,12 @@ def main():
         if today_flags.get("fomc"):
             try:
                 from crawler_fomc import run_fomc_statement, run_fomc_presser
-                run_fomc_statement()
-                run_fomc_presser()
-                results.append(("FOMC", "✅ 완료"))
+                ok_stmt   = run_fomc_statement()
+                ok_presser = run_fomc_presser()
+                if ok_stmt or ok_presser:
+                    results.append(("FOMC", "✅ 완료"))
+                else:
+                    results.append(("FOMC", "⏳ 미발표 (재시도 필요)"))
             except Exception as e:
                 print(f"[ERROR] FOMC 실패: {e}")
                 results.append(("FOMC", "❌ 실패"))
