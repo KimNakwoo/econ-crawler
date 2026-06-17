@@ -213,8 +213,12 @@ def run_fomc_statement():
 
         save_markdown("fomc_statement", "FOMC_성명서", md, display_date)
         print("  [FOMC 성명서] 완료")
+        return True
 
     except Exception as e:
+        if "404" in str(e):
+            print(f"  [FOMC 성명서] 아직 미발표 (404) - 나중에 재시도 필요")
+            return False   # 실패가 아닌 미발표 → run_all에서 오류 아님
         print(f"  [FOMC 성명서] 오류: {e}")
         raise
 
@@ -268,8 +272,12 @@ def run_fomc_presser():
 
         save_markdown("fomc_presser", "FOMC_기자회견", md, display_date)
         print("  [FOMC 기자회견] 완료")
+        return True
 
     except Exception as e:
+        if "404" in str(e):
+            print(f"  [FOMC 기자회견] 아직 미발표 (404) - 나중에 재시도 필요")
+            return False
         print(f"  [FOMC 기자회견] 오류: {e}")
         raise
 
