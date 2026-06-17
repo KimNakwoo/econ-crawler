@@ -469,6 +469,28 @@ def _build_from_html_nfp(soup, date_str: str) -> str:
     return md
 
 
+def _call_gemini(client, prompt: str, retries: int = 3) -> str:
+    """Gemini API 호출 (503/429 자동 재시도, 최대 retries회)"""
+    for attempt in range(retries):
+        try:
+            resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
+            return resp.text.strip()
+        except Exception as e:
+            err_str = str(e)
+            if attempt < retries - 1:
+                if "503" in err_str or "UNAVAILABLE" in err_str:
+                    wait = 10 * (attempt + 1)
+                    print(f"  [Gemini] 503 재시도 {attempt+1}/{retries-1} - {wait}초 대기")
+                    time.sleep(wait)
+                elif "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
+                    print(f"  [Gemini] 429 재시도 {attempt+1}/{retries-1} - 30초 대기")
+                    time.sleep(30)
+                else:
+                    raise
+            else:
+                raise
+
+
 def _gemini_from_html(soup, indicator: str) -> str:
     """HTML 텍스트 일부를 Gemini로 요약·번역 (서술 텍스트 미탐지 시 폴백)"""
     try:
@@ -488,8 +510,7 @@ def _gemini_from_html(soup, indicator: str) -> str:
             "주요 내용을 한국어로 섹션별(식품/에너지/근원 또는 해당 지표의 주요 항목)로 요약해주세요.\n"
             f"BLS 공식 보도자료 문체로, 수치를 구체적으로 언급하면서 작성하세요.\n\n{excerpt}"
         )
-        resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
-        return resp.text.strip() + "\n"
+        return _call_gemini(client, prompt) + "\n"
     except Exception as e:
         print(f"  [Gemini] 실패: {e}")
         return "_해설 생성 실패_\n"
@@ -635,8 +656,7 @@ def _gemini_intro_cpi(summary: dict, date_label: str) -> str:
             "예시: '도시 소비자 물가지수(CPI-U)는 X월 계절조정 기준 전월 대비 X% 상승하였습니다...'\n"
             "수치를 구체적으로 언급하고 간결하게 작성하세요. 섹션 헤더 없이 본문만 출력하세요."
         )
-        resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
-        return resp.text.strip() + "\n"
+        return _call_gemini(client, prompt) + "\n"
     except Exception as e:
         print(f"  [Gemini 개요] 실패: {e}")
         return "_개요 생성 실패_\n"
@@ -681,8 +701,7 @@ def _gemini_detail_from_api(indicator: str, summary: dict, date_label: str) -> s
             "수치를 구체적으로 언급하고 각 섹션 200~300자 분량으로 작성하세요.\n\n"
             f"출력 형식:\n{sections_spec}"
         )
-        resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
-        return resp.text.strip() + "\n"
+        return _call_gemini(client, prompt) + "\n"
     except Exception as e:
         print(f"  [Gemini] 실패: {e}")
         return "_해설 생성 실패_\n"
