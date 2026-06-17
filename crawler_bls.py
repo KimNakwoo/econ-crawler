@@ -473,7 +473,7 @@ def _call_gemini(client, prompt: str, retries: int = 3) -> str:
     """Gemini API 호출 (503/429 자동 재시도, 최대 retries회)"""
     for attempt in range(retries):
         try:
-            resp = client.models.generate_content(model="gemini-1.5-flash", contents=prompt)
+            resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
             return resp.text.strip()
         except Exception as e:
             err_str = str(e)
