@@ -180,7 +180,7 @@ def _gemini_analysis(indicator: str, table_md: str, forecast: dict) -> str:
 - 총 200~300자 이내
 - 특수 기호나 마크다운 없이 평문으로 작성"""
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
+            model="gemini-2.5-flash",
             contents=prompt,
         )
         return response.text.strip() + "\n"
