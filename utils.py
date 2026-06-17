@@ -45,7 +45,7 @@ def _translate_with_gemini(text: str) -> str:
 
     try:
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-2.0-flash",
             contents=prompt,
         )
     except Exception as e:
@@ -60,7 +60,7 @@ def _translate_with_gemini(text: str) -> str:
             raise
         _last_gemini_call_at[0] = time.time()
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-2.0-flash",
             contents=prompt,
         )
     finally:
