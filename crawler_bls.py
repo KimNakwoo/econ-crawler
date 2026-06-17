@@ -235,8 +235,83 @@ def _find_table_by_keyword(soup, keyword: str):
     return None
 
 
+def _extract_intro_text(soup) -> str:
+    """
+    BLS HTML에서 Table A 앞에 오는 도입부 텍스트(Section A) 추출.
+    CPI: 'The Consumer Price Index...' 로 시작하는 단락들.
+    반환: 영문 텍스트 (번역 전)
+    """
+    # 메타 정보 필터용 패턴
+    META_PAT = re.compile(
+        r"^(For release|Technical note|NOTE:|Contact:|BLS publishes|"
+        r"Media Contact|Telecommunications|Table\s+[A-Z0-9]|\d{4}\s+)",
+        re.I,
+    )
+
+    table_elem = _find_table_by_keyword(soup, "Table A")
+    if table_elem:
+        # Table A 이전의 <p> 태그를 문서 순서로 수집
+        prev_paras = list(table_elem.find_all_previous("p"))
+        prev_paras.reverse()  # find_all_previous는 역순 → 원래 순서로
+    else:
+        # Table A 못 찾으면 페이지 전반부 <p> 사용
+        prev_paras = soup.find_all("p")[:15]
+
+    result = []
+    for p in prev_paras:
+        text = p.get_text(separator=" ", strip=True)
+        if len(text) < 60:
+            continue
+        if META_PAT.match(text):
+            continue
+        result.append(text)
+
+    return "\n\n".join(result)
+
+
+def _extract_section_b(soup) -> str:
+    """
+    BLS HTML에서 Section B 전체 추출:
+    Table A 이후 ~ Contact Information/Technical Note 이전의 모든 서술 텍스트.
+    Food/Energy/Core + Not seasonally adjusted measures + 다음 발표일 공지 포함.
+    반환: 영문 텍스트 (번역 전)
+    """
+    table_elem = _find_table_by_keyword(soup, "Table A")
+    if not table_elem:
+        return ""
+
+    # Contact Information 직전까지만 추출 (Technical Note 포함)
+    stop_elem = None
+    for elem in soup.find_all(["p", "div", "h2", "h3", "h4"]):
+        txt = elem.get_text(strip=True)
+        if re.match(r"^Contact Information", txt, re.I):
+            stop_elem = elem
+            break
+
+    in_b = False
+    paragraphs = []
+
+    for elem in soup.descendants:
+        if elem == table_elem:
+            in_b = True
+            continue
+        if stop_elem and elem == stop_elem:
+            break
+        if not in_b:
+            continue
+        if not hasattr(elem, 'name') or elem.name != 'p':
+            continue
+        txt = elem.get_text(separator=" ", strip=True)
+        if not txt or len(txt) < 30:
+            continue
+        paragraphs.append(txt)
+
+    return "\n\n".join(paragraphs)
+
+
 def _extract_narrative(soup, section_keywords: list) -> dict:
     """
+    (레거시 - PPI/NFP용으로 유지)
     BLS HTML에서 섹션별 서술 텍스트 추출.
     section_keywords: [("Food", "식품 (Food)"), ...]
     반환: {"식품 (Food)": "영문 텍스트...", ...}
@@ -253,7 +328,6 @@ def _extract_narrative(soup, section_keywords: list) -> dict:
 
         matched_key = None
         for en_kw, ko_label in section_keywords:
-            # 문단 시작이 섹션 키워드인 경우 (예: "Food" 또는 "Food\n")
             if re.match(rf"^{re.escape(en_kw)}\b", text, re.I):
                 matched_key = ko_label
                 break
@@ -262,9 +336,8 @@ def _extract_narrative(soup, section_keywords: list) -> dict:
             if current_key and current_lines:
                 sections[current_key] = "\n\n".join(current_lines)
             current_key  = matched_key
-            current_lines = [text]  # 헤더 문단 포함
+            current_lines = [text]
         elif current_key:
-            # 다음 표/섹션 시작 신호면 종료
             if re.match(r"^Table\s+[A-Z0-9]", text, re.I):
                 sections[current_key] = "\n\n".join(current_lines)
                 current_key   = None
@@ -287,7 +360,16 @@ def _build_from_html_cpi(soup, date_str: str) -> str:
     md  = f"# CPI 발표 · {date_str}\n\n"
     md += f"> 출처: BLS ({CPI_URL})\n\n"
 
-    # Table A
+    # ── Section A: 도입부 텍스트 (Table A 앞 단락들) ─────────────
+    intro_en = _extract_intro_text(soup)
+    if intro_en:
+        print("  [CPI] 도입부(Section A) 추출 완료 → 번역 중")
+        intro_ko = translate_paragraph_by_paragraph(intro_en)
+        md += "## 📄 개요\n\n" + intro_ko + "\n\n"
+    else:
+        print("  [CPI] 도입부 텍스트 없음 - 섹션 생략")
+
+    # ── Table A ──────────────────────────────────────────────────
     table_elem = _find_table_by_keyword(soup, "Table A")
     if table_elem:
         table_md = _html_table_to_md(table_elem)
@@ -299,23 +381,17 @@ def _build_from_html_cpi(soup, date_str: str) -> str:
     else:
         print("  [CPI] Table A를 찾지 못함")
 
-    # 서술 텍스트 추출 및 번역
-    section_kws = [
-        ("Food",                           "### 식품 (Food)"),
-        ("Energy",                         "### 에너지 (Energy)"),
-        ("All items less food and energy", "### 식품 및 에너지 제외 (All items less food and energy)"),
-    ]
-    narratives = _extract_narrative(soup, section_kws)
+    # ── Section B: Table A 이후 전체 서술 텍스트 ────────────────
+    # (Food / Energy / Core / Not seasonally adjusted / 다음 발표일 포함)
+    section_b_en = _extract_section_b(soup)
 
-    if narratives:
-        md += "## 📝 상세 해설\n\n"
-        for header, en_text in narratives.items():
-            print(f"  [CPI] 번역 중: {header}")
-            ko_text = translate_paragraph_by_paragraph(en_text)
-            md += f"{header}\n\n{ko_text}\n\n"
+    md += "## 📝 상세 해설\n\n"
+    if section_b_en:
+        print("  [CPI] Section B 추출 완료 → 번역 중")
+        md += translate_paragraph_by_paragraph(section_b_en) + "\n"
     else:
         # 서술 텍스트 없으면 Gemini로 생성
-        md += "## 📝 상세 해설\n\n"
+        print("  [CPI] Section B 없음 → Gemini 생성")
         md += _gemini_from_html(soup, "cpi") + "\n"
 
     md += f"\n---\n*수집: {datetime.now().strftime('%Y-%m-%d %H:%M')} | 출처: BLS*\n"
@@ -532,6 +608,40 @@ def _build_api_table(table_def: list, api_data: dict, indicator: str) -> tuple:
     return "\n".join(lines) + "\n", summary
 
 
+def _gemini_intro_cpi(summary: dict, date_label: str) -> str:
+    """API 데이터 기반 CPI 개요 단락 생성 (HTML 차단 시 폴백)"""
+    try:
+        import os
+        from google import genai as _genai
+        key = os.environ.get("GEMINI_API_KEY", "")
+        if not key:
+            return "_Gemini API 키 없음_\n"
+        client = _genai.Client(api_key=key)
+
+        all_items = summary.get("All items", {})
+        core      = summary.get("All items less food and energy", {})
+        food      = summary.get("Food", {})
+        energy    = summary.get("Energy", {})
+
+        data_lines = (
+            f"- 전체 CPI: 전월비 {all_items.get('mom', '-')}%, 전년비 {all_items.get('yoy', '-')}%\n"
+            f"- 식품: 전월비 {food.get('mom', '-')}%\n"
+            f"- 에너지: 전월비 {energy.get('mom', '-')}%\n"
+            f"- 근원물가(식품·에너지 제외): 전월비 {core.get('mom', '-')}%, 전년비 {core.get('yoy', '-')}%"
+        )
+        prompt = (
+            f"미국 BLS CPI {date_label} 보도자료 데이터:\n{data_lines}\n\n"
+            "위 데이터를 바탕으로 BLS 공식 보도자료 도입부 문체의 한국어 요약을 2~3문장으로 작성하세요.\n"
+            "예시: '도시 소비자 물가지수(CPI-U)는 X월 계절조정 기준 전월 대비 X% 상승하였습니다...'\n"
+            "수치를 구체적으로 언급하고 간결하게 작성하세요. 섹션 헤더 없이 본문만 출력하세요."
+        )
+        resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
+        return resp.text.strip() + "\n"
+    except Exception as e:
+        print(f"  [Gemini 개요] 실패: {e}")
+        return "_개요 생성 실패_\n"
+
+
 def _gemini_detail_from_api(indicator: str, summary: dict, date_label: str) -> str:
     """API 데이터 기반 Gemini 섹션별 해설 (HTML 차단 시 폴백)"""
     try:
@@ -595,6 +705,13 @@ def _build_from_api(indicator: str, source_url: str, date_str: str,
 
     md  = f"# {label} 발표 · {date_str}\n\n"
     md += f"> 출처: BLS ({source_url})\n\n"
+
+    # CPI만 개요 섹션 생성 (PPI/NFP는 생략)
+    if indicator == "cpi":
+        print("  [CPI] 개요(Section A) Gemini 생성 중")
+        md += "## 📄 개요\n\n"
+        md += _gemini_intro_cpi(summary, latest_month) + "\n"
+
     md += f"## 📋 {title_map.get(indicator, 'Table')}\n\n"
     md += table_md + "\n"
     md += "## 📝 상세 해설\n\n"
