@@ -396,25 +396,23 @@ def _build_from_html_nfp(soup, date_str: str) -> str:
 def _gemini_from_html(soup, indicator: str) -> str:
     """HTML 텍스트 일부를 Gemini로 요약·번역 (서술 텍스트 미탐지 시 폴백)"""
     try:
-        import google.generativeai as genai, os
+        import os
+        from google import genai as _genai
         key = os.environ.get("GEMINI_API_KEY", "")
         if not key:
             return "_Gemini API 키 없음_\n"
-        genai.configure(api_key=key)
-        model = genai.GenerativeModel("gemini-2.0-flash")
+        client = _genai.Client(api_key=key)
 
-        # 페이지 전체 텍스트에서 관련 부분 추출
         full_text = soup.get_text(separator="\n", strip=True)
-        # 너무 길면 앞 4000자만 사용
-        excerpt = full_text[:4000]
+        excerpt   = full_text[:4000]
 
         label_map = {"cpi": "CPI", "ppi": "PPI", "nfp": "비농업고용(NFP)"}
-        prompt = f"""다음은 미국 BLS {label_map.get(indicator, indicator.upper())} 보도자료 텍스트입니다.
-주요 내용을 한국어로 섹션별(식품/에너지/근원 또는 해당 지표의 주요 항목)로 요약해주세요.
-BLS 공식 보도자료 문체로, 수치를 구체적으로 언급하면서 작성하세요.
-
-{excerpt}"""
-        resp = model.generate_content(prompt)
+        prompt = (
+            f"다음은 미국 BLS {label_map.get(indicator, indicator.upper())} 보도자료 텍스트입니다.\n"
+            "주요 내용을 한국어로 섹션별(식품/에너지/근원 또는 해당 지표의 주요 항목)로 요약해주세요.\n"
+            f"BLS 공식 보도자료 문체로, 수치를 구체적으로 언급하면서 작성하세요.\n\n{excerpt}"
+        )
+        resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
         return resp.text.strip() + "\n"
     except Exception as e:
         print(f"  [Gemini] 실패: {e}")
@@ -537,12 +535,12 @@ def _build_api_table(table_def: list, api_data: dict, indicator: str) -> tuple:
 def _gemini_detail_from_api(indicator: str, summary: dict, date_label: str) -> str:
     """API 데이터 기반 Gemini 섹션별 해설 (HTML 차단 시 폴백)"""
     try:
-        import google.generativeai as genai, os
+        import os
+        from google import genai as _genai
         key = os.environ.get("GEMINI_API_KEY", "")
         if not key:
             return "_Gemini API 키 없음_\n"
-        genai.configure(api_key=key)
-        model = genai.GenerativeModel("gemini-2.0-flash")
+        client = _genai.Client(api_key=key)
 
         data_lines = "\n".join(
             f"- {k}: 전월비 {v['mom']}%, 전년비 {v['yoy']}%"
@@ -573,7 +571,7 @@ def _gemini_detail_from_api(indicator: str, summary: dict, date_label: str) -> s
             "수치를 구체적으로 언급하고 각 섹션 200~300자 분량으로 작성하세요.\n\n"
             f"출력 형식:\n{sections_spec}"
         )
-        resp = model.generate_content(prompt)
+        resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
         return resp.text.strip() + "\n"
     except Exception as e:
         print(f"  [Gemini] 실패: {e}")
