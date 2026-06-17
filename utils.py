@@ -49,16 +49,20 @@ def _translate_with_gemini(text: str) -> str:
             contents=prompt,
         )
     except Exception as e:
-        if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+        err_str = str(e)
+        if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
             print("  [번역] Gemini 429 - 30초 대기 후 1회 재시도")
             time.sleep(30)
-            _last_gemini_call_at[0] = time.time()
-            response = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt,
-            )
+        elif "503" in err_str or "UNAVAILABLE" in err_str:
+            print("  [번역] Gemini 503 - 15초 대기 후 1회 재시도")
+            time.sleep(15)
         else:
             raise
+        _last_gemini_call_at[0] = time.time()
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt,
+        )
     finally:
         _last_gemini_call_at[0] = time.time()
 
